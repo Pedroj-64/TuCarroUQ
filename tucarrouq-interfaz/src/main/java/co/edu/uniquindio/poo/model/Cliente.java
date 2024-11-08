@@ -1,0 +1,71 @@
+package co.edu.uniquindio.poo.model;
+
+public class Cliente {
+    private String nombre;
+    private String identificacion;
+    private String telefono;
+    private String direccion;
+
+    public Cliente(String nombre, String identificacion, String telefono, String direccion) {
+        if (nombre == null || identificacion == null || telefono == null || direccion == null) {
+            throw new IllegalArgumentException("Los valores no pueden ser nulos");
+        }
+        if (nombre.isEmpty() || identificacion.isEmpty() || telefono.isEmpty() || direccion.isEmpty()) {
+            throw new IllegalArgumentException("Los valores no pueden estar vacíos");
+        }
+
+        this.nombre = nombre;
+        this.identificacion = identificacion;
+        this.telefono = telefono;
+        this.direccion = direccion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        if (nombre == null || nombre.isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o estar vacío");
+        }
+        this.nombre = nombre;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        if (identificacion == null || identificacion.isEmpty()) {
+            throw new IllegalArgumentException("La identificación no puede ser nula o estar vacía");
+        }
+        this.identificacion = identificacion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        if (telefono == null || telefono.isEmpty()) {
+            throw new IllegalArgumentException("El teléfono no puede ser nulo o estar vacío");
+        }
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        if (direccion == null || direccion.isEmpty()) {
+            throw new IllegalArgumentException("La dirección no puede ser nula o estar vacía");
+        }
+        this.direccion = direccion;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente [nombre=" + nombre + ", identificación=" + identificacion + ", teléfono=" + telefono + ", dirección=" + direccion + "]";
+    }
+}

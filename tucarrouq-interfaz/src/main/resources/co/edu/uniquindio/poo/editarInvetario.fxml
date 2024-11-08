@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Screen_03" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.MenuRegistrarReservasViewController">
+   <children>
+      <Label id="lbl.editarInv" fx:id="lbl_tituloRegistroDeReservas" layoutX="194.0" layoutY="42.0" text="Editar Inventario" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView id="tbl.vehiculosdisponibles" fx:id="tbl_listaVehiculos" layoutX="32.0" layoutY="244.0" prefHeight="141.0" prefWidth="545.0">
+         <columns>
+            <TableColumn fx:id="tbc_placa" prefWidth="94.66665649414062" text="Placa" />
+            <TableColumn fx:id="tbc_modelo" prefWidth="118.6666259765625" text="Modelo" />
+            <TableColumn fx:id="tbc_marca" prefWidth="126.00006103515625" text="Marca" />
+            <TableColumn fx:id="tbc_tipoDeVehiculo" prefWidth="191.3333740234375" text="Tipo De Vehiculo" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="58.0" layoutY="97.0" />
+      <Label id="lbl.precioAlquiler" fx:id="lbl_marca" layoutX="51.0" layoutY="97.0" prefHeight="22.0" prefWidth="127.0" text="Precio Alquiler:" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField id="txt.precioAlquiler" fx:id="txt_dias2" layoutX="51.0" layoutY="122.0" promptText="En entero" />
+      <Label id="lbl.PrecioVenta" fx:id="lbl_marca1" layoutX="337.0" layoutY="97.0" prefHeight="18.0" prefWidth="107.0" text="Precio Venta:" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField id="txt.precioVenta" fx:id="txt_tipoVehiculo" editable="false" layoutX="337.0" layoutY="122.0" promptText="Tipo de vehiculo" />
+      <TextField id="txt.placa" fx:id="txt_matricual" editable="false" layoutX="195.0" layoutY="175.0" promptText="Placa" />
+      <Button id="btn.regresar" layoutX="466.0" layoutY="39.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="85.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Button id="btn.guardar" layoutX="120.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Guardar" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Button id="btn.eliminar" layoutX="337.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Eliminar" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

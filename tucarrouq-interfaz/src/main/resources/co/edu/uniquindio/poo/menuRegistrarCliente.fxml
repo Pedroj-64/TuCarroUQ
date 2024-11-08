@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label id="lbl.ingnombre" layoutX="30.0" layoutY="102.0" text="Ingrese el nombre:" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <ImageView id="img.logo" fitHeight="111.0" fitWidth="136.0" layoutX="464.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagenes/img1.png" />
+         </image>
+      </ImageView>
+      <Button id="btn.iniciarsesion" layoutX="163.0" layoutY="326.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="169.0" text="Registrar cliente" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Button>
+      <TextField id="input.ingnombre" layoutX="30.0" layoutY="146.0" />
+      <Label id="lbl.ingidentif" layoutX="30.0" layoutY="225.0" text="Ingrese su identificación:" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField id="input.ingidentif" layoutX="30.0" layoutY="261.0" />
+      <Label id="lbl.ingcontras" layoutX="306.0" layoutY="102.0" text="Ingrese el telefono:" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="305.0" layoutY="146.0" />
+      <Label id="lbl.bienvenido" layoutX="123.0" layoutY="29.0" text="Registrar cliente" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label id="lbl.ingcontras" layoutX="304.0" layoutY="225.0" text="Ingrese la dirección:" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="305.0" layoutY="261.0" />
+   </children>
+</AnchorPane>

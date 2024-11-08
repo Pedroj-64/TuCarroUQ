@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Screen_Inicio01" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.MenuInicioViewController">
+   <children>
+      <ImageView id="img.logo" fx:id="img_tuCarroUq" fitHeight="155.0" fitWidth="190.0" layoutX="65.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagenes/img1.png" />
+         </image>
+      </ImageView>
+      <Label id="lbl.queDeseasHacer" fx:id="lbl_preguntaInicio" layoutX="338.0" layoutY="111.0" text="¿Que deseas hacer?" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button id="btn.IniciarSesion" fx:id="btn_IniciarSesion" layoutX="366.0" layoutY="162.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Iniciar sesión" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Button id="btn.verAutosD" fx:id="btn_verAutosDiponibles" layoutX="347.0" layoutY="213.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="Ver autos disponibles" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Label id="lbl.bienvenidoA" fx:id="lbl_bienvenido" layoutX="106.0" layoutY="48.0" text="Bienvenido a" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label id="lbl.frase" layoutX="24.0" layoutY="281.0" text="&quot;Los obstaculos son" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label id="lbl.frase" layoutX="90.0" layoutY="302.0" text="cosas espantosas" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label id="lbl.frase" layoutX="157.0" layoutY="323.0" text="que ves cuando quitas" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label id="lbl.frase" layoutX="205.0" layoutY="344.0" text="la vista de tus metas&quot;" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label id="lbl.autor" layoutX="331.0" layoutY="365.0" text="-Henry Ford" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Italic" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
