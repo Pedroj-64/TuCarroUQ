@@ -1,11 +1,11 @@
-package co.edu.uniquindio.poo.model;
+package co.edu.uniquindio.poo;
 
 import java.util.Collection;
 
 public class Administrador extends Empleado {
     // Constructor
-    public Administrador(String nombre, String identificacion, String contrasena) {
-        super(nombre, identificacion, contrasena);
+    public Administrador(String nombre, String identificacion, String contrasena, String preguntaSeguridad, String respuestaSeguridad) {
+        super(nombre, identificacion, contrasena, preguntaSeguridad, respuestaSeguridad);
     }
 
     // Método para registrar empleados

@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.model;
+package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -108,9 +108,9 @@ public class DetalleTransaccion {
 
     public void calcularSubtotal() {
         if (!esAlquiler) {
-            setSubtotal(vehiculo.calcularPrecioVenta());
+            setSubtotal(vehiculo.getPrecioVenta());
         } else {
-            setSubtotal(vehiculo.calcularPrecioAlquiler(diasPrestamo));
+            setSubtotal(vehiculo.getPrecioAlquiler());
         }
     }
 

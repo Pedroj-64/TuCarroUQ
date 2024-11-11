@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.model;
+package co.edu.uniquindio.poo;
 
 import java.security.SecureRandom;
 import java.time.LocalDate;

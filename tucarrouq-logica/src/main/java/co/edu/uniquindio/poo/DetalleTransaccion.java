@@ -108,9 +108,9 @@ public class DetalleTransaccion {
 
     public void calcularSubtotal() {
         if (!esAlquiler) {
-            setSubtotal(vehiculo.calcularPrecioVenta());
+            setSubtotal(vehiculo.getPrecioVenta());
         } else {
-            setSubtotal(vehiculo.calcularPrecioAlquiler(diasPrestamo));
+            setSubtotal(vehiculo.getPrecioAlquiler());
         }
     }
 

@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.model;
+package co.edu.uniquindio.poo;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -6,10 +6,10 @@ import java.util.LinkedList;
 public class Empleado extends Usuario {
     private Collection<Transaccion> transacciones; // Registro de transacciones del empleado
 
-    public Empleado(String nombre, String identificacion, String contrasena) {
-        super(nombre, identificacion, contrasena);
+    public Empleado(String nombre, String identificacion, String contrasena, String preguntaSeguridad, String respuestaSeguridad) {
+        super(nombre, identificacion, contrasena, preguntaSeguridad, respuestaSeguridad);
 
-        if (nombre == null || identificacion == null || contrasena == null) {
+        if (nombre == null || identificacion == null || contrasena == null || preguntaSeguridad == null || respuestaSeguridad == null) {
             throw new IllegalArgumentException("Los valores no pueden ser nulos");
         }
 
@@ -34,8 +34,6 @@ public class Empleado extends Usuario {
         }
         this.transacciones = transacciones;
     }
-
- 
 
     @Override
     public String toString() {

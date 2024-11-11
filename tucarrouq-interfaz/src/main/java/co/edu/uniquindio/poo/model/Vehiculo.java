@@ -1,36 +1,29 @@
-package co.edu.uniquindio.poo.model;
+package co.edu.uniquindio.poo;
 
 public abstract class Vehiculo {
-    private String marca, referencia, cambios;
-    private int velocidadMaxima, cilindraje, kilometraje;
+    private String marca, referencia, placa;
+    private int velocidadMaxima, kilometraje, modelo;
     private boolean nuevo;
-    private TipoDeCombustible combustible;
-    private TipoDeTransmision transmision;
-    private TipoDeVehiculo tipoDeVehiculo;
     private double precioVenta, precioAlquiler;
-    private boolean revisionTecnica;
 
-    public Vehiculo(String marca, String referencia, String cambios, int velocidadMaxima, int cilindraje,
-                    int kilometraje, boolean nuevo, TipoDeCombustible combustible, TipoDeTransmision transmision,
-                    TipoDeVehiculo tipoDeVehiculo) {
+    public Vehiculo(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima, boolean nuevo, double precioVenta, double precioAlquiler, int modelo) {
         try {
-            if (marca == null || referencia == null || cambios == null || combustible == null || transmision == null || tipoDeVehiculo == null) {
+            if (marca == null || referencia == null) {
                 throw new IllegalArgumentException("Los valores no pueden ser nulos");
             }
-            if (velocidadMaxima <= 0 || cilindraje <= 0 || kilometraje < 0) {
+            if (velocidadMaxima <= 0 || kilometraje < 0 || precioVenta < 0 || precioAlquiler < 0) {
                 throw new IllegalArgumentException("Valores inválidos para velocidad máxima, cilindraje o kilometraje");
             }
 
             this.marca = marca;
             this.referencia = referencia;
-            this.cambios = cambios;
-            this.velocidadMaxima = velocidadMaxima;
-            this.cilindraje = cilindraje;
+            this.placa=placa;
             this.kilometraje = kilometraje;
+            this.velocidadMaxima = velocidadMaxima;
             this.nuevo = nuevo;
-            this.combustible = combustible;
-            this.transmision = transmision;
-            this.tipoDeVehiculo = tipoDeVehiculo;
+            this.precioVenta = precioVenta;
+            this.precioAlquiler = precioAlquiler;
+            this.modelo=modelo;
 
         } catch (IllegalArgumentException e) {
             System.out.println("Error al crear el vehículo: " + e.getMessage());
@@ -59,19 +52,16 @@ public abstract class Vehiculo {
         this.referencia = referencia;
     }
 
-    public String getCambios() {
-        return cambios;
-    }
-
-    public void setCambios(String cambios) {
-        if (cambios == null) {
-            throw new IllegalArgumentException("Los cambios no pueden ser nulos");
-        }
-        this.cambios = cambios;
-    }
-
     public int getVelocidadMaxima() {
         return velocidadMaxima;
+    }
+
+    public int getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(int modelo) {
+        this.modelo = modelo;
     }
 
     public void setVelocidadMaxima(int velocidadMaxima) {
@@ -79,17 +69,6 @@ public abstract class Vehiculo {
             throw new IllegalArgumentException("La velocidad máxima debe ser mayor a 0");
         }
         this.velocidadMaxima = velocidadMaxima;
-    }
-
-    public int getCilindraje() {
-        return cilindraje;
-    }
-
-    public void setCilindraje(int cilindraje) {
-        if (cilindraje <= 0) {
-            throw new IllegalArgumentException("El cilindraje debe ser mayor a 0");
-        }
-        this.cilindraje = cilindraje;
     }
 
     public boolean getEsNuevo() {
@@ -100,26 +79,12 @@ public abstract class Vehiculo {
         this.nuevo = nuevo;
     }
 
-    public TipoDeCombustible getCombustible() {
-        return combustible;
+    public String getPlaca() {
+        return placa;
     }
 
-    public void setCombustible(TipoDeCombustible combustible) {
-        if (combustible == null) {
-            throw new IllegalArgumentException("El combustible no puede ser nulo");
-        }
-        this.combustible = combustible;
-    }
-
-    public TipoDeTransmision getTransmision() {
-        return transmision;
-    }
-
-    public void setTransmision(TipoDeTransmision transmision) {
-        if (transmision == null) {
-            throw new IllegalArgumentException("La transmisión no puede ser nula");
-        }
-        this.transmision = transmision;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public int getKilometraje() {
@@ -131,17 +96,6 @@ public abstract class Vehiculo {
             throw new IllegalArgumentException("El kilometraje no puede ser negativo");
         }
         this.kilometraje = kilometraje;
-    }
-
-    public TipoDeVehiculo getTipoDeVehiculo() {
-        return tipoDeVehiculo;
-    }
-
-    public void setTipoDeVehiculo(TipoDeVehiculo tipoDeVehiculo) {
-        if (tipoDeVehiculo == null) {
-            throw new IllegalArgumentException("El tipo de vehículo no puede ser nulo");
-        }
-        this.tipoDeVehiculo = tipoDeVehiculo;
     }
 
     public double getPrecioVenta() {
@@ -166,14 +120,12 @@ public abstract class Vehiculo {
         this.precioAlquiler = precioAlquiler;
     }
 
-    public abstract double calcularPrecioVenta();
-
-    public abstract double calcularPrecioAlquiler(int dias);
-
     @Override
     public String toString() {
-        return "Vehiculo [marca=" + marca + ", referencia=" + referencia + ", cambios=" + cambios + ", velocidadMaxima="
-                + velocidadMaxima + ", cilindraje=" + cilindraje + ", kilometraje=" + kilometraje + ", es nuevo=" + nuevo
-                + ", combustible=" + combustible + ", transmision=" + transmision + "]";
+        return "Vehiculo [marca=" + marca + ", referencia=" + referencia + ", placa=" + placa + ", velocidadMaxima="
+                + velocidadMaxima + ", kilometraje=" + kilometraje + ", modelo=" + modelo + ", nuevo=" + nuevo
+                + ", precioVenta=" + precioVenta + ", precioAlquiler=" + precioAlquiler + "]";
     }
+
+
 }

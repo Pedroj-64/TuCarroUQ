@@ -1,17 +1,21 @@
-package co.edu.uniquindio.poo.model;
+package co.edu.uniquindio.poo;
 
 public abstract class Usuario {
     private String nombre;
     private String identificacion;
     private String contrasena;
+    private String preguntaSeguridad;
+    private String respuestaSeguridad;
 
-    public Usuario(String nombre, String identificacion, String contrasena) {
-        if (nombre == null || identificacion == null || contrasena == null) {
+    public Usuario(String nombre, String identificacion, String contrasena, String preguntaSeguridad, String respuestaSeguridad) {
+        if (nombre == null || identificacion == null || contrasena == null || preguntaSeguridad == null || respuestaSeguridad == null) {
             throw new IllegalArgumentException("Los valores no pueden ser nulos");
         }
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.contrasena = contrasena;
+        this.preguntaSeguridad = preguntaSeguridad;
+        this.respuestaSeguridad = respuestaSeguridad;
     }
 
     // Método para autenticar usuario
@@ -23,8 +27,11 @@ public abstract class Usuario {
     }
 
     // Método para recuperar contraseña mediante pregunta de seguridad
-    public void recuperarContrasena(String respuesta) {
-
+    public boolean recuperarContrasena(String respuesta) {
+        if (respuesta == null) {
+            throw new IllegalArgumentException("La respuesta no puede ser nula");
+        }
+        return this.respuestaSeguridad.equalsIgnoreCase(respuesta);
     }
 
     public String getNombre() {
@@ -60,9 +67,31 @@ public abstract class Usuario {
         this.contrasena = contrasena;
     }
 
+    public String getPreguntaSeguridad() {
+        return preguntaSeguridad;
+    }
+
+    public void setPreguntaSeguridad(String preguntaSeguridad) {
+        if (preguntaSeguridad == null) {
+            throw new IllegalArgumentException("La pregunta de seguridad no puede ser nula");
+        }
+        this.preguntaSeguridad = preguntaSeguridad;
+    }
+
+    public String getRespuestaSeguridad() {
+        return respuestaSeguridad;
+    }
+
+    public void setRespuestaSeguridad(String respuestaSeguridad) {
+        if (respuestaSeguridad == null) {
+            throw new IllegalArgumentException("La respuesta de seguridad no puede ser nula");
+        }
+        this.respuestaSeguridad = respuestaSeguridad;
+    }
+
     @Override
     public String toString() {
         return "Usuario [nombre=" + nombre + ", identificacion=" + identificacion + ", contrasena=" + contrasena
-                + ", preguntaSeguridad=" + ", respuestaSeguridad=" + "]";
+                + ", preguntaSeguridad=" + preguntaSeguridad + ", respuestaSeguridad=" + respuestaSeguridad + "]";
     }
 }
