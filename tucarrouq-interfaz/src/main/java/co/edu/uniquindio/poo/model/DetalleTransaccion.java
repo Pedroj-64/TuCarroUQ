@@ -1,9 +1,10 @@
 package co.edu.uniquindio.poo.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class DetalleTransaccion {
+public class DetalleTransaccion implements Serializable {
     private int diasPrestamo, cantidad;
     private LocalDate fechaActual = LocalDate.now();
     private LocalDate fechaEntregaPrestamo;
@@ -18,7 +19,7 @@ public class DetalleTransaccion {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor a 0");
         }
-        
+
         this.cantidad = cantidad;
         this.esAlquiler = esAlquiler;
         this.vehiculo = vehiculo;

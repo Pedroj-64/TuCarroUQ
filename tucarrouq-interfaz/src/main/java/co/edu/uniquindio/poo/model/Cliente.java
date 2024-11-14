@@ -1,6 +1,8 @@
 package co.edu.uniquindio.poo.model;
 
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable {
     private String nombre;
     private String identificacion;
     private String telefono;
@@ -66,6 +68,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente [nombre=" + nombre + ", identificación=" + identificacion + ", teléfono=" + telefono + ", dirección=" + direccion + "]";
+        return "Cliente [nombre=" + nombre + ", identificación=" + identificacion + ", teléfono=" + telefono
+                + ", dirección=" + direccion + "]";
     }
 }

@@ -1,10 +1,11 @@
 package co.edu.uniquindio.poo.model;
 
+
 public class DeportivoACombustible extends VehiculoACombustible {
 
     private int numeroPasajeros, numeroPuertas, numeroBolsasAire, caballosDeFuerza;
     private double tiempoQueAlcanza100kmh;
-    
+
     public DeportivoACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroPasajeros,
@@ -64,6 +65,5 @@ public class DeportivoACombustible extends VehiculoACombustible {
                 + ", numeroBolsasAire=" + numeroBolsasAire + ", caballosDeFuerza=" + caballosDeFuerza
                 + ", tiempoQueAlcanza100kmh=" + tiempoQueAlcanza100kmh + "]";
     }
-    
 
 }

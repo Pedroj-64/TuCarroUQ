@@ -1,11 +1,13 @@
 package co.edu.uniquindio.poo.model;
 
-public class CamionElectrico extends VehiculoElectrico{
+
+
+public class CamionElectrico extends VehiculoElectrico {
 
     private String tipoCamion;
     private int capacidadCarga, numeroEjes;
     private boolean aireAcondicionado, frenosDeAire, frenosABS;
-    
+
     public CamionElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, String tipoCamion, int capacidadCarga,
@@ -74,6 +76,5 @@ public class CamionElectrico extends VehiculoElectrico{
                 + numeroEjes + ", aireAcondicionado=" + aireAcondicionado + ", frenosDeAire=" + frenosDeAire
                 + ", frenosABS=" + frenosABS + "]";
     }
-    
-    
+
 }

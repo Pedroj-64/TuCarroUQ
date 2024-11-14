@@ -1,10 +1,13 @@
 package co.edu.uniquindio.poo.model;
 
-public class CamionetaACombustible extends VehiculoACombustible {
+
+
+public class CamionetaACombustible extends VehiculoACombustible  {
 
     private int numeroPuertas, numeroPasajeros, capacidadMaletero, numeroBolsasAire;
-    private boolean aireAcondicionado, frenosABS, camaraReversa, velocidadCrucero, sensorColision, sensorTraficoCruzado, asistentePermanenciaEnCarril, es4x4;
-    
+    private boolean aireAcondicionado, frenosABS, camaraReversa, velocidadCrucero, sensorColision, sensorTraficoCruzado,
+            asistentePermanenciaEnCarril, es4x4;
+
     public CamionetaACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroPuertas,
@@ -132,7 +135,5 @@ public class CamionetaACombustible extends VehiculoACombustible {
                 + ", sensorTraficoCruzado=" + sensorTraficoCruzado + ", asistentePermanenciaEnCarril="
                 + asistentePermanenciaEnCarril + ", es4x4=" + es4x4 + "]";
     }
-    
-    
-    
+
 }

@@ -6,10 +6,6 @@ import java.util.LinkedList;
 public class Empleado extends Usuario {
     private Collection<Transaccion> transacciones; // Registro de transacciones del empleado
 
-    
-
-
-
     public Empleado(String nombre, String identificacion, String contrasena, String emailDeRecuperacion) {
         super(nombre, identificacion, contrasena, emailDeRecuperacion);
 
@@ -38,8 +34,6 @@ public class Empleado extends Usuario {
         }
         this.transacciones = transacciones;
     }
-
- 
 
     @Override
     public String toString() {

@@ -1,14 +1,15 @@
 package co.edu.uniquindio.poo.model;
 
-public abstract class VehiculoACombustible extends Vehiculo{
+
+
+public abstract class VehiculoACombustible extends Vehiculo {
 
     private String tipoCombustible;
     private int autonomiaTanqueLleno, capacidadTanque, cilindraje;
     private boolean revisionTecnica;
 
-    
-
-    public VehiculoACombustible(String marca, String referencia, String placa,int kilometraje, int velocidadMaxima, boolean nuevo,
+    public VehiculoACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
+            boolean nuevo,
             double precioVenta, double precioAlquiler, int modelo, String tipoCombustible, int autonomiaTanqueLleno,
             int capacidadTanque, int cilindraje, boolean revisionTecnica) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo);
@@ -62,13 +63,9 @@ public abstract class VehiculoACombustible extends Vehiculo{
     @Override
     public String toString() {
         return "VehiculoACombustible [autonomiaTanqueLleno=" + autonomiaTanqueLleno + ", capacidadTanqueLleno="
-                + capacidadTanque + ", tipoCombustible=" + tipoCombustible + "cilindraje="+  cilindraje+"revisionTecnica="+revisionTecnica+"]";
+                + capacidadTanque + ", tipoCombustible=" + tipoCombustible + "cilindraje=" + cilindraje
+                + "revisionTecnica=" + revisionTecnica + "]";
 
     }
-    
-    
-    
 
-    
-    
 }

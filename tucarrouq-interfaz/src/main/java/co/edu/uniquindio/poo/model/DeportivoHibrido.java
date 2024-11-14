@@ -1,10 +1,12 @@
 package co.edu.uniquindio.poo.model;
 
+
+
 public class DeportivoHibrido extends VehiculoHibrido {
 
     private int numeroPasajeros, numeroPuertas, numeroBolsasAire, caballosDeFuerza;
     private double tiempoQueAlcanza100kmh;
-    
+
     public DeportivoHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, boolean enchufable,
             boolean hibridoLigero, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
@@ -65,7 +67,4 @@ public class DeportivoHibrido extends VehiculoHibrido {
                 + ", tiempoQueAlcanza100kmh=" + tiempoQueAlcanza100kmh + "]";
     }
 
-    
-    
-    
 }

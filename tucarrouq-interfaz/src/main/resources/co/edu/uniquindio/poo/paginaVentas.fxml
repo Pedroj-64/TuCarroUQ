@@ -30,7 +30,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button id="btn.administrador" layoutX="403.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Vender" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.administrador" layoutX="403.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="139.0" text="Vender/Alquilar" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>

@@ -1,11 +1,12 @@
 package co.edu.uniquindio.poo.model;
 
+import java.io.Serializable;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Transaccion {
+public class Transaccion implements Serializable {
     private LocalDate fechaTransaccion = LocalDate.now();
     private double total = 0;
     private Collection<DetalleTransaccion> detallesTransaccion;

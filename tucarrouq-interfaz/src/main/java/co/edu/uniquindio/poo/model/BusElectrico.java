@@ -1,10 +1,13 @@
 package co.edu.uniquindio.poo.model;
 
-public class BusElectrico extends VehiculoElectrico{
 
-    private int numeroPasajeros, numeroPuertas, capacidadMaletero, numeroBolsasAire, numeroEjes, numeroSalidasEmergencia;
+
+public class BusElectrico extends VehiculoElectrico {
+
+    private int numeroPasajeros, numeroPuertas, capacidadMaletero, numeroBolsasAire, numeroEjes,
+            numeroSalidasEmergencia;
     private boolean aireAcondicionado, camaraReversa, frenosABS;
-    
+
     public BusElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
@@ -103,6 +106,5 @@ public class BusElectrico extends VehiculoElectrico{
                 + ", aireAcondicionado=" + aireAcondicionado + ", camaraReversa=" + camaraReversa + ", frenosABS="
                 + frenosABS + "]";
     }
-    
-    
+
 }

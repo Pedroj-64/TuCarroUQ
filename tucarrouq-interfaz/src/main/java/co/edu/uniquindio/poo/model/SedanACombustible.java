@@ -1,10 +1,13 @@
 package co.edu.uniquindio.poo.model;
 
-public class SedanACombustible extends VehiculoACombustible{
+import java.io.Serializable;
 
-    private int  numeroPuertas, numeroPasajeros, capacidadMaletero, numeroBolsasAire;
-    private boolean AireAcondicionado, camaraReversa, velocidadCrucero, frenosABS, sensorColision, sensorTraficoCruzado, asistentePermanenciaEnCarril;
-    
+public class SedanACombustible extends VehiculoACombustible implements Serializable {
+
+    private int numeroPuertas, numeroPasajeros, capacidadMaletero, numeroBolsasAire;
+    private boolean AireAcondicionado, camaraReversa, velocidadCrucero, frenosABS, sensorColision, sensorTraficoCruzado,
+            asistentePermanenciaEnCarril;
+
     public SedanACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroPuertas,
@@ -123,6 +126,5 @@ public class SedanACombustible extends VehiculoACombustible{
                 + sensorColision + ", sensorTraficoCruzado=" + sensorTraficoCruzado + ", asistentePermanenciaEnCarril="
                 + asistentePermanenciaEnCarril + "]";
     }
-    
-    
+
 }

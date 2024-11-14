@@ -3,10 +3,11 @@
  * las interfaces y viewController
  */
 module co.edu.uniquindio.poo {
-    requires javafx.controls;
+    requires transitive javafx.controls;
     requires javafx.fxml;
     requires java.mail;
     requires java.activation;
+    requires transitive javafx.graphics;
     
     opens co.edu.uniquindio.poo to javafx.fxml;
     exports co.edu.uniquindio.poo;

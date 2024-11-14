@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="Screen_MenuAdmin05" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView id="img.logo" fitHeight="87.0" fitWidth="108.0" layoutX="479.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,7 +26,7 @@
             <Blend />
          </effect>
       </Label>
-      <Button id="btn.verEmpleados" layoutX="47.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Ver empleados" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.verEmpleados" fx:id="btn_VerEmpleados" layoutX="47.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Ver empleados" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -41,7 +41,7 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button id="btn.verAutos" layoutX="220.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="Ver autos disponibles" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.verAutos" fx:id="btn_VerAutosDisponibles" layoutX="220.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="Ver autos disponibles" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -96,7 +96,7 @@
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
-      <Button id="btn.paginaVentas" layoutX="48.0" layoutY="225.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Pagina ventas" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.paginaVentas" fx:id="btn_PaginaVentas" layoutX="48.0" layoutY="225.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Pagina ventas" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -121,7 +121,7 @@
             <Font name="Comic Sans MS Bold" size="16.0" />
          </font>
       </Label>
-      <Button id="btn.descargarReporte" layoutX="224.0" layoutY="225.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="153.0" text="Descargar reporte" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.descargarReporte" fx:id="btn_generarReporte" layoutX="224.0" layoutY="225.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="153.0" text="Descargar reporte" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -156,7 +156,7 @@
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
-      <Button id="btn.administrador" layoutX="441.0" layoutY="183.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="116.0" text="Ver clientes" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.administrador" fx:id="btn_VerClientes" layoutX="441.0" layoutY="183.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="116.0" text="Ver clientes" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -171,7 +171,7 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button id="btn.administrador" layoutX="441.0" layoutY="316.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="116.0" text="Salir" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.administrador" fx:id="btn_CerrarSesion" layoutX="441.0" layoutY="302.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="116.0" text="Cerrar Sesion" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>

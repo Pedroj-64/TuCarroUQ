@@ -1,7 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
 public abstract class VehiculoHibrido extends Vehiculo {
-    
+
     private boolean enchufable, hibridoLigero, revisionTecnica;
 
     public VehiculoHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
@@ -43,5 +43,4 @@ public abstract class VehiculoHibrido extends Vehiculo {
                 + revisionTecnica + "]";
     }
 
-    
 }

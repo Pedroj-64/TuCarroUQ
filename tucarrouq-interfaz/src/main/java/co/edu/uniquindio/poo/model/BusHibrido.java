@@ -1,10 +1,12 @@
 package co.edu.uniquindio.poo.model;
 
-public class BusHibrido extends VehiculoHibrido{
 
-    private int numeroPasajeros, numeroPuertas, capacidadMaletero, numeroBolsasAire, numeroEjes, numeroSalidasEmergencia;
+public class BusHibrido extends VehiculoHibrido {
+
+    private int numeroPasajeros, numeroPuertas, capacidadMaletero, numeroBolsasAire, numeroEjes,
+            numeroSalidasEmergencia;
     private boolean aireAcondicionado, camaraReversa, frenosABS;
-    
+
     public BusHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, boolean enchufable,
             boolean hibridoLigero, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
@@ -103,6 +105,5 @@ public class BusHibrido extends VehiculoHibrido{
                 + ", aireAcondicionado=" + aireAcondicionado + ", camaraReversa=" + camaraReversa + ", frenosABS="
                 + frenosABS + "]";
     }
-    
-    
+
 }

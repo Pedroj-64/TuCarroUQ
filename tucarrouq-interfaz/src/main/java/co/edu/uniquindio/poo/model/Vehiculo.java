@@ -1,12 +1,15 @@
 package co.edu.uniquindio.poo.model;
 
-public abstract class Vehiculo {
+import java.io.Serializable;
+
+public abstract class Vehiculo implements Serializable {
     private String marca, referencia, placa;
     private int velocidadMaxima, kilometraje, modelo;
     private boolean nuevo;
     private double precioVenta, precioAlquiler;
 
-    public Vehiculo(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima, boolean nuevo, double precioVenta, double precioAlquiler, int modelo) {
+    public Vehiculo(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima, boolean nuevo,
+            double precioVenta, double precioAlquiler, int modelo) {
         try {
             if (marca == null || referencia == null) {
                 throw new IllegalArgumentException("Los valores no pueden ser nulos");
@@ -17,13 +20,13 @@ public abstract class Vehiculo {
 
             this.marca = marca;
             this.referencia = referencia;
-            this.placa=placa;
+            this.placa = placa;
             this.kilometraje = kilometraje;
             this.velocidadMaxima = velocidadMaxima;
             this.nuevo = nuevo;
             this.precioVenta = precioVenta;
             this.precioAlquiler = precioAlquiler;
-            this.modelo=modelo;
+            this.modelo = modelo;
 
         } catch (IllegalArgumentException e) {
             System.out.println("Error al crear el vehículo: " + e.getMessage());
@@ -126,6 +129,5 @@ public abstract class Vehiculo {
                 + velocidadMaxima + ", kilometraje=" + kilometraje + ", modelo=" + modelo + ", nuevo=" + nuevo
                 + ", precioVenta=" + precioVenta + ", precioAlquiler=" + precioAlquiler + "]";
     }
-
 
 }

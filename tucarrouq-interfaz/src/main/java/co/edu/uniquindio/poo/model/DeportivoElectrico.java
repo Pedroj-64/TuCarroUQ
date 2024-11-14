@@ -1,6 +1,8 @@
 package co.edu.uniquindio.poo.model;
 
-public class DeportivoElectrico extends VehiculoElectrico {
+
+
+public class DeportivoElectrico extends VehiculoElectrico{
 
     private int numeroPasajeros, numeroPuertas, numeroBolsasAire, caballosDeFuerza;
     private double tiempoQueAlcanza100kmh;

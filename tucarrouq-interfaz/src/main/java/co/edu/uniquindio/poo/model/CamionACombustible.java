@@ -1,11 +1,13 @@
 package co.edu.uniquindio.poo.model;
 
-public class CamionACombustible extends VehiculoACombustible{
+
+
+public class CamionACombustible extends VehiculoACombustible  {
 
     private String tipoCamion;
     private int capacidadCarga, numeroEjes;
     private boolean aireAcondicionado, frenosDeAire, frenosABS;
-    
+
     public CamionACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, String tipoCamion,
@@ -75,6 +77,4 @@ public class CamionACombustible extends VehiculoACombustible{
                 + ", frenosABS=" + frenosABS + "]";
     }
 
-    
-    
 }
