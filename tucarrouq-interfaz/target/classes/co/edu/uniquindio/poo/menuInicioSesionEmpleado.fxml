@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.MenuInicioSesionEmpleadoViewController">
+<AnchorPane fx:id="Screen_IncioSesionEmpleado01" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.MenuInicioSesionEmpleadoViewController">
    <children>
       <Label id="lbl.ingnombre" layoutX="30.0" layoutY="102.0" text="Ingrese su nombre:" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -23,7 +23,7 @@
             <Image url="@imagenes/img1.png" />
          </image>
       </ImageView>
-      <Button id="btn.iniciarsesion" layoutX="133.0" layoutY="287.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="142.0" text="Iniciar sesión" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.iniciarsesion" fx:id="btn_IniciarSesion" layoutX="133.0" layoutY="287.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="142.0" text="Iniciar sesión" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -38,20 +38,20 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Button>
-      <TextField id="input.ingnombre" layoutX="30.0" layoutY="146.0" />
+      <TextField id="input.ingnombre" fx:id="txt_NombreUsuario" layoutX="30.0" layoutY="146.0" promptText="Ingrese Su Usuario" />
       <Label id="lbl.ingidentif" layoutX="30.0" layoutY="190.0" text="Ingrese su identificación:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Label>
-      <TextField id="input.ingidentif" layoutX="30.0" layoutY="226.0" />
+      <TextField id="input.ingidentif" fx:id="txt_Identificacion" layoutX="30.0" layoutY="226.0" promptText="Identificacion" />
       <Label id="lbl.ingcontras" layoutX="214.0" layoutY="102.0" text="Ingrese su contraseña:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="218.0" layoutY="146.0" />
-      <Label id="lbl.iniciarSesionEmp" layoutX="63.0" layoutY="35.0" text="Iniciar sesión como empleado" textAlignment="CENTER" textFill="WHITE">
+      <TextField fx:id="txt_Contraseña" layoutX="218.0" layoutY="146.0" promptText="Contraseña" />
+      <Label id="lbl.iniciarSesionEmp" layoutX="117.0" layoutY="53.0" text="Iniciar sesión como empleado" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
@@ -99,6 +99,21 @@
          </effect>
          <font>
             <Font name="Comic Sans MS" size="11.0" />
+         </font>
+      </Button>
+      <Button id="btn.iniciarsesion" fx:id="btn_Regresar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="83.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Button>
    </children>

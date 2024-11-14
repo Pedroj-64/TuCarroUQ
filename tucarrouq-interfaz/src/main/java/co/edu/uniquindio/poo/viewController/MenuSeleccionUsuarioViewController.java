@@ -34,6 +34,9 @@ public class MenuSeleccionUsuarioViewController {
     @FXML // fx:id="img_tuCarroUq"
     private ImageView img_tuCarroUq; // Value injected by FXMLLoader
 
+    @FXML
+    private Button btn_Regresar;
+
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         configurarBotones();
