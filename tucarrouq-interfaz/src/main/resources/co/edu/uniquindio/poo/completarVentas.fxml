@@ -19,7 +19,7 @@
             <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
       </Label>
-      <Button id="btn.regresar" layoutX="332.0" layoutY="23.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="122.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.regresar" layoutX="352.0" layoutY="23.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="122.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>

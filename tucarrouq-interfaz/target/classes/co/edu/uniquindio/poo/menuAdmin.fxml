@@ -171,5 +171,20 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
+      <Button id="btn.administrador" layoutX="441.0" layoutY="316.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="116.0" text="Salir" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
