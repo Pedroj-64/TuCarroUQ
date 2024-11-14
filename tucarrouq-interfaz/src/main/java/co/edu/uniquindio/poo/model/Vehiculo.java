@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo;
+package co.edu.uniquindio.poo.model;
 
 public abstract class Vehiculo {
     private String marca, referencia, placa;

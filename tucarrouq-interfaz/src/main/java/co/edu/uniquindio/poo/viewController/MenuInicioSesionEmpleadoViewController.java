@@ -1,56 +1,53 @@
 package co.edu.uniquindio.poo.viewController;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import co.edu.uniquindio.poo.App;
 import co.edu.uniquindio.poo.controller.MenuInicioSesionEmpleadoController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class MenuInicioSesionEmpleadoViewController {
 
-    @FXML // ResourceBundle that was given to the FXMLLoader
-    private ResourceBundle resources;
+    @FXML
+    private AnchorPane Screen_IncioSesionEmpleado01;
 
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
-    private URL location;
-
-    @FXML // fx:id="Screen_InicioAdmin04"
-    private AnchorPane Screen_InicioAdmin04; // Value injected by FXMLLoader
-
-    @FXML // fx:id="btn_inicioSesion"
-    private Button btn_inicioSesion; // Value injected by FXMLLoader
-
-    @FXML // fx:id="txt_Contraseña"
-    private TextField txt_Contraseña; // Value injected by FXMLLoader
-
-    @FXML // fx:id="txt_Identifiacion"
-    private TextField txt_Identifiacion; // Value injected by FXMLLoader
-
-    @FXML // fx:id="txt_NombreUsuario"
-    private TextField txt_NombreUsuario; // Value injected by FXMLLoader
+    @FXML
+    private Button btn_IniciarSesion;
 
     @FXML
     private Button btn_RecuperarContraseña;
+
+    @FXML
+    private Button btn_Regresar;
+
+    @FXML
+    private TextField txt_Contraseña;
+
+    @FXML
+    private TextField txt_Identificacion;
+
+    @FXML
+    private TextField txt_NombreUsuario;
 
     private MenuInicioSesionEmpleadoController menuInicioSesionEmpleadoController = new MenuInicioSesionEmpleadoController();
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
+        btn_RecuperarContraseña.setVisible(false); // El botón se inicializa como invisible
         configurarBotones();
     }
 
-    public void configurarBotones(){
-        btn_inicioSesion.setOnAction(this::iniciarSesion);
+    private void configurarBotones(){
+        btn_IniciarSesion.setOnAction(this::iniciarSesion);
         btn_RecuperarContraseña.setOnAction(this::recuperarContraseña);
+        btn_Regresar.setOnAction(this::accionRegresarAlInicio);
     }
 
-    public void iniciarSesion(ActionEvent event){
-        String identificacion = txt_Identifiacion.getText();
+    private void iniciarSesion(ActionEvent event){
+        String identificacion = txt_Identificacion.getText();
         String contrasena = txt_Contraseña.getText();
 
         // Verificar si las credenciales del empleado son correctas
@@ -58,28 +55,24 @@ public class MenuInicioSesionEmpleadoViewController {
 
         if (esValido) {
             // Redirigir a la interfaz de empleado
-            cambiarVista("menuEmpleado", 630, 450);
+            App.loadScene("menuEmpleado", 630, 450);
+        } else {
+            // Mostrar el botón de recuperar contraseña si las credenciales son incorrectas
+            btn_RecuperarContraseña.setVisible(true);
         }
     }
 
-    public void recuperarContraseña(ActionEvent event){
-        
+    private void recuperarContraseña(ActionEvent event){
+        menuInicioSesionEmpleadoController.recuperarContrasena(txt_Identificacion.getText());
     }
 
-    /**
-     * Método que utiliza el método estático e inherente a la clase App para cargar
-     * la escena.
-     *
-     * @param rutaFXML Nombre del archivo FXML
-     * @param ancho    Ancho de la ventana
-     * @param alto     Alto de la ventana
-     */
-    private void cambiarVista(String rutaFXML, double ancho, double alto) {
+    private void accionRegresarAlInicio(ActionEvent event) {
         try {
-            App.loadScene(rutaFXML, ancho, alto); // Carga la nueva escena
+            App.loadScene("menuInicio", 800, 540);
         } catch (Exception e) {
-            App.showAlert("Error al cargar la interfaz", "No se pudo cargar la interfaz: " + rutaFXML, javafx.scene.control.Alert.AlertType.ERROR);
+            // Muestra un mensaje de alerta en caso de error al cargar la escena.
+            App.showAlert("Error al Cargar Escena", "Ocurrió un error al regresar al menú de inicio: " + e.getMessage(),
+                    Alert.AlertType.ERROR);
         }
     }
 }
-

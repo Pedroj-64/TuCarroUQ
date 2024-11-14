@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo;
+package co.edu.uniquindio.poo.model;
 
 public interface Autenticable {
     boolean autenticar(String usuario, String contraseña);

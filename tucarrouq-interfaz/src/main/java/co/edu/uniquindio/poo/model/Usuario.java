@@ -1,21 +1,22 @@
-package co.edu.uniquindio.poo;
+package co.edu.uniquindio.poo.model;
 
 public abstract class Usuario {
     private String nombre;
     private String identificacion;
     private String contrasena;
-    private String preguntaSeguridad;
-    private String respuestaSeguridad;
+    private String emailDeRecuperacion;
 
-    public Usuario(String nombre, String identificacion, String contrasena, String preguntaSeguridad, String respuestaSeguridad) {
-        if (nombre == null || identificacion == null || contrasena == null || preguntaSeguridad == null || respuestaSeguridad == null) {
+    public Usuario(String nombre, String identificacion, String contrasena, String emailDeRecuperacion) {
+        if (nombre == null || identificacion == null || contrasena == null || emailDeRecuperacion == null) {
             throw new IllegalArgumentException("Los valores no pueden ser nulos");
+        }
+        if (!emailDeRecuperacion.contains("@")) {
+            throw new IllegalArgumentException("El email de recuperación debe contener un '@'");
         }
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.contrasena = contrasena;
-        this.preguntaSeguridad = preguntaSeguridad;
-        this.respuestaSeguridad = respuestaSeguridad;
+        this.emailDeRecuperacion = emailDeRecuperacion;
     }
 
     // Método para autenticar usuario
@@ -24,14 +25,6 @@ public abstract class Usuario {
             throw new IllegalArgumentException("La identificación y la contraseña no pueden ser nulas");
         }
         return this.identificacion.equals(identificacion) && this.contrasena.equals(contrasena);
-    }
-
-    // Método para recuperar contraseña mediante pregunta de seguridad
-    public boolean recuperarContrasena(String respuesta) {
-        if (respuesta == null) {
-            throw new IllegalArgumentException("La respuesta no puede ser nula");
-        }
-        return this.respuestaSeguridad.equalsIgnoreCase(respuesta);
     }
 
     public String getNombre() {
@@ -67,31 +60,20 @@ public abstract class Usuario {
         this.contrasena = contrasena;
     }
 
-    public String getPreguntaSeguridad() {
-        return preguntaSeguridad;
+    public String getEmailDeRecuperacion() {
+        return emailDeRecuperacion;
     }
 
-    public void setPreguntaSeguridad(String preguntaSeguridad) {
-        if (preguntaSeguridad == null) {
-            throw new IllegalArgumentException("La pregunta de seguridad no puede ser nula");
+    public void setEmailDeRecuperacion(String emailDeRecuperacion) {
+        if (emailDeRecuperacion == null || !emailDeRecuperacion.contains("@")) {
+            throw new IllegalArgumentException("El email de recuperación no puede ser nulo y debe contener un '@'");
         }
-        this.preguntaSeguridad = preguntaSeguridad;
-    }
-
-    public String getRespuestaSeguridad() {
-        return respuestaSeguridad;
-    }
-
-    public void setRespuestaSeguridad(String respuestaSeguridad) {
-        if (respuestaSeguridad == null) {
-            throw new IllegalArgumentException("La respuesta de seguridad no puede ser nula");
-        }
-        this.respuestaSeguridad = respuestaSeguridad;
+        this.emailDeRecuperacion = emailDeRecuperacion;
     }
 
     @Override
     public String toString() {
         return "Usuario [nombre=" + nombre + ", identificacion=" + identificacion + ", contrasena=" + contrasena
-                + ", preguntaSeguridad=" + preguntaSeguridad + ", respuestaSeguridad=" + respuestaSeguridad + "]";
+                + ", emailDeRecuperacion=" + emailDeRecuperacion + "]";
     }
 }
