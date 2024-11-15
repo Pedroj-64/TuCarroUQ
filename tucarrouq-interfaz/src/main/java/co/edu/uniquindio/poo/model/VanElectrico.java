@@ -6,11 +6,11 @@ public class VanElectrico extends VehiculoElectrico{
     private boolean transmisionManual, aireAcondicionado, camaraReversa, abs;
     
     public VanElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String autonomiaCargaCompleta,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int cantidadPuertas, int numeroBolsasDeAire,
             int numeroPasajeros, boolean transmisionManual, boolean aireAcondicionado, boolean camaraReversa,
             boolean abs) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
         this.cantidadPuertas = cantidadPuertas;
         this.numeroBolsasDeAire = numeroBolsasDeAire;

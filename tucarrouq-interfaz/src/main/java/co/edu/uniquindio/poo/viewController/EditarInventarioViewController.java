@@ -168,7 +168,7 @@ public class EditarInventarioViewController {
                 (observable, oldValue, newValue) -> {
                     if (newValue != null) {
                         txt_matricula.setText(newValue.getPlaca());
-                        txt_PrecioAlquiler.setText(String.valueOf(newValue.getPrecioAlquiler()));
+                        txt_PrecioAlquiler.setText(String.valueOf(newValue.getPrecioAlquilerPorDia()));
                         txt_PrecioVenta.setText(String.valueOf(newValue.getPrecioVenta()));
                     }
                 });

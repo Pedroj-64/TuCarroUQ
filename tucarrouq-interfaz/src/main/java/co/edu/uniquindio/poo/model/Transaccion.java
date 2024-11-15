@@ -112,6 +112,8 @@ public class Transaccion implements Serializable {
         setTotal(total);
     }
 
+
+
     @Override
     public String toString() {
         return "Transaccion [fechaTransaccion=" + fechaTransaccion + ", total=" + total + ", detallesTransaccion="

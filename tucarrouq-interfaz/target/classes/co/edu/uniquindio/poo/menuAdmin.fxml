@@ -41,7 +41,7 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button id="btn.verAutos" fx:id="btn_VerAutosDisponibles" layoutX="220.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="Ver autos disponibles" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.verAutos" fx:id="btn_VerAutosDisponibles" layoutX="220.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="EditarInventario" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>

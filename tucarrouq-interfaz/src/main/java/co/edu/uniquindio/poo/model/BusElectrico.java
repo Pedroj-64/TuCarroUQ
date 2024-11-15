@@ -9,11 +9,11 @@ public class BusElectrico extends VehiculoElectrico {
     private boolean aireAcondicionado, camaraReversa, frenosABS;
 
     public BusElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String autonomiaCargaCompleta,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
             int capacidadMaletero, int numeroBolsasAire, int numeroEjes, int numeroSalidasEmergencia,
             boolean aireAcondicionado, boolean camaraReversa, boolean frenosABS) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;

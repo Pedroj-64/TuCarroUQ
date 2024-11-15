@@ -8,11 +8,11 @@ public class BusHibrido extends VehiculoHibrido {
     private boolean aireAcondicionado, camaraReversa, frenosABS;
 
     public BusHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, boolean enchufable,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
             boolean hibridoLigero, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
             int capacidadMaletero, int numeroBolsasAire, int numeroEjes, int numeroSalidasEmergencia,
             boolean aireAcondicionado, boolean camaraReversa, boolean frenosABS) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 enchufable, hibridoLigero, revisionTecnica);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;

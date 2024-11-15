@@ -111,7 +111,7 @@ public class DetalleTransaccion implements Serializable {
         if (!esAlquiler) {
             setSubtotal(vehiculo.getPrecioVenta());
         } else {
-            setSubtotal(vehiculo.getPrecioAlquiler());
+            setSubtotal(vehiculo.getPrecioAlquilerPorDia());
         }
     }
 

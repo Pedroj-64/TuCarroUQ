@@ -10,9 +10,9 @@ public abstract class VehiculoACombustible extends Vehiculo {
 
     public VehiculoACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo,
-            double precioVenta, double precioAlquiler, int modelo, String tipoCombustible, int autonomiaTanqueLleno,
+            double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible, int autonomiaTanqueLleno,
             int capacidadTanque, int cilindraje, boolean revisionTecnica) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo);
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo);
         this.tipoCombustible = tipoCombustible;
         this.autonomiaTanqueLleno = autonomiaTanqueLleno;
         this.capacidadTanque = capacidadTanque;

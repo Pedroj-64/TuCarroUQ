@@ -15,6 +15,7 @@ public class Concesionario implements Serializable {
     private Collection<Administrador> administradores;
     private Collection<Vehiculo> vehiculos;
     private Collection<Transaccion> ventas;
+    private Collection<Cliente> clientes;
 
     // Nuevas listas para vehículos vendidos y alquilados
     private Collection<Vehiculo> vehiculosVendidos;
@@ -30,6 +31,7 @@ public class Concesionario implements Serializable {
         ventas = new LinkedList<>();
         vehiculosVendidos = new LinkedList<>();
         vehiculosAlquilados = new LinkedList<>();
+        clientes= new LinkedList<>();
     }
 
     // Método para obtener la instancia única
@@ -88,13 +90,25 @@ public class Concesionario implements Serializable {
     public static String getNombre() {
         return NOMBRE;
     }
-
-    public Collection<Vehiculo> getVehiculosVendidos() {
-        return vehiculosVendidos;
+    
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 
-    public Collection<Vehiculo> getVehiculosAlquilados() {
-        return vehiculosAlquilados;
+    public void setVehiculosVendidos(Collection<Vehiculo> vehiculosVendidos) {
+        this.vehiculosVendidos = vehiculosVendidos;
+    }
+
+    public void setVehiculosAlquilados(Collection<Vehiculo> vehiculosAlquilados) {
+        this.vehiculosAlquilados = vehiculosAlquilados;
+    }
+
+    public Collection<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(Collection<Cliente> clientes) {
+        this.clientes = clientes;
     }
 
     // Métodos para agregar empleados, administradores y vehículos
@@ -197,9 +211,6 @@ public class Concesionario implements Serializable {
         agregarAdministrador(administradorEjemplo);
     }
 
-    public void cambiarContraseña(String contrasenaNueva) {
-
-    }
 
     // Método para buscar un empleado por identificación
     public Empleado buscarEmpleado(String identificacion) {
@@ -293,5 +304,97 @@ public class Concesionario implements Serializable {
         }
         throw new NoSuchElementException("No se encontró un vehículo con la placa: " + placa);
     }
+
+    public boolean existeCliente(String identificacion) {
+        boolean banderilla=false;
+        if (identificacion == null) {
+            throw new IllegalArgumentException("La identificación no puede ser nula");
+        }
+        for (Cliente cliente : clientes) {
+            if (cliente.getIdentificacion().equals(identificacion)) {
+                banderilla=true;
+            }
+        }
+        return banderilla;
+    }
+
+    public void eliminarCliente(String identificacion) {
+        Cliente cliente = obtenerCliente(identificacion);
+        if (cliente != null) {
+            clientes.remove(cliente);
+        } else {
+            throw new IllegalArgumentException("El cliente no existe");
+        }
+    }
+    public void actualizarCliente(String identificacion, Cliente clienteActualizado) {
+        Cliente clienteExistente = obtenerCliente(identificacion);
+        if (clienteExistente != null) {
+            clienteExistente.setNombre(clienteActualizado.getNombre());
+            clienteExistente.setTelefono(clienteActualizado.getTelefono());
+            clienteExistente.setDireccion(clienteActualizado.getDireccion());
+        } else {
+            throw new IllegalArgumentException("El cliente no existe");
+        }
+    }
+
+    public Cliente obtenerCliente(String identificacion) {
+        Cliente clienteBuscado=null;
+        for (Cliente cliente : clientes) {
+            if (cliente.getIdentificacion().equals(identificacion)) {
+                clienteBuscado=cliente;
+            }
+        }
+        return clienteBuscado; 
+    }
+
+    public void agregarCliente(Cliente cliente) {
+        if (cliente == null) {
+            throw new IllegalArgumentException("El cliente no puede ser nulo");
+        }
+        if (!existeCliente(cliente.getIdentificacion())) {
+            clientes.add(cliente);
+        } else {
+            throw new IllegalArgumentException("El cliente con esa identificación ya existe");
+        }
+    }
+    
+    public void calcularPrecioReserva(DetalleTransaccion detalleTransaccion,Vehiculo vehiculo) {
+        if (detalleTransaccion.getDiasPrestamo() <= 0) {
+            throw new IllegalArgumentException("El número de días debe ser mayor a 0");
+        }
+        double precioFinal = detalleTransaccion.getDiasPrestamo() * vehiculo.getPrecioAlquilerPorDia();
+        vehiculo.setPrecioAlquiler(precioFinal);
+    }
+
+    public Transaccion crearTransaccion(Cliente cliente, Empleado empleado) {
+        if (cliente == null || empleado == null) {
+            throw new IllegalArgumentException("Cliente o Empleado no pueden ser nulos");
+        }
+    
+        Transaccion transaccion = new Transaccion(cliente, empleado);
+        ventas.add(transaccion);
+        return transaccion;
+    }
+    
+    public void agregarDetalleATransaccion(Transaccion transaccion, boolean esAlquiler, Vehiculo vehiculo, int cantidad) {
+        if (transaccion == null || vehiculo == null) {
+            throw new IllegalArgumentException("Transacción o Vehículo no pueden ser nulos");
+        }
+    
+        DetalleTransaccion detalle = new DetalleTransaccion(esAlquiler, vehiculo, cantidad);
+        transaccion.agregarDetallesTransaccion(detalle);
+        transaccion.calcularTotal();
+        // Gestionar el vehículo (vender o alquilar)
+        if (esAlquiler) {
+            alquilarVehiculo(vehiculo);
+        } else {
+            venderVehiculo(vehiculo);
+        }
+    }
+    
+    
+    
+    
+    
 
 }

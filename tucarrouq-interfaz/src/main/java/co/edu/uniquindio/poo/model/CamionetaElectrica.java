@@ -9,12 +9,12 @@ public class CamionetaElectrica extends VehiculoElectrico  {
             asistentePermanenciaEnCarril, es4x4;
 
     public CamionetaElectrica(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String autonomiaCargaCompleta,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPuertas, int numeroPasajeros,
             int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean frenosABS,
             boolean camaraReversa, boolean velocidadCrucero, boolean sensorColision, boolean sensorTraficoCruzado,
             boolean asistentePermanenciaEnCarril, boolean es4x4) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;

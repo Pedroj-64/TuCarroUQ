@@ -9,12 +9,12 @@ public class CamionetaHibrida extends VehiculoHibrido  {
             asistentePermanenciaEnCarril, es4x4;
 
     public CamionetaHibrida(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, boolean enchufable,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
             boolean hibridoLigero, boolean revisionTecnica, int numeroPuertas, int numeroPasajeros,
             int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean frenosABS,
             boolean camaraReversa, boolean velocidadCrucero, boolean sensorColision, boolean sensorTraficoCruzado,
             boolean asistentePermanenciaEnCarril, boolean es4x4) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 enchufable, hibridoLigero, revisionTecnica);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;

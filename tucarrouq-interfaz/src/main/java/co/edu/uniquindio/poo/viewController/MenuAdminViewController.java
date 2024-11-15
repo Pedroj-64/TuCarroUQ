@@ -47,6 +47,7 @@ public class MenuAdminViewController {
         btn_PaginaVentas.setOnAction(this::accionVerPaginaVentas);
         btn_VerAutosDisponibles.setOnAction(this::accionVerAutosDisponibles);
         btn_VerClientes.setOnAction(this::accionVerClientes);
+        btn_VerEmpleados.setOnAction(this::accionVerEmpleados);
         btn_generarReporte.setOnAction(this::accionGenerarReporte);
         btn_CerrarSesion.setOnAction(this::accionCerrarSesion);
 
@@ -59,6 +60,11 @@ public class MenuAdminViewController {
 
     private void accionVerAutosDisponibles(ActionEvent event){
         App.loadScene("editarInvetario", 800, 540);
+
+    }
+
+    private void accionVerEmpleados(ActionEvent event){
+        App.loadScene(null, 0, 0);
 
     }
 

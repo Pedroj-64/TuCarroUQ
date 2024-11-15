@@ -10,27 +10,26 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Screen_04" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.MenuVerReservarViewController">
+<AnchorPane fx:id="Screen_AutosDisponiblesParaVentas07" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.MenuVerReservarViewController">
    <children>
       <Label fx:id="lbl_tituloRegistroDeReservas" layoutX="206.0" layoutY="14.0" text="Autos disponibles" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tbl_verReservas" layoutX="7.0" layoutY="62.0" prefHeight="257.0" prefWidth="587.0">
+      <TableView fx:id="tbl_VerAutosDisponibles" layoutX="7.0" layoutY="62.0" prefHeight="257.0" prefWidth="587.0">
          <columns>
-            <TableColumn fx:id="tbc_fechaDeInicio" prefWidth="45.0" text="Marca" />
+            <TableColumn fx:id="tbc_Marca" prefWidth="45.0" text="Marca" />
             <TableColumn fx:id="tbc_tipoDeVehiculo" prefWidth="105.0" text="Tipo De Vehiculo" />
-            <TableColumn fx:id="tbc_totalCosto1" prefWidth="60.0" text="Costo*dia" />
-            <TableColumn fx:id="tbc_dias1" minWidth="9.333343505859375" prefWidth="71.0" text="Costo Total" />
-            <TableColumn fx:id="tbc_dias2" minWidth="9.333343505859375" prefWidth="58.0" text="Matricula" />
-            <TableColumn fx:id="tbc_tipoDeVehiculo1" prefWidth="105.0" text="Tipo de caja" />
+            <TableColumn fx:id="tbc_CostoDia" prefWidth="60.0" text="Costo*dia" />
+            <TableColumn fx:id="tbc_CostoTotal" minWidth="9.333343505859375" prefWidth="71.0" text="Costo Total" />
+            <TableColumn fx:id="tbc_Placa" minWidth="9.333343505859375" prefWidth="58.0" text="Matricula" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button id="btn.administrador" layoutX="403.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="139.0" text="Vender/Alquilar" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.administrador" fx:id="btn_VenderAlquilar" layoutX="403.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="139.0" text="Vender/Alquilar" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -45,7 +44,7 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button id="btn.administrador" layoutX="83.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.administrador" fx:id="btn_Regresar" layoutX="83.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -60,7 +59,7 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button id="btn.administrador" layoutX="240.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Agregar cliente" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.administrador" fx:id="btn_agregarClientes" layoutX="240.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Agregar cliente" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>

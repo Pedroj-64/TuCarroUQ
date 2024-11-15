@@ -6,11 +6,11 @@ public class VanACombustible extends VehiculoACombustible {
     private boolean transmisionManual, aireAcondicionado, camaraReversa, abs;
     
     public VanACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String tipoCombustible,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int cantidadPuertas,
             int numeroBolsasDeAire, int numeroPasajeros, boolean transmisionManual, boolean aireAcondicionado,
             boolean camaraReversa, boolean abs) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica);
         this.cantidadPuertas = cantidadPuertas;
         this.numeroBolsasDeAire = numeroBolsasDeAire;

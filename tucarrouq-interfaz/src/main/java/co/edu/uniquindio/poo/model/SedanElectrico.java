@@ -6,12 +6,12 @@ public class SedanElectrico extends VehiculoElectrico {
     private boolean AireAcondicionado, camaraReversa, velocidadCrucero, frenosABS, sensorColision, sensorTraficoCruzado, asistentePermanenciaEnCarril;
     
     public SedanElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String autonomiaCargaCompleta,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPuertas, int numeroPasajeros,
             int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean camaraReversa,
             boolean velocidadCrucero, boolean frenosABS, boolean sensorColision, boolean sensorTraficoCruzado,
             boolean asistentePermanenciaEnCarril) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;

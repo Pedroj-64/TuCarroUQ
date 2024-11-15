@@ -1,16 +1,16 @@
 package co.edu.uniquindio.poo.model;
 
-public class PickUpHibrida extends VehiculoHibrido{
+public class PickUpHibrida extends VehiculoHibrido {
 
     private int numeroPuertas, numeroPasajeros, numeroBolsasAire, capacidadCajaDeCarga;
     private boolean aireAcondicionado, camaraReversa, frenosABS, es4x4;
-    
+
     public PickUpHibrida(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, boolean enchufable,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
             boolean hibridoLigero, boolean revisionTecnica, int numeroPuertas, int numeroPasajeros,
             int numeroBolsasAire, int capacidadCajaDeCarga, boolean aireAcondicionado, boolean camaraReversa,
             boolean frenosABS, boolean es4x4) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 enchufable, hibridoLigero, revisionTecnica);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
@@ -93,6 +93,5 @@ public class PickUpHibrida extends VehiculoHibrido{
                 + ", aireAcondicionado=" + aireAcondicionado + ", camaraReversa=" + camaraReversa + ", frenosABS="
                 + frenosABS + ", es4x4=" + es4x4 + "]";
     }
-    
-    
+
 }

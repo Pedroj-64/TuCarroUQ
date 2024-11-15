@@ -6,15 +6,15 @@ public abstract class Vehiculo implements Serializable {
     private String marca, referencia, placa;
     private int velocidadMaxima, kilometraje, modelo;
     private boolean nuevo;
-    private double precioVenta, precioAlquiler;
+    private double precioVenta, precioAlquilerPorDia,PrecioAlquiler;
 
     public Vehiculo(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima, boolean nuevo,
-            double precioVenta, double precioAlquiler, int modelo) {
+            double precioVenta, double precioAlquilerPorDia, int modelo) {
         try {
             if (marca == null || referencia == null) {
                 throw new IllegalArgumentException("Los valores no pueden ser nulos");
             }
-            if (velocidadMaxima <= 0 || kilometraje < 0 || precioVenta < 0 || precioAlquiler < 0) {
+            if (velocidadMaxima <= 0 || kilometraje < 0 || precioVenta < 0 || precioAlquilerPorDia < 0) {
                 throw new IllegalArgumentException("Valores inválidos para velocidad máxima, cilindraje o kilometraje");
             }
 
@@ -25,7 +25,7 @@ public abstract class Vehiculo implements Serializable {
             this.velocidadMaxima = velocidadMaxima;
             this.nuevo = nuevo;
             this.precioVenta = precioVenta;
-            this.precioAlquiler = precioAlquiler;
+            this.precioAlquilerPorDia = precioAlquilerPorDia;
             this.modelo = modelo;
 
         } catch (IllegalArgumentException e) {
@@ -74,6 +74,10 @@ public abstract class Vehiculo implements Serializable {
         this.velocidadMaxima = velocidadMaxima;
     }
 
+    public double getPrecioAlquiler() {
+        return PrecioAlquiler;
+    }
+
     public boolean getEsNuevo() {
         return nuevo;
     }
@@ -112,22 +116,31 @@ public abstract class Vehiculo implements Serializable {
         this.precioVenta = precioVenta;
     }
 
-    public double getPrecioAlquiler() {
-        return precioAlquiler;
+    public double getPrecioAlquilerPorDia() {
+        return precioAlquilerPorDia;
     }
 
     public void setPrecioAlquiler(double precioAlquiler) {
-        if (precioAlquiler <= 0) {
+        PrecioAlquiler = precioAlquiler;
+    }
+
+    public void setPrecioAlquilerPorDia(double precioAlquilerPorDia) {
+        if (precioAlquilerPorDia <= 0) {
             throw new IllegalArgumentException("El precio de alquiler debe ser mayor a 0");
         }
-        this.precioAlquiler = precioAlquiler;
+        this.precioAlquilerPorDia = precioAlquilerPorDia;
+    }
+
+    public void calcularPrecioReservaPorDia(){
+        double valorPorDia = this.precioVenta / 30 ;
+        this.precioAlquilerPorDia = valorPorDia;
     }
 
     @Override
     public String toString() {
         return "Vehiculo [marca=" + marca + ", referencia=" + referencia + ", placa=" + placa + ", velocidadMaxima="
                 + velocidadMaxima + ", kilometraje=" + kilometraje + ", modelo=" + modelo + ", nuevo=" + nuevo
-                + ", precioVenta=" + precioVenta + ", precioAlquiler=" + precioAlquiler + "]";
+                + ", precioVenta=" + precioVenta + ", precioAlquiler=" + precioAlquilerPorDia + "]";
     }
 
 }

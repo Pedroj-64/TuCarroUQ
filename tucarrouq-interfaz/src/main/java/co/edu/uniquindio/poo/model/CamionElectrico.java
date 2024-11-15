@@ -9,10 +9,10 @@ public class CamionElectrico extends VehiculoElectrico {
     private boolean aireAcondicionado, frenosDeAire, frenosABS;
 
     public CamionElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String autonomiaCargaCompleta,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, String tipoCamion, int capacidadCarga,
             int numeroEjes, boolean aireAcondicionado, boolean frenosDeAire, boolean frenosABS) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
         this.tipoCamion = tipoCamion;
         this.capacidadCarga = capacidadCarga;

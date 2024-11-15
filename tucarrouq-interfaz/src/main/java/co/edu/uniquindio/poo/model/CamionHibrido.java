@@ -9,10 +9,10 @@ public class CamionHibrido extends VehiculoHibrido  {
     private boolean aireAcondicionado, frenosDeAire, frenosABS;
 
     public CamionHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, boolean enchufable,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
             boolean hibridoLigero, boolean revisionTecnica, String tipoCamion, int capacidadCarga, int numeroEjes,
             boolean aireAcondicionado, boolean frenosDeAire, boolean frenosABS) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 enchufable, hibridoLigero, revisionTecnica);
         this.tipoCamion = tipoCamion;
         this.capacidadCarga = capacidadCarga;
