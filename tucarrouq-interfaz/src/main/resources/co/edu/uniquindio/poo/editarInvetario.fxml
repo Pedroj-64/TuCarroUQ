@@ -90,5 +90,20 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
+      <Button id="btn.guardar" fx:id="btn_CrearVehiculo" layoutX="478.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Crear" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -32,6 +32,9 @@ public class EditarInventarioViewController {
     @FXML // fx:id="btn_guardar"
     private Button btn_guardar; // Value injected by FXMLLoader
 
+    @FXML
+    private Button btn_CrearVehiculo;
+
     @FXML // fx:id="lbl_marca"
     private Label lbl_marca; // Value injected by FXMLLoader
 
@@ -114,10 +117,15 @@ public class EditarInventarioViewController {
             btn_eliminar.setOnAction(this::eliminarVehiculoSeleccionado);
             btn_guardar.setOnAction(this::guardarCambiosVehiculo);
             btn_Regresar.setOnAction(this::accionRegresar);
+            btn_CrearVehiculo.setOnAction(this::accionCrearVehiculo);
         } catch (Exception e) {
             App.showAlert("Error de Configuración",
                     "Error al configurar las acciones de los botones: " + e.getMessage(), Alert.AlertType.ERROR);
         }
+    }
+
+    private void accionCrearVehiculo(ActionEvent  event){
+        App.loadScene("RegistroVehicular", 640, 450);
     }
 
     private void eliminarVehiculoSeleccionado(ActionEvent event) {

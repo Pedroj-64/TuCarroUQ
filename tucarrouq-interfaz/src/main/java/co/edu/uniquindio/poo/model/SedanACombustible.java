@@ -1,8 +1,6 @@
 package co.edu.uniquindio.poo.model;
 
-import java.io.Serializable;
-
-public class SedanACombustible extends VehiculoACombustible implements Serializable {
+public class SedanACombustible extends VehiculoACombustible {
 
     private int numeroPuertas, numeroPasajeros, capacidadMaletero, numeroBolsasAire;
     private boolean AireAcondicionado, camaraReversa, velocidadCrucero, frenosABS, sensorColision, sensorTraficoCruzado,

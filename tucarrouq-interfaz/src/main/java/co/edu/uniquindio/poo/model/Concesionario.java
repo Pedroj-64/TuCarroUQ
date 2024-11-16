@@ -31,7 +31,7 @@ public class Concesionario implements Serializable {
         ventas = new LinkedList<>();
         vehiculosVendidos = new LinkedList<>();
         vehiculosAlquilados = new LinkedList<>();
-        clientes= new LinkedList<>();
+        clientes = new LinkedList<>();
     }
 
     // Método para obtener la instancia única
@@ -90,7 +90,7 @@ public class Concesionario implements Serializable {
     public static String getNombre() {
         return NOMBRE;
     }
-    
+
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
@@ -113,15 +113,16 @@ public class Concesionario implements Serializable {
 
     // Métodos para agregar empleados, administradores y vehículos
     public boolean existeEmpleado(String identificacion) {
+        boolean banderilla=false;
         if (identificacion == null) {
             throw new IllegalArgumentException("La identificación no puede ser nula");
         }
         for (Empleado empleado : empleados) {
             if (empleado.getIdentificacion().equals(identificacion)) {
-                return true;
+                banderilla= true;
             }
         }
-        return false;
+        return banderilla;
     }
 
     public void agregarEmpleado(Empleado empleado) {
@@ -134,15 +135,16 @@ public class Concesionario implements Serializable {
     }
 
     public boolean existeAdministrador(String identificacion) {
+        boolean banderilla=false;
         if (identificacion == null) {
             throw new IllegalArgumentException("La identificación no puede ser nula");
         }
         for (Administrador administrador : administradores) {
             if (administrador.getIdentificacion().equals(identificacion)) {
-                return true;
+               banderilla=true;
             }
         }
-        return false;
+        return banderilla;
     }
 
     public void agregarAdministrador(Administrador administrador) {
@@ -151,6 +153,7 @@ public class Concesionario implements Serializable {
         }
         if (!existeAdministrador(administrador.getIdentificacion())) {
             administradores.add(administrador);
+            empleados.add(administrador);
         }
     }
 
@@ -189,14 +192,6 @@ public class Concesionario implements Serializable {
         }
     }
 
-    // Métodos para transacciones
-    public void agregarTransaccion(Transaccion transaccion) {
-        if (transaccion == null) {
-            throw new IllegalArgumentException("La transacción no puede ser nula");
-        }
-        ventas.add(transaccion);
-    }
-
     /**
      * Método que agrega ejemplos de Empleado y Administrador al concesionario.
      */
@@ -210,7 +205,6 @@ public class Concesionario implements Serializable {
                 "hola@gmail.com");
         agregarAdministrador(administradorEjemplo);
     }
-
 
     // Método para buscar un empleado por identificación
     public Empleado buscarEmpleado(String identificacion) {
@@ -306,13 +300,13 @@ public class Concesionario implements Serializable {
     }
 
     public boolean existeCliente(String identificacion) {
-        boolean banderilla=false;
+        boolean banderilla = false;
         if (identificacion == null) {
             throw new IllegalArgumentException("La identificación no puede ser nula");
         }
         for (Cliente cliente : clientes) {
             if (cliente.getIdentificacion().equals(identificacion)) {
-                banderilla=true;
+                banderilla = true;
             }
         }
         return banderilla;
@@ -326,25 +320,39 @@ public class Concesionario implements Serializable {
             throw new IllegalArgumentException("El cliente no existe");
         }
     }
-    public void actualizarCliente(String identificacion, Cliente clienteActualizado) {
+
+    public void actualizarCliente(String identificacion, String nombre,String telefono,String direccion) {
         Cliente clienteExistente = obtenerCliente(identificacion);
         if (clienteExistente != null) {
-            clienteExistente.setNombre(clienteActualizado.getNombre());
-            clienteExistente.setTelefono(clienteActualizado.getTelefono());
-            clienteExistente.setDireccion(clienteActualizado.getDireccion());
+            clienteExistente.setNombre(nombre);
+            clienteExistente.setTelefono(telefono);
+            clienteExistente.setDireccion(direccion);
         } else {
             throw new IllegalArgumentException("El cliente no existe");
         }
     }
 
+
+    public void actualizarEmpleado(String nombre, String identificacion, String contrasena, String emailDeRecuperacion) {
+        Empleado empleadoExistente = obtenerEmpleado(identificacion);
+        if (empleadoExistente != null) {
+            empleadoExistente.setNombre(nombre);
+            empleadoExistente.setContrasena(contrasena);
+            empleadoExistente.setEmailDeRecuperacion(emailDeRecuperacion);
+        } else {
+            throw new IllegalArgumentException("El empleado no existe");
+        }
+    }
+    
+
     public Cliente obtenerCliente(String identificacion) {
-        Cliente clienteBuscado=null;
+        Cliente clienteBuscado = null;
         for (Cliente cliente : clientes) {
             if (cliente.getIdentificacion().equals(identificacion)) {
-                clienteBuscado=cliente;
+                clienteBuscado = cliente;
             }
         }
-        return clienteBuscado; 
+        return clienteBuscado;
     }
 
     public void agregarCliente(Cliente cliente) {
@@ -357,8 +365,17 @@ public class Concesionario implements Serializable {
             throw new IllegalArgumentException("El cliente con esa identificación ya existe");
         }
     }
-    
-    public void calcularPrecioReserva(DetalleTransaccion detalleTransaccion,Vehiculo vehiculo) {
+
+    public void eliminarEmpleado(String identificacion){
+        for(Empleado empleado: empleados){
+            if(empleado.getIdentificacion().equals(identificacion)){
+                empleados.remove(empleado);
+                break;
+            }
+        }
+    }
+
+    public void calcularPrecioTransaccionPrestamo(DetalleTransaccion detalleTransaccion, Vehiculo vehiculo) {
         if (detalleTransaccion.getDiasPrestamo() <= 0) {
             throw new IllegalArgumentException("El número de días debe ser mayor a 0");
         }
@@ -370,31 +387,41 @@ public class Concesionario implements Serializable {
         if (cliente == null || empleado == null) {
             throw new IllegalArgumentException("Cliente o Empleado no pueden ser nulos");
         }
-    
-        Transaccion transaccion = new Transaccion(cliente, empleado);
-        ventas.add(transaccion);
-        return transaccion;
-    }
-    
-    public void agregarDetalleATransaccion(Transaccion transaccion, boolean esAlquiler, Vehiculo vehiculo, int cantidad) {
-        if (transaccion == null || vehiculo == null) {
-            throw new IllegalArgumentException("Transacción o Vehículo no pueden ser nulos");
+        Transaccion transaccionExistente = buscarTransaccionPorCliente(cliente);
+        if (transaccionExistente != null) {
+            return transaccionExistente;
+        } else {
+            Transaccion nuevaTransaccion = new Transaccion(cliente, empleado);
+            ventas.add(nuevaTransaccion);
+            return nuevaTransaccion;
         }
+    }
+
     
-        DetalleTransaccion detalle = new DetalleTransaccion(esAlquiler, vehiculo, cantidad);
+    private Transaccion buscarTransaccionPorCliente(Cliente cliente) {
+        Transaccion transaccionBuscada = null;
+        for (Transaccion transaccion : ventas) {
+            if (transaccion.getCliente().equals(cliente)) {
+                transaccionBuscada = transaccion;
+            }
+        }
+        return transaccionBuscada;
+    }
+
+    public void agregarDetalleATransaccion(Transaccion transaccion, DetalleTransaccion detalle, boolean esAlquiler) {
+        if (transaccion == null || detalle == null || detalle.getVehiculo() == null) {
+            throw new IllegalArgumentException("Transacción, Detalle o Vehículo no pueden ser nulos");
+        }
+        detalle.calcularSubtotal();
         transaccion.agregarDetallesTransaccion(detalle);
         transaccion.calcularTotal();
         // Gestionar el vehículo (vender o alquilar)
         if (esAlquiler) {
-            alquilarVehiculo(vehiculo);
+            alquilarVehiculo(detalle.getVehiculo());
         } else {
-            venderVehiculo(vehiculo);
+            venderVehiculo(detalle.getVehiculo());
         }
     }
-    
-    
-    
-    
     
 
 }

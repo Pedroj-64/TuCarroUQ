@@ -43,6 +43,12 @@ public class MenuInicioSesionEmpleadoController {
         return banderilla;
     }
 
+    public Empleado buscarEmpleado(String identificacion){
+        Empleado empleadoBuscado=null;
+        empleadoBuscado=concesionario.buscarEmpleado(identificacion);
+        return empleadoBuscado;
+    }
+
     /**
      * Método para generar una nueva contraseña y enviarla por correo electrónico.
      * 

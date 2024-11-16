@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.fxml.FXMLLoader;
+import java.io.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -23,13 +24,20 @@ public class App extends Application {
     public void init() {
         // Cargar el estado de Concesionario
         try {
-            concesionario = Serializador.cargarEstado(ARCHIVO_SERIALIZACION);
-            System.out.println("Estado del concesionario cargado exitosamente.");
+            File archivo = new File(ARCHIVO_SERIALIZACION);
+            if (archivo.exists()) {
+                concesionario = Serializador.cargarEstado(ARCHIVO_SERIALIZACION);
+                System.out.println("Estado del concesionario cargado exitosamente.");
+            } else {
+                concesionario = Concesionario.getInstance();
+                System.out.println("No se encontró el archivo de estado, se creó una nueva instancia del concesionario.");
+            }
         } catch (IOException | ClassNotFoundException e) {
             concesionario = Concesionario.getInstance();
             System.out.println("No se pudo cargar el estado del concesionario, se creó una nueva instancia.");
         }
     }
+    
 
     @Override
     public void start(Stage stage) {
@@ -79,6 +87,19 @@ public class App extends Application {
         alert.setContentText(message); // Establece el mensaje de la alerta
         alert.showAndWait(); // Muestra la alerta y espera a que el usuario la cierre
     }
+
+    public static void showAlertAndRedirect(String title, String message, AlertType type, String fxml, double width, double height) {
+        Alert alert = new Alert(type); // Crea una nueva alerta del tipo especificado
+        alert.setTitle(title); // Establece el título de la alerta
+        alert.setHeaderText(null); // Establece que no hay texto de cabecera
+        alert.setContentText(message); // Establece el mensaje de la alerta
+    
+        // Añadir un listener para redirigir después de que la alerta se cierre
+        alert.setOnHidden(evt -> loadScene(fxml, width, height));
+    
+        alert.show(); // Muestra la alerta
+    }
+    
 
     public static Concesionario getConcesionario() {
         return concesionario;

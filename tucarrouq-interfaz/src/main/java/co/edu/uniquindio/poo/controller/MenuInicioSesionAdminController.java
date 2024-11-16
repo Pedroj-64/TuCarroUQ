@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.controller;
 
 import co.edu.uniquindio.poo.model.Concesionario;
+import co.edu.uniquindio.poo.model.Empleado;
 import co.edu.uniquindio.poo.model.Administrador;
 
 import java.security.SecureRandom;
@@ -47,6 +48,12 @@ public class MenuInicioSesionAdminController {
         }
 
         return banderilla;
+    }
+
+    public Empleado buscarEmpleado(String identificacion){
+        Empleado empleadoBuscado=null;
+        empleadoBuscado=concesionario.buscarEmpleado(identificacion);
+        return empleadoBuscado;
     }
 
     /**

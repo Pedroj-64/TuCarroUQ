@@ -12,7 +12,7 @@ public class DetalleTransaccion implements Serializable {
     private boolean esAlquiler;
     private Vehiculo vehiculo;
 
-    public DetalleTransaccion(boolean esAlquiler, Vehiculo vehiculo, int cantidad) {
+    public DetalleTransaccion(boolean esAlquiler, Vehiculo vehiculo) {
         if (vehiculo == null) {
             throw new IllegalArgumentException("El vehículo no puede ser nulo");
         }
@@ -20,7 +20,6 @@ public class DetalleTransaccion implements Serializable {
             throw new IllegalArgumentException("La cantidad debe ser mayor a 0");
         }
 
-        this.cantidad = cantidad;
         this.esAlquiler = esAlquiler;
         this.vehiculo = vehiculo;
     }
@@ -99,11 +98,11 @@ public class DetalleTransaccion implements Serializable {
         this.fechaEntregaPrestamo = fechaEntregaPrestamo;
     }
 
-    public void calcularDiferenciaDias(LocalDate fechaActual, LocalDate fechaEntregaPrestamo) {
-        if (fechaActual == null || fechaEntregaPrestamo == null) {
+    public void calcularDiferenciaDias(LocalDate fechaEntregaPrestamo) {
+        if (this.fechaActual == null || fechaEntregaPrestamo == null) {
             throw new IllegalArgumentException("Las fechas no pueden ser nulas");
         }
-        int dias = (int) ChronoUnit.DAYS.between(fechaActual, fechaEntregaPrestamo);
+        int dias = (int) ChronoUnit.DAYS.between(this.fechaActual, fechaEntregaPrestamo);
         setDiasPrestamo(dias);
     }
 

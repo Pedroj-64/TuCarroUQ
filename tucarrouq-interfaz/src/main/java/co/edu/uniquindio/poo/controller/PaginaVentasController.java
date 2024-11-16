@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 public class PaginaVentasController {
 
     Concesionario concesionario = App.getConcesionario();
-    Vehiculo vehiculoSeleccionado=null;
+
 
     public ObservableList<Vehiculo> obtenerVehiculos() {
         if (concesionario == null) {
@@ -19,13 +19,8 @@ public class PaginaVentasController {
         return FXCollections.observableArrayList(concesionario.getVehiculos());
     }
 
-    public Vehiculo getVehiculoSeleccionado() {
-        return vehiculoSeleccionado;
-    }
 
-    public void setVehiculoSeleccionado(Vehiculo vehiculoSeleccionado) {
-        this.vehiculoSeleccionado = vehiculoSeleccionado;
-    }
+
 
 
 }

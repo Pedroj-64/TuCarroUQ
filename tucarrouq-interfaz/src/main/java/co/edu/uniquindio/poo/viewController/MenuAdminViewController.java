@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.viewController;
 
 import co.edu.uniquindio.poo.App;
+import co.edu.uniquindio.poo.controller.AppControllerSingleton;
 import co.edu.uniquindio.poo.controller.MenuAdminController;
 import javafx.event.ActionEvent;
 
@@ -64,7 +65,7 @@ public class MenuAdminViewController {
     }
 
     private void accionVerEmpleados(ActionEvent event){
-        App.loadScene(null, 0, 0);
+        App.loadScene("editarEmpleados", 800, 540);
 
     }
 
@@ -81,6 +82,7 @@ public class MenuAdminViewController {
     private void accionCerrarSesion(ActionEvent event) {
         try {
             App.loadScene("menuInicio", 800, 540);
+            AppControllerSingleton.getInstance().cerrarSesion();
         } catch (Exception e) {
             // Muestra un mensaje de alerta en caso de error al cargar la escena.
             App.showAlert("Error al Cargar Escena", "Ocurrió un error al regresar al menú de inicio: " + e.getMessage(),

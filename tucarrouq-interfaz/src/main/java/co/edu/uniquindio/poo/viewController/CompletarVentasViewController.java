@@ -16,6 +16,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Controlador de la vista para completar ventas, incluyendo la funcionalidad
+ * de alquilar y vender vehículos.
+ */
 public class CompletarVentasViewController {
 
     private CompletarVentasController completarVentasController = new CompletarVentasController();
@@ -47,6 +51,11 @@ public class CompletarVentasViewController {
     @FXML
     private TextField txt_TipoVehiculo;
 
+    /**
+     * Método de inicialización llamado por JavaFX después de la carga del FXML.
+     * Configura la vista del vehículo, carga los clientes y asigna las acciones a
+     * los botones.
+     */
     @FXML
     public void initialize() {
         configurarVistaVehiculo();
@@ -54,6 +63,10 @@ public class CompletarVentasViewController {
         configurarAccionesBotones();
     }
 
+    /**
+     * Configura los campos de texto de la vista con la información del vehículo
+     * seleccionado.
+     */
     private void configurarVistaVehiculo() {
         Vehiculo vehiculo = completarVentasController.obtenerVehiculoInterfazAnterior();
         if (vehiculo != null) {
@@ -67,37 +80,67 @@ public class CompletarVentasViewController {
         }
     }
 
+    /**
+     * Configura las acciones de los botones para alquilar, regresar y vender.
+     */
     private void configurarAccionesBotones() {
         btn_Alquilar.setOnAction(this::accionAlquilar);
         btn_Regresar.setOnAction(this::accionRegresar);
         btn_Vender.setOnAction(this::accionVender);
     }
 
+    /**
+     * Acción que se ejecuta al pulsar el botón de alquilar.
+     * 
+     * @param event El evento de acción.
+     */
     private void accionAlquilar(ActionEvent event) {
         LocalDate fechaDevolucion = date_DiaDevolucion.getValue();
         Cliente cliente = cmb_Clientes.getValue();
 
-        boolean exi
-    }
-    
-
-    private void accionVender(ActionEvent event) {
-        boolean resultado = completarVentasController.venderVehiculo();
+        boolean resultado = completarVentasController.alquilarVehiculo(fechaDevolucion, cliente);
         if (resultado) {
-            App.showAlert("Éxito", "El vehículo ha sido vendido correctamente", Alert.AlertType.INFORMATION);
+            App.showAlertAndRedirect("Éxito",
+                    "El vehículo ha sido alquilado correctamente. Será redirigido al menú principal.",
+                    Alert.AlertType.INFORMATION, "MenuAdmin", 800, 540);
         } else {
-            App.showAlert("Error", "No se pudo vender el vehículo", Alert.AlertType.ERROR);
+            App.showAlertAndRedirect("Error", "No se pudo alquilar el vehículo. Será redirigido al menú principal.",
+                    Alert.AlertType.ERROR, "MenuAdmin", 800, 540);
         }
     }
 
+    /**
+     * Acción que se ejecuta al pulsar el botón de vender.
+     * 
+     * @param event El evento de acción.
+     */
+    private void accionVender(ActionEvent event) {
+        Cliente cliente = cmb_Clientes.getValue();
+        boolean resultado = completarVentasController.venderVehiculo(cliente);
+        if (resultado) {
+            App.showAlertAndRedirect("Éxito",
+                    "El vehículo ha sido vendido correctamente. Será redirigido al menú principal.",
+                    Alert.AlertType.INFORMATION, "MenuAdmin", 800, 540);
+        } else {
+            App.showAlertAndRedirect("Error", "No se pudo vender el vehículo. Será redirigido al menú principal.",
+                    Alert.AlertType.ERROR, "MenuAdmin", 800, 540);
+        }
+    }
+
+    /**
+     * Acción que se ejecuta al pulsar el botón de regresar.
+     * 
+     * @param event El evento de acción.
+     */
     private void accionRegresar(ActionEvent event) {
         App.loadScene("paginaVentas", 630, 450);
     }
 
+    /**
+     * Carga la lista de clientes en el ComboBox.
+     */
     private void cargarClientes() {
         ObservableList<Cliente> clientes = completarVentasController.obtenerClientes();
         cmb_Clientes.setItems(clientes);
     }
 }
-
-
