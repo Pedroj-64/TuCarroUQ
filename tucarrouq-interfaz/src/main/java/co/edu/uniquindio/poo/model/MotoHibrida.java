@@ -6,9 +6,9 @@ public class MotoHibrida extends VehiculoHibrido{
 
     public MotoHibrida(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
-            boolean hibridoLigero, boolean revisionTecnica, String tipoMotocicleta) {
+            boolean hibridoLigero, boolean revisionTecnica,int numeroCambios ,String tipoMotocicleta) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                enchufable, hibridoLigero, revisionTecnica);
+                enchufable, hibridoLigero, revisionTecnica,numeroCambios);
         this.tipoMotocicleta = tipoMotocicleta;
     }
 

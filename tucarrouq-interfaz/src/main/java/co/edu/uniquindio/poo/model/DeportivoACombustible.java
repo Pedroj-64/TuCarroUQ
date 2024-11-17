@@ -8,10 +8,10 @@ public class DeportivoACombustible extends VehiculoACombustible {
 
     public DeportivoACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
-            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroPasajeros,
+            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica,int numeroCambios ,int numeroPasajeros,
             int numeroPuertas, int numeroBolsasAire, int caballosDeFuerza, double tiempoQueAlcanza100kmh) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica);
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica,numeroCambios);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
         this.numeroBolsasAire = numeroBolsasAire;

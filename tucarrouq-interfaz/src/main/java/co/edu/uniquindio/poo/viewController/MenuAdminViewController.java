@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.viewController;
 
+
+
 import co.edu.uniquindio.poo.App;
 import co.edu.uniquindio.poo.controller.AppControllerSingleton;
 import co.edu.uniquindio.poo.controller.MenuAdminController;
@@ -54,34 +56,34 @@ public class MenuAdminViewController {
 
     }
 
-    private void accionGenerarReporte(ActionEvent event){
-        menuAdminController.generarReporte();
+    private void accionGenerarReporte(ActionEvent event) {
+        App.loadScene("menuReportes", 800, 540);
 
     }
 
-    private void accionVerAutosDisponibles(ActionEvent event){
+    private void accionVerAutosDisponibles(ActionEvent event) {
         App.loadScene("editarInvetario", 800, 540);
 
     }
 
-    private void accionVerEmpleados(ActionEvent event){
+    private void accionVerEmpleados(ActionEvent event) {
         App.loadScene("editarEmpleados", 800, 540);
 
     }
 
-    private void accionVerClientes(ActionEvent event){
+    private void accionVerClientes(ActionEvent event) {
 
-        App.loadScene(null, 0, 0);
+        App.loadScene("editarClientes", 800, 540);
     }
 
-    private void accionVerPaginaVentas(ActionEvent event){
+    private void accionVerPaginaVentas(ActionEvent event) {
         App.loadScene("paginaVentas", 800, 540);
 
     }
 
     private void accionCerrarSesion(ActionEvent event) {
         try {
-            App.loadScene("menuInicio", 800, 540);
+            App.goBack();
             AppControllerSingleton.getInstance().cerrarSesion();
         } catch (Exception e) {
             // Muestra un mensaje de alerta en caso de error al cargar la escena.

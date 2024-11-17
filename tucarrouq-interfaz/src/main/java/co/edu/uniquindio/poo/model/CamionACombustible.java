@@ -10,10 +10,10 @@ public class CamionACombustible extends VehiculoACombustible  {
 
     public CamionACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
-            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, String tipoCamion,
+            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica,int numeroCambios ,String tipoCamion,
             int capacidadCarga, int numeroEjes, boolean aireAcondicionado, boolean frenosDeAire, boolean frenosABS) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica);
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica,numeroCambios);
         this.tipoCamion = tipoCamion;
         this.capacidadCarga = capacidadCarga;
         this.numeroEjes = numeroEjes;

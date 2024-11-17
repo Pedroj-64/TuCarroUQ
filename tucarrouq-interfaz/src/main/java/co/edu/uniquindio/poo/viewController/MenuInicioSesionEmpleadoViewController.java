@@ -72,7 +72,7 @@ public class MenuInicioSesionEmpleadoViewController {
 
     private void accionRegresarAlInicio(ActionEvent event) {
         try {
-            App.loadScene("menuInicio", 800, 540);
+            App.goBack();
         } catch (Exception e) {
             // Muestra un mensaje de alerta en caso de error al cargar la escena.
             App.showAlert("Error al Cargar Escena", "Ocurrió un error al regresar al menú de inicio: " + e.getMessage(),

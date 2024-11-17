@@ -5,23 +5,23 @@ package co.edu.uniquindio.poo.model;
 public class CamionetaHibrida extends VehiculoHibrido  {
 
     private int numeroPuertas, numeroPasajeros, capacidadMaletero, numeroBolsasAire;
-    private boolean aireAcondicionado, frenosABS, camaraReversa, velocidadCrucero, sensorColision, sensorTraficoCruzado,
+    private boolean aireAcondicionado, ABS, camaraReversa, velocidadCrucero, sensorColision, sensorTraficoCruzado,
             asistentePermanenciaEnCarril, es4x4;
 
     public CamionetaHibrida(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
-            boolean hibridoLigero, boolean revisionTecnica, int numeroPuertas, int numeroPasajeros,
-            int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean frenosABS,
+            boolean hibridoLigero, boolean revisionTecnica,int numeroCambios ,int numeroPuertas, int numeroPasajeros,
+            int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean ABS,
             boolean camaraReversa, boolean velocidadCrucero, boolean sensorColision, boolean sensorTraficoCruzado,
             boolean asistentePermanenciaEnCarril, boolean es4x4) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                enchufable, hibridoLigero, revisionTecnica);
+                enchufable, hibridoLigero, revisionTecnica,numeroCambios);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.capacidadMaletero = capacidadMaletero;
         this.numeroBolsasAire = numeroBolsasAire;
         this.aireAcondicionado = aireAcondicionado;
-        this.frenosABS = frenosABS;
+        this.ABS = ABS;
         this.camaraReversa = camaraReversa;
         this.velocidadCrucero = velocidadCrucero;
         this.sensorColision = sensorColision;
@@ -71,11 +71,11 @@ public class CamionetaHibrida extends VehiculoHibrido  {
     }
 
     public boolean isFrenosABS() {
-        return frenosABS;
+        return ABS;
     }
 
-    public void setFrenosABS(boolean frenosABS) {
-        this.frenosABS = frenosABS;
+    public void setFrenosABS(boolean ABS) {
+        this.ABS = ABS;
     }
 
     public boolean isCamaraReversa() {
@@ -130,7 +130,7 @@ public class CamionetaHibrida extends VehiculoHibrido  {
     public String toString() {
         return "CamionetaHibrida [numeroPuertas=" + numeroPuertas + ", numeroPasajeros=" + numeroPasajeros
                 + ", capacidadMaletero=" + capacidadMaletero + ", numeroBolsasAire=" + numeroBolsasAire
-                + ", aireAcondicionado=" + aireAcondicionado + ", frenosABS=" + frenosABS + ", camaraReversa="
+                + ", aireAcondicionado=" + aireAcondicionado + ", frenosABS=" + ABS + ", camaraReversa="
                 + camaraReversa + ", velocidadCrucero=" + velocidadCrucero + ", sensorColision=" + sensorColision
                 + ", sensorTraficoCruzado=" + sensorTraficoCruzado + ", asistentePermanenciaEnCarril="
                 + asistentePermanenciaEnCarril + ", es4x4=" + es4x4 + "]";

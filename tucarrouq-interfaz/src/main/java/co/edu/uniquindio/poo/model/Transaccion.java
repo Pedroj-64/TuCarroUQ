@@ -2,12 +2,12 @@ package co.edu.uniquindio.poo.model;
 
 import java.io.Serializable;
 import java.security.SecureRandom;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.LinkedList;
 
 public class Transaccion implements Serializable {
-    private LocalDate fechaTransaccion = LocalDate.now();
+    private LocalDateTime fechaTransaccion = LocalDateTime.now();
     private double total = 0;
     private Collection<DetalleTransaccion> detallesTransaccion;
     private Cliente cliente;
@@ -25,11 +25,11 @@ public class Transaccion implements Serializable {
         this.detallesTransaccion = new LinkedList<>();
     }
 
-    public LocalDate getFechaTransaccion() {
+    public LocalDateTime getFechaTransaccion() {
         return fechaTransaccion;
     }
 
-    public void setFechaTransaccion(LocalDate fechaTransaccion) {
+    public void setFechaTransaccion(LocalDateTime fechaTransaccion) {
         if (fechaTransaccion == null) {
             throw new IllegalArgumentException("La fecha de transacción no puede ser nula");
         }
@@ -112,11 +112,15 @@ public class Transaccion implements Serializable {
         setTotal(total);
     }
 
-
-
     @Override
     public String toString() {
-        return "Transaccion [fechaTransaccion=" + fechaTransaccion + ", total=" + total + ", detallesTransaccion="
-                + detallesTransaccion + ", cliente=" + cliente + ", empleado=" + empleado + ", id=" + id + "]";
+        return String.format("ID: %s | Fecha: %s | Total: %.2f | Cliente: %s | Empleado: %s\nDetalles: %s",
+                id,
+                fechaTransaccion,
+                total,
+                cliente.getNombre(),
+                empleado.getNombre(),
+                detallesTransaccion.toString());
     }
+
 }

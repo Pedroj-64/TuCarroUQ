@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label id="lbl.opcionesempleado" layoutX="185.0" layoutY="29.0" prefHeight="25.0" prefWidth="169.0" text="Gestor de reportes" textAlignment="CENTER" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <Button id="btn.agregarcliente" fx:id="btn_ReporteEmpleado" layoutX="325.0" layoutY="303.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="Generar Reporte" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Label id="lbl.agregarclientes" layoutX="251.0" layoutY="124.0" text="Elija la fecha desde la cual quiere el reporte" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button id="btn.salir" fx:id="btn_Regresar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Button id="btn.agregarcliente" fx:id="btn_ReporteConcesionario" layoutX="22.0" layoutY="117.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="169.0" text="Reporte Concesionario" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Label id="lbl.agregarclientes" layoutX="26.0" layoutY="81.0" text="Reporte General" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView id="img.logo" fitHeight="108.0" fitWidth="132.0" layoutX="453.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagenes/img1.png" />
+         </image>
+      </ImageView>
+      <Label id="lbl.agregarclientes" layoutX="14.0" layoutY="190.0" prefHeight="57.0" prefWidth="132.0" text="Recuerde el reporte" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label id="lbl.agregarclientes" layoutX="14.0" layoutY="232.0" prefHeight="57.0" prefWidth="132.0" text="Se hace desde la " textFill="WHITE" underline="true">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label id="lbl.agregarclientes" layoutX="14.0" layoutY="274.0" prefHeight="57.0" prefWidth="169.0" text="Fecha indicada a hoy" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="date_FechaReporte" layoutX="300.0" layoutY="158.0" prefHeight="31.0" prefWidth="192.0" />
+      <Label id="lbl.agregarclientes" layoutX="251.0" layoutY="208.0" text="Elija el empleado del cual quiere saber su reporte " textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmb_Empleados" layoutX="314.0" layoutY="240.0" prefHeight="25.0" prefWidth="169.0" promptText="Empleado (Existente)" />
+   </children>
+</AnchorPane>

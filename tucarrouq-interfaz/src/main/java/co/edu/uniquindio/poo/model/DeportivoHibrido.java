@@ -9,10 +9,10 @@ public class DeportivoHibrido extends VehiculoHibrido {
 
     public DeportivoHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
-            boolean hibridoLigero, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
+            boolean hibridoLigero, boolean revisionTecnica,int numeroCambios ,int numeroPasajeros, int numeroPuertas,
             int numeroBolsasAire, int caballosDeFuerza, double tiempoQueAlcanza100kmh) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                enchufable, hibridoLigero, revisionTecnica);
+                enchufable, hibridoLigero, revisionTecnica,numeroCambios);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
         this.numeroBolsasAire = numeroBolsasAire;

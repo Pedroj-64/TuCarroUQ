@@ -1,17 +1,18 @@
 package co.edu.uniquindio.poo.model;
 
-public class PickUpACombustible extends VehiculoACombustible{
+public class PickUpACombustible extends VehiculoACombustible {
 
     private int numeroPuertas, numeroPasajeros, numeroBolsasAire, capacidadCajaDeCarga;
     private boolean aireAcondicionado, camaraReversa, frenosABS, es4x4;
-    
+
     public PickUpACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
-            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroPuertas,
+            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroCambios,
+            int numeroPuertas,
             int numeroPasajeros, int numeroBolsasAire, int capacidadCajaDeCarga, boolean aireAcondicionado,
             boolean camaraReversa, boolean frenosABS, boolean es4x4) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica);
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.numeroBolsasAire = numeroBolsasAire;
@@ -94,6 +95,4 @@ public class PickUpACombustible extends VehiculoACombustible{
                 + frenosABS + ", es4x4=" + es4x4 + "]";
     }
 
-    
-    
 }

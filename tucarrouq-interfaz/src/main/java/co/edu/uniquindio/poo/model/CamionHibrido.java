@@ -6,20 +6,20 @@ public class CamionHibrido extends VehiculoHibrido  {
 
     private String tipoCamion;
     private int capacidadCarga, numeroEjes;
-    private boolean aireAcondicionado, frenosDeAire, frenosABS;
+    private boolean aireAcondicionado, frenosDeAire, ABS;
 
     public CamionHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
-            boolean hibridoLigero, boolean revisionTecnica, String tipoCamion, int capacidadCarga, int numeroEjes,
-            boolean aireAcondicionado, boolean frenosDeAire, boolean frenosABS) {
+            boolean hibridoLigero, boolean revisionTecnica,int numeroCambios ,String tipoCamion, int capacidadCarga, int numeroEjes,
+            boolean aireAcondicionado, boolean frenosDeAire, boolean ABS) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                enchufable, hibridoLigero, revisionTecnica);
+                enchufable, hibridoLigero, revisionTecnica,numeroCambios);
         this.tipoCamion = tipoCamion;
         this.capacidadCarga = capacidadCarga;
         this.numeroEjes = numeroEjes;
         this.aireAcondicionado = aireAcondicionado;
         this.frenosDeAire = frenosDeAire;
-        this.frenosABS = frenosABS;
+        this.ABS = ABS;
     }
 
     public String getTipoCamion() {
@@ -63,18 +63,18 @@ public class CamionHibrido extends VehiculoHibrido  {
     }
 
     public boolean isFrenosABS() {
-        return frenosABS;
+        return ABS;
     }
 
-    public void setFrenosABS(boolean frenosABS) {
-        this.frenosABS = frenosABS;
+    public void setFrenosABS(boolean ABS) {
+        this.ABS = ABS;
     }
 
     @Override
     public String toString() {
         return "CamionHibrido [tipoCamion=" + tipoCamion + ", capacidadCarga=" + capacidadCarga + ", numeroEjes="
                 + numeroEjes + ", aireAcondicionado=" + aireAcondicionado + ", frenosDeAire=" + frenosDeAire
-                + ", frenosABS=" + frenosABS + "]";
+                + ", frenosABS=" + ABS + "]";
     }
 
 }

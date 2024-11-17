@@ -7,11 +7,11 @@ public class PickUpHibrida extends VehiculoHibrido {
 
     public PickUpHibrida(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
-            boolean hibridoLigero, boolean revisionTecnica, int numeroPuertas, int numeroPasajeros,
+            boolean hibridoLigero, boolean revisionTecnica,int numeroCambios ,int numeroPuertas, int numeroPasajeros,
             int numeroBolsasAire, int capacidadCajaDeCarga, boolean aireAcondicionado, boolean camaraReversa,
             boolean frenosABS, boolean es4x4) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                enchufable, hibridoLigero, revisionTecnica);
+                enchufable, hibridoLigero, revisionTecnica,numeroCambios);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.numeroBolsasAire = numeroBolsasAire;

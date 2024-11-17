@@ -13,11 +13,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView id="img.logo" fitHeight="87.0" fitWidth="108.0" layoutX="479.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../../../../TuCarroUQ/TuCarroUQ/tucarrouq-interfaz/src/main/resources/co/edu/uniquindio/poo/imagenes/img1.png" />
-         </image>
-      </ImageView>
       <Label id="lbl.opcionesempleado" layoutX="115.0" layoutY="33.0" prefHeight="25.0" prefWidth="169.0" text="Opciones Empleado" textAlignment="CENTER" textFill="WHITE" underline="true">
          <font>
             <Font name="Comic Sans MS Bold" size="18.0" />
@@ -26,7 +21,7 @@
             <Blend />
          </effect>
       </Label>
-      <Button id="btn.agregarcliente" layoutX="220.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="Agregar cliente" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.agregarcliente" fx:id="btn_AgregarCliente" layoutX="220.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="Agregar cliente" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -46,12 +41,12 @@
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
-      <Label id="lbl.RelizarVenta" layoutX="37.0" layoutY="179.0" text="Realizar venta/alquiler" textFill="WHITE">
+      <Label id="lbl.RelizarVenta" layoutX="39.0" layoutY="200.0" text="Realizar venta/alquiler" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
-      <Button id="btn.paginaVentas" layoutX="48.0" layoutY="225.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Pagina ventas" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.paginaVentas" fx:id="btn_RealizarVenta" layoutX="48.0" layoutY="225.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" text="Pagina ventas" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -66,12 +61,7 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Label id="lbl.Comprar vehiculo" layoutX="42.0" layoutY="197.0" text="o compra de vehiculo" textFill="WHITE">
-         <font>
-            <Font name="Comic Sans MS Bold" size="14.0" />
-         </font>
-      </Label>
-      <Button id="btn.salir" layoutX="469.0" layoutY="337.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="116.0" text="Salir" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.salir" fx:id="btn_CerrarSesion" layoutX="469.0" layoutY="337.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="116.0" text="Cerrar Sesion" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
@@ -86,16 +76,6 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Label id="lbl.ModAutos" layoutX="80.0" layoutY="125.0" text="V/A" textFill="WHITE">
-         <font>
-            <Font name="Comic Sans MS Bold Italic" size="36.0" />
-         </font>
-      </Label>
-      <Label id="lbl.add" layoutX="264.0" layoutY="175.0" text="Add" textFill="WHITE">
-         <font>
-            <Font name="Comic Sans MS Bold Italic" size="36.0" />
-         </font>
-      </Label>
       <Label id="lbl.frase" layoutX="55.0" layoutY="314.0" text="&quot;La mayoria de las personas" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
@@ -116,5 +96,30 @@
             <Font name="Comic Sans MS Bold Italic" size="12.0" />
          </font>
       </Label>
+      <Button id="btn.agregarcliente" fx:id="btn_AgregarVehiculo" layoutX="35.0" layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" text="Agregar Vehiculo" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Label id="lbl.agregarclientes" layoutX="58.0" layoutY="101.0" text="Nuevo Vehiculo" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView id="img.logo" fitHeight="108.0" fitWidth="132.0" layoutX="427.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagenes/img1.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

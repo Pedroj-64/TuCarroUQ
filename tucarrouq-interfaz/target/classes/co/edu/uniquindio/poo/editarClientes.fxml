@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <tabs>
+      <Tab fx:id="tab_CrearClientes" text="Crear Clientes">
+         <content>
+            <AnchorPane fx:id="Tan" minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="680.0" style="-fx-background-color: #080808;">
+               <children>
+                  <ButtonBar layoutX="380.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" />
+                  <ImageView id="img.logo" fitHeight="87.0" fitWidth="108.0" layoutX="486.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/img1.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="txt_NombreClienteCrear" layoutX="103.0" layoutY="121.0" />
+                  <TextField fx:id="txt_TelefonoCrear" layoutX="271.0" layoutY="121.0" />
+                  <TextField fx:id="txt_IdentificacionCrear" layoutX="103.0" layoutY="190.0" />
+                  <TextField fx:id="txt_DireccionCrear" layoutX="279.0" layoutY="190.0" prefHeight="25.0" prefWidth="148.0" />
+                  <Label id="lbl.opcionesAdmin" layoutX="154.0" layoutY="22.0" text="Creacion De Cliente" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Label id="lbl.opcionesAdmin" layoutX="100.0" layoutY="80.0" prefHeight="41.0" prefWidth="155.0" text="Nombre:" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Label id="lbl.opcionesAdmin" layoutX="268.0" layoutY="82.0" prefHeight="41.0" prefWidth="186.0" text="Telefono De Contacto:" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Label id="lbl.opcionesAdmin" layoutX="100.0" layoutY="149.0" prefHeight="41.0" prefWidth="155.0" text="Identificacion:" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Label id="lbl.opcionesAdmin" layoutX="278.0" layoutY="149.0" prefHeight="41.0" prefWidth="173.0" text="Direccion:" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Button fx:id="btn_CrearCliente" layoutX="209.0" layoutY="254.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="139.0" text="Crear">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_Regresar" layoutX="22.0" layoutY="22.0" mnemonicParsing="false" text="Regresar">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="tab_EditarClientes" text="Editar Clientes">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #080808;">
+               <children>
+                  <ImageView id="img.logo" fitHeight="67.0" fitWidth="93.0" layoutX="101.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/img1.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="txt_TelefonoActulizar" layoutX="187.0" layoutY="186.0" />
+                  <TextField fx:id="txt_DireccionActualizar" layoutX="102.0" layoutY="225.0" />
+                  <TextField fx:id="txt_IdentificacionActualizar" layoutX="130.0" layoutY="138.0" />
+                  <TextField fx:id="txt_NombreActulizar" layoutX="74.0" layoutY="84.0" prefHeight="25.0" prefWidth="172.0" />
+                  <Label id="lbl.opcionesAdmin" layoutX="187.0" layoutY="37.0" prefHeight="25.0" prefWidth="193.0" text="Gestion de Clientela" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Label id="lbl.opcionesAdmin" layoutX="14.0" layoutY="217.0" prefHeight="41.0" prefWidth="155.0" text="Direccion:" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Label id="lbl.opcionesAdmin" layoutX="5.0" layoutY="76.0" prefHeight="41.0" prefWidth="155.0" text="Nombre:" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Label id="lbl.opcionesAdmin" layoutX="14.0" layoutY="130.0" prefHeight="41.0" prefWidth="155.0" text="Identificacion:" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Label id="lbl.opcionesAdmin" layoutX="14.0" layoutY="178.0" prefHeight="41.0" prefWidth="173.0" text="Telefono De Contacto:" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <Button fx:id="btn_Actulizar" layoutX="30.0" layoutY="301.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="100.0" text="Actulizar">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="tbl_Clientes" layoutX="410.0" layoutY="23.0" prefHeight="332.0" prefWidth="176.0">
+                     <columns>
+                        <TableColumn fx:id="tbc_ClientesActuales" prefWidth="175.0" text="Clientes (Activos)" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="btn_Regresar1" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" text="Regresar">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_Eliminar" layoutX="176.0" layoutY="301.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="100.0" text="Eliminar">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

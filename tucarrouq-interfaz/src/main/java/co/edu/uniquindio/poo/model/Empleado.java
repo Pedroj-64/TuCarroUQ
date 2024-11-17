@@ -37,6 +37,6 @@ public class Empleado extends Usuario {
 
     @Override
     public String toString() {
-        return "La persona: " + super.toString() + " es Empleado [transacciones=" + transacciones + "]";
+        return getNombre();
     }
 }

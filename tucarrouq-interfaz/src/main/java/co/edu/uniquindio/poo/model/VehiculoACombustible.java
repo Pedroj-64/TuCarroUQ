@@ -1,23 +1,23 @@
 package co.edu.uniquindio.poo.model;
 
-
-
 public abstract class VehiculoACombustible extends Vehiculo {
 
     private String tipoCombustible;
     private int autonomiaTanqueLleno, capacidadTanque, cilindraje;
     private boolean revisionTecnica;
+    private int numeroCambios;
 
     public VehiculoACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo,
-            double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible, int autonomiaTanqueLleno,
-            int capacidadTanque, int cilindraje, boolean revisionTecnica) {
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
+            int autonomiaTanqueLleno,
+            int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroCambios) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo);
         this.tipoCombustible = tipoCombustible;
         this.autonomiaTanqueLleno = autonomiaTanqueLleno;
         this.capacidadTanque = capacidadTanque;
         this.cilindraje = cilindraje;
         this.revisionTecnica = revisionTecnica;
+        this.numeroCambios = numeroCambios;
     }
 
     public int getAutonomiaTanqueLleno() {
@@ -60,12 +60,19 @@ public abstract class VehiculoACombustible extends Vehiculo {
         this.revisionTecnica = revisionTecnica;
     }
 
+    public int getNumeroCambios() {
+        return numeroCambios;
+    }
+
+    public void setNumeroCambios(int numeroCambios) {
+        this.numeroCambios = numeroCambios;
+    }
+
     @Override
     public String toString() {
-        return "VehiculoACombustible [autonomiaTanqueLleno=" + autonomiaTanqueLleno + ", capacidadTanqueLleno="
-                + capacidadTanque + ", tipoCombustible=" + tipoCombustible + "cilindraje=" + cilindraje
-                + "revisionTecnica=" + revisionTecnica + "]";
-
+        return "VehiculoACombustible [tipoCombustible=" + tipoCombustible + ", autonomiaTanqueLleno="
+                + autonomiaTanqueLleno + ", capacidadTanque=" + capacidadTanque + ", cilindraje=" + cilindraje
+                + ", revisionTecnica=" + revisionTecnica + ", numeroCambios=" + numeroCambios + "]";
     }
 
 }

@@ -6,13 +6,13 @@ public class BusElectrico extends VehiculoElectrico {
 
     private int numeroPasajeros, numeroPuertas, capacidadMaletero, numeroBolsasAire, numeroEjes,
             numeroSalidasEmergencia;
-    private boolean aireAcondicionado, camaraReversa, frenosABS;
+    private boolean aireAcondicionado, camaraReversa, ABS;
 
     public BusElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
             int capacidadMaletero, int numeroBolsasAire, int numeroEjes, int numeroSalidasEmergencia,
-            boolean aireAcondicionado, boolean camaraReversa, boolean frenosABS) {
+            boolean aireAcondicionado, boolean camaraReversa, boolean ABS) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
                 autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
         this.numeroPasajeros = numeroPasajeros;
@@ -23,7 +23,7 @@ public class BusElectrico extends VehiculoElectrico {
         this.numeroSalidasEmergencia = numeroSalidasEmergencia;
         this.aireAcondicionado = aireAcondicionado;
         this.camaraReversa = camaraReversa;
-        this.frenosABS = frenosABS;
+        this.ABS = ABS;
     }
 
     public int getNumeroPasajeros() {
@@ -91,11 +91,11 @@ public class BusElectrico extends VehiculoElectrico {
     }
 
     public boolean isFrenosABS() {
-        return frenosABS;
+        return ABS;
     }
 
-    public void setFrenosABS(boolean frenosABS) {
-        this.frenosABS = frenosABS;
+    public void setFrenosABS(boolean ABS) {
+        this.ABS = ABS;
     }
 
     @Override
@@ -104,7 +104,7 @@ public class BusElectrico extends VehiculoElectrico {
                 + ", capacidadMaletero=" + capacidadMaletero + ", numeroBolsasAire=" + numeroBolsasAire
                 + ", numeroEjes=" + numeroEjes + ", numeroSalidasEmergencia=" + numeroSalidasEmergencia
                 + ", aireAcondicionado=" + aireAcondicionado + ", camaraReversa=" + camaraReversa + ", frenosABS="
-                + frenosABS + "]";
+                + ABS + "]";
     }
 
 }

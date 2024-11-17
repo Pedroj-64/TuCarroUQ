@@ -129,10 +129,10 @@ public class PaginaVentasViewController {
 
     private void agregarCliente(ActionEvent event) {
 
-        App.loadScene(null, 0, 0);
+        App.loadScene("editarClientes", 639, 450);
     }
 
     private void accionRegresar(ActionEvent event) {
-        App.loadScene("menuInicio", 630, 450);
+        App.goBack();
     }
 }

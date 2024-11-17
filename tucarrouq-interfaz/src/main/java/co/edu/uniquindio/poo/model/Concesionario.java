@@ -1,9 +1,11 @@
 package co.edu.uniquindio.poo.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Concesionario implements Serializable {
     // Instancia única del Singleton
@@ -113,13 +115,13 @@ public class Concesionario implements Serializable {
 
     // Métodos para agregar empleados, administradores y vehículos
     public boolean existeEmpleado(String identificacion) {
-        boolean banderilla=false;
+        boolean banderilla = false;
         if (identificacion == null) {
             throw new IllegalArgumentException("La identificación no puede ser nula");
         }
         for (Empleado empleado : empleados) {
             if (empleado.getIdentificacion().equals(identificacion)) {
-                banderilla= true;
+                banderilla = true;
             }
         }
         return banderilla;
@@ -135,13 +137,13 @@ public class Concesionario implements Serializable {
     }
 
     public boolean existeAdministrador(String identificacion) {
-        boolean banderilla=false;
+        boolean banderilla = false;
         if (identificacion == null) {
             throw new IllegalArgumentException("La identificación no puede ser nula");
         }
         for (Administrador administrador : administradores) {
             if (administrador.getIdentificacion().equals(identificacion)) {
-               banderilla=true;
+                banderilla = true;
             }
         }
         return banderilla;
@@ -321,7 +323,7 @@ public class Concesionario implements Serializable {
         }
     }
 
-    public void actualizarCliente(String identificacion, String nombre,String telefono,String direccion) {
+    public void actualizarCliente(String identificacion, String nombre, String telefono, String direccion) {
         Cliente clienteExistente = obtenerCliente(identificacion);
         if (clienteExistente != null) {
             clienteExistente.setNombre(nombre);
@@ -332,8 +334,8 @@ public class Concesionario implements Serializable {
         }
     }
 
-
-    public void actualizarEmpleado(String nombre, String identificacion, String contrasena, String emailDeRecuperacion) {
+    public void actualizarEmpleado(String nombre, String identificacion, String contrasena,
+            String emailDeRecuperacion) {
         Empleado empleadoExistente = obtenerEmpleado(identificacion);
         if (empleadoExistente != null) {
             empleadoExistente.setNombre(nombre);
@@ -343,7 +345,6 @@ public class Concesionario implements Serializable {
             throw new IllegalArgumentException("El empleado no existe");
         }
     }
-    
 
     public Cliente obtenerCliente(String identificacion) {
         Cliente clienteBuscado = null;
@@ -366,9 +367,9 @@ public class Concesionario implements Serializable {
         }
     }
 
-    public void eliminarEmpleado(String identificacion){
-        for(Empleado empleado: empleados){
-            if(empleado.getIdentificacion().equals(identificacion)){
+    public void eliminarEmpleado(String identificacion) {
+        for (Empleado empleado : empleados) {
+            if (empleado.getIdentificacion().equals(identificacion)) {
                 empleados.remove(empleado);
                 break;
             }
@@ -397,7 +398,6 @@ public class Concesionario implements Serializable {
         }
     }
 
-    
     private Transaccion buscarTransaccionPorCliente(Cliente cliente) {
         Transaccion transaccionBuscada = null;
         for (Transaccion transaccion : ventas) {
@@ -422,6 +422,66 @@ public class Concesionario implements Serializable {
             venderVehiculo(detalle.getVehiculo());
         }
     }
-    
+
+    public String generarReportePorFechaEmpleado(LocalDate fechaDeseada, Empleado empleado) {
+    if (fechaDeseada == null) {
+        throw new IllegalArgumentException("La fecha deseada no puede ser nula.");
+    }
+    if (empleado == null) {
+        throw new IllegalArgumentException("El empleado no puede ser nulo.");
+    }
+
+    Collection<Transaccion> transaccionesEmpleado = empleado.getTransacciones();
+
+    Collection<Transaccion> transaccionesFiltradas = transaccionesEmpleado.stream()
+            .filter(transaccion -> transaccion.getFechaTransaccion().toLocalDate().isEqual(fechaDeseada))
+            .collect(Collectors.toList());
+
+    if (transaccionesFiltradas.isEmpty()) {
+        return String.format("No se encontraron transacciones para el empleado '%s' en la fecha %s.\n",
+                empleado.getNombre(), fechaDeseada);
+    }
+
+    StringBuilder reporte = new StringBuilder();
+    reporte.append("-------------------------------------------------\n");
+    reporte.append(String.format("Reporte de Transacciones para el empleado '%s'\n", empleado.getNombre()));
+    reporte.append(String.format("Fecha: %s\n", fechaDeseada));
+    reporte.append("-------------------------------------------------\n");
+
+    for (Transaccion transaccion : transaccionesFiltradas) {
+        reporte.append(transaccion.toString()).append("\n");
+    }
+
+    reporte.append("-------------------------------------------------\n");
+    reporte.append(String.format("Total de transacciones encontradas: %d\n", transaccionesFiltradas.size()));
+
+    return reporte.toString();
+}
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("*******************************\n");
+        sb.append("**          TuCarroUQ        **\n");
+        sb.append("*******************************\n");
+        sb.append("Nombre: ").append(NOMBRE).append("\n\n");
+
+        sb.append("Resumen de Empleados:\n");
+        sb.append("Total Empleados: ").append(empleados.size()).append("\n");
+        sb.append("Total Administradores: ").append(administradores.size()).append("\n\n");
+
+        sb.append("Resumen de Vehículos:\n");
+        sb.append("Total Vehículos Disponibles: ").append(vehiculos.size()).append("\n");
+        sb.append("Total Vehículos Vendidos: ").append(vehiculosVendidos.size()).append("\n");
+        sb.append("Total Vehículos Alquilados: ").append(vehiculosAlquilados.size()).append("\n\n");
+
+        sb.append("Resumen de Clientes:\n");
+        sb.append("Total Clientes Registrados: ").append(clientes.size()).append("\n\n");
+
+        sb.append("Resumen de Transacciones:\n");
+        sb.append("Total Ventas y Alquileres: ").append(ventas.size()).append("\n");
+        sb.append("*******************************\n");
+        return sb.toString();
+    }
 
 }

@@ -8,12 +8,12 @@ public class SedanACombustible extends VehiculoACombustible {
 
     public SedanACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String tipoCombustible,
-            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroPuertas,
+            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroCambios,int numeroPuertas,
             int numeroPasajeros, int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado,
             boolean camaraReversa, boolean velocidadCrucero, boolean frenosABS, boolean sensorColision,
             boolean sensorTraficoCruzado, boolean asistentePermanenciaEnCarril) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica);
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.capacidadMaletero = capacidadMaletero;

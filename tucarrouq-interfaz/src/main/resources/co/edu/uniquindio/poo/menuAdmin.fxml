@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="Screen_MenuAdmin05" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #080808;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView id="img.logo" fitHeight="87.0" fitWidth="108.0" layoutX="479.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="img.logo" fitHeight="99.0" fitWidth="132.0" layoutX="453.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imagenes/img1.png" />
          </image>
@@ -91,7 +91,7 @@
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
-      <Label id="lbl.RelizarVenta" layoutX="37.0" layoutY="179.0" text="Realizar venta/alquiler" textFill="WHITE">
+      <Label id="lbl.RelizarVenta" layoutX="47.0" layoutY="197.0" text="Realizar venta/alquiler" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
@@ -136,11 +136,6 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Label id="lbl.Comprar vehiculo" layoutX="42.0" layoutY="197.0" text="o compra de vehiculo" textFill="WHITE">
-         <font>
-            <Font name="Comic Sans MS Bold" size="14.0" />
-         </font>
-      </Label>
       <Label id="lbl.reporteVentas" layoutX="238.0" layoutY="179.0" text="Reporte de ventas" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="ScrollPane_Screen09" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="777.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+<ScrollPane fx:id="ScrollPane_Screen09" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="929.0" prefWidth="779.0" style="-fx-background-color: black;">
          <children>
@@ -33,15 +33,15 @@
             </Label>
             <ComboBox fx:id="cmb_Vehiculo" layoutX="294.0" layoutY="148.0" prefWidth="150.0" promptText=" Vehiculo" />
             <TextField fx:id="txt_Marca" layoutX="531.0" layoutY="148.0" promptText="Marca" />
-            <TextField fx:id="txt_Referencia" layoutX="531.0" layoutY="201.0" promptText="Referencia" />
-            <TextField fx:id="txt_Placa" layoutX="531.0" layoutY="249.0" promptText="Placa" />
-            <TextField fx:id="txt_VelocidadMax" layoutX="531.0" layoutY="297.0" promptText="Velocidad Max(En entero)" />
+            <TextField fx:id="txt_Referencia" layoutX="531.0" layoutY="183.0" promptText="Referencia" />
+            <TextField fx:id="txt_Placa" layoutX="531.0" layoutY="220.0" promptText="Placa" />
+            <TextField fx:id="txt_VelocidadMax" layoutX="531.0" layoutY="262.0" promptText="Velocidad Max(En entero)" />
             <CheckBox fx:id="check_EsNuevo" layoutX="39.0" layoutY="183.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="117.0" text="Es nuevo?" textFill="#fffdfd">
                <font>
                   <Font name="Comic Sans MS Bold" size="13.0" />
                </font>
             </CheckBox>
-            <TextField fx:id="txt_Modelo" layoutX="531.0" layoutY="337.0" promptText="Modelo" />
+            <TextField fx:id="txt_Modelo" layoutX="531.0" layoutY="300.0" promptText="Modelo" />
             <TextField fx:id="txt_CantidadPuertas" layoutX="23.0" layoutY="517.0" promptText="Cantidad Puertas" />
             <TextField fx:id="txt_PrecioAlquilerDia" layoutX="39.0" layoutY="262.0" promptText="Precio Alquiler (Dia)" />
             <Label id="lbl.bienvenido" layoutX="229.0" layoutY="100.0" prefHeight="31.0" prefWidth="383.0" text="Por favor complete los siguientes campos:" textAlignment="CENTER" textFill="WHITE">
@@ -136,11 +136,16 @@
                </font>
             </CheckBox>
             <TextField fx:id="txt_NumeroSalidasEmergencia" layoutX="23.0" layoutY="882.0" prefHeight="25.0" prefWidth="209.0" promptText="Numero De Salidas De Emergencia" />
-            <Button fx:id="btn_guardarVehiculo" layoutX="401.0" layoutY="765.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="165.0" text="Guardar">
+            <Button fx:id="btn_guardarVehiculo" layoutX="496.0" layoutY="765.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="165.0" text="Guardar">
                <font>
                   <Font name="Comic Sans MS" size="19.0" />
                </font>
             </Button>
+            <TextField fx:id="txt_PrecioVenta" layoutX="40.0" layoutY="300.0" promptText="Precio Venta" />
+            <TextField fx:id="txt_NumeroPasajeros" layoutX="223.0" layoutY="722.0" prefHeight="25.0" prefWidth="176.0" promptText="Numero Pasajeros" />
+            <TextField fx:id="txt_CapacidadCajaDeCarga" layoutX="223.0" layoutY="761.0" prefHeight="25.0" prefWidth="176.0" promptText="Capacidad Caja De Carga" />
+            <TextField fx:id="txt_Cambios" layoutX="531.0" layoutY="338.0" promptText="Cambios (En entero)" />
+            <TextField fx:id="txt_Kilometraje" layoutX="531.0" layoutY="379.0" promptText="Kilometraje" />
          </children></AnchorPane>
   </content>
 </ScrollPane>

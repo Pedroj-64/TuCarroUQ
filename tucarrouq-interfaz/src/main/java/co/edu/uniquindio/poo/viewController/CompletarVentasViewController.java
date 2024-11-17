@@ -133,7 +133,7 @@ public class CompletarVentasViewController {
      * @param event El evento de acción.
      */
     private void accionRegresar(ActionEvent event) {
-        App.loadScene("paginaVentas", 630, 450);
+        App.goBack();
     }
 
     /**

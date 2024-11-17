@@ -168,7 +168,7 @@ public class EditarInventarioViewController {
     }
 
     private void accionRegresar(ActionEvent event) {
-        App.loadScene("menuAdmin", 630, 450);
+        App.goBack();
     }
 
     private void configurarListeners() {
