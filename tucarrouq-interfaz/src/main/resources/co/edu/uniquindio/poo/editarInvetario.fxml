@@ -44,7 +44,7 @@
          </font>
       </Label>
       <TextField id="txt.precioVenta" fx:id="txt_PrecioVenta" layoutX="337.0" layoutY="122.0" promptText="Tipo de vehiculo" />
-      <TextField id="txt.placa" fx:id="txt_matricula" layoutX="195.0" layoutY="175.0" promptText="Placa" />
+      <TextField id="txt.placa" fx:id="txt_matricula" editable="false" layoutX="195.0" layoutY="175.0" promptText="Placa" />
       <Button id="btn.regresar" fx:id="btn_Regresar" layoutX="466.0" layoutY="39.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="85.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
