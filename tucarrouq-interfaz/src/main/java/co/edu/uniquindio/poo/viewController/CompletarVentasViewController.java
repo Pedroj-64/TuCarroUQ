@@ -3,8 +3,11 @@ package co.edu.uniquindio.poo.viewController;
 import java.time.LocalDate;
 
 import co.edu.uniquindio.poo.App;
+import co.edu.uniquindio.poo.controller.AppControllerSingleton;
 import co.edu.uniquindio.poo.controller.CompletarVentasController;
+import co.edu.uniquindio.poo.model.Administrador;
 import co.edu.uniquindio.poo.model.Cliente;
+import co.edu.uniquindio.poo.model.Empleado;
 import co.edu.uniquindio.poo.model.Vehiculo;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -109,21 +112,33 @@ public class CompletarVentasViewController {
         }
     }
 
-    /**
-     * Acción que se ejecuta al pulsar el botón de vender.
-     * 
-     * @param event El evento de acción.
-     */
     private void accionVender(ActionEvent event) {
         Cliente cliente = cmb_Clientes.getValue();
         boolean resultado = completarVentasController.venderVehiculo(cliente);
+
         if (resultado) {
-            App.showAlertAndRedirect("Éxito",
-                    "El vehículo ha sido vendido correctamente. Será redirigido al menú principal.",
-                    Alert.AlertType.INFORMATION, "MenuAdmin", 800, 540);
+            // Obtener el usuario actual desde el Singleton
+            Empleado usuario = AppControllerSingleton.getInstance().getUsuarioActual();
+
+            if (usuario != null) {
+                // Redirigir al menú correspondiente según el tipo de usuario
+                if (usuario instanceof Administrador) {
+                    App.showAlertAndRedirect("Éxito",
+                            "El vehículo ha sido vendido correctamente. Será redirigido al menú de administrador.",
+                            Alert.AlertType.INFORMATION, "MenuAdmin", 800, 600);
+                } else if (usuario instanceof Empleado) {
+                    App.showAlertAndRedirect("Éxito",
+                            "El vehículo ha sido vendido correctamente. Será redirigido al menú de empleado.",
+                            Alert.AlertType.INFORMATION, "MenuEmpleado", 800, 600);
+                }
+            } else {
+                App.showAlert("Error", "No se ha encontrado el usuario actual.", Alert.AlertType.ERROR);
+            }
         } else {
-            App.showAlertAndRedirect("Error", "No se pudo vender el vehículo. Será redirigido al menú principal.",
-                    Alert.AlertType.ERROR, "MenuAdmin", 800, 540);
+            // Si no se pudo vender el vehículo, redirigir al menú de administrador
+            App.showAlert("Error", "No se ha pddido vender el vehiculo, comuniquese con un superior.",
+                    Alert.AlertType.ERROR);
+
         }
     }
 

@@ -257,6 +257,7 @@ public class RegistroVehicularViewController {
     
     private void accionBotonListo(ActionEvent event) {
         try {
+            inhabilitarCamposGenerales();
             // Verificar si todos los campos relevantes están correctamente llenados
             if (estánCamposVacios()) {
                 App.showAlert("Advertencia", "Por favor, complete todos los campos antes de continuar.", Alert.AlertType.WARNING);
@@ -269,7 +270,7 @@ public class RegistroVehicularViewController {
             }
     
             ScrollPane_Screen09.setDisable(false);
-            inhabilitarCamposGenerales();
+            
         } catch (IllegalStateException e) {
             // Mostrar mensaje de error si hay un problema con la inicialización
             App.showAlert("Advertencia", e.getMessage(), Alert.AlertType.WARNING);
@@ -456,7 +457,7 @@ public class RegistroVehicularViewController {
         txt_NumeroDeEjes.setVisible(false);
         txt_NumeroSalidasEmergencia.setVisible(false);
         txt_CapacidadDeCarga.setVisible(false);
-
+        txt_CapacidadCajaDeCarga.setVisible(false);
         check_AireAcondicionado.setVisible(false);
         check_CamaraReversa.setVisible(false);
         check_ABS.setVisible(false);
