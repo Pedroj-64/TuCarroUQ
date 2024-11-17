@@ -7,7 +7,6 @@ package co.edu.uniquindio.poo.viewController;
 import co.edu.uniquindio.poo.App;
 import co.edu.uniquindio.poo.controller.AppControllerSingleton;
 import co.edu.uniquindio.poo.controller.MenuInicioSesionAdminController;
-import co.edu.uniquindio.poo.model.Administrador;
 import co.edu.uniquindio.poo.model.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,7 +64,7 @@ public class MenuInicioSesionAdminViewController {
             // Redirigir a la interfaz de empleado
             Empleado administrador= menuInicioSesionAdminController.buscarEmpleado(identificacion);
             AppControllerSingleton.getInstance().setUsuarioActual(administrador);
-            App.loadScene("menuAdmin", 630, 450);
+            App.loadScene("menuAdmin", 800, 600);
         } else {
             // Mostrar el botón de recuperar contraseña si las credenciales son incorrectas
             btn_RecuperarContraseña.setVisible(true);

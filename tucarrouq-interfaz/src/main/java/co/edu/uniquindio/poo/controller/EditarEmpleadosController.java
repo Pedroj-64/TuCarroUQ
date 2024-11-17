@@ -54,7 +54,7 @@ public class EditarEmpleadosController {
         return banderilla;
     }
 
-    public boolean actualizarEmpleado(String nombre, String identificacion, String contrasena, String emailDeRecuperacion) {
+    public boolean actualizarEmpleado(String nombre, String identificacion, String contrasena, String emailDeRecuperacion,String cargo) {
         boolean banderilla = false;
         try {
             Empleado empleadoExistente = concesionario.obtenerEmpleado(identificacion);
@@ -65,6 +65,10 @@ public class EditarEmpleadosController {
                 banderilla = true;
             } else {
                 System.out.println("El empleado no existe.");
+            }
+            if(cargo.toLowerCase()== "administrador"){
+                Administrador administrador= new Administrador(nombre, identificacion, contrasena, emailDeRecuperacion);
+                concesionario.agregarAdministrador(administrador);
             }
         } catch (Exception e) {
             System.out.println("Error al actualizar empleado: " + e.getMessage());

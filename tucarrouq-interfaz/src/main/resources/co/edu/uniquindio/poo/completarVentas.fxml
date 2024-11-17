@@ -64,7 +64,6 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Label>
-      <TextField id="txt.diasRentar" fx:id="txt_DiasARentar" editable="false" layoutX="204.0" layoutY="342.0" promptText="En entero" />
       <Label id="lbl.diasRentar" layoutX="300.0" layoutY="165.0" prefHeight="23.0" prefWidth="276.0" text="Dia de devolucion (En caso De renta):" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS" size="16.0" />

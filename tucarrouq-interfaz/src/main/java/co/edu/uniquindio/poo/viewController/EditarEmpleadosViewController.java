@@ -134,9 +134,10 @@ public class EditarEmpleadosViewController {
         String identificacion = txt_IdentificacionActualizar.getText();
         String contrasena = txt_ContraseñaActulizar.getText();
         String emailDeRecuperacion = txt_EmailRecuperacionActualizar.getText();
+        String cargo = cmb_CargoEmpleadoActulizar.getValue();
 
         boolean resultado = editarEmpleadosController.actualizarEmpleado(nombre, identificacion, contrasena,
-                emailDeRecuperacion);
+                emailDeRecuperacion,cargo);
         if (resultado) {
             App.showAlert("Éxito", "El empleado ha sido actualizado correctamente", Alert.AlertType.INFORMATION);
         } else {

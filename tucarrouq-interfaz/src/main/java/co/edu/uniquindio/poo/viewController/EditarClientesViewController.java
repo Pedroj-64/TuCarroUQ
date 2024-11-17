@@ -96,16 +96,25 @@ public class EditarClientesViewController {
     }
 
     private void verificarAccesoAdministrador() {
-        Empleado usuarioActual = AppControllerSingleton.getInstance().getUsuarioActual();
-        if (!(usuarioActual instanceof Administrador)) {
-            tab_EditarClientes.setOnSelectionChanged(event -> {
-                if (tab_EditarClientes.isSelected()) {
+        // Listener para la selección de pestañas
+        tab_CrearClientes.getTabPane().getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            // Verificar si la pestaña seleccionada es "Editar Clientes"
+            if (newValue == tab_EditarClientes) {
+                Empleado usuarioActual = AppControllerSingleton.getInstance().getUsuarioActual();
+    
+                // Verificar si el usuario actual es un Administrador
+                if (!(usuarioActual instanceof Administrador)) {
+                    // Si no es administrador, cambiar a otra pestaña o deshabilitar el acceso
+                    tab_EditarClientes.setDisable(true); // Deshabilitar la pestaña para usuarios no administradores
+                    tab_CrearClientes.getTabPane().getSelectionModel().select(tab_CrearClientes); // Seleccionar la pestaña "Crear Clientes"
                     App.showAlert("Acceso Restringido", "Usted no es administrador y no tiene acceso a esta pestaña.", Alert.AlertType.ERROR);
-                    tab_EditarClientes.getTabPane().getSelectionModel().select(tab_CrearClientes);
                 }
-            });
-        }
+            }
+        });
     }
+    
+    
+    
 
     private void configurarColumnas() {
         tbc_ClientesActuales.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getNombre()));

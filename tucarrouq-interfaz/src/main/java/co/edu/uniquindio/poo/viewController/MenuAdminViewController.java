@@ -57,33 +57,33 @@ public class MenuAdminViewController {
     }
 
     private void accionGenerarReporte(ActionEvent event) {
-        App.loadScene("menuReportes", 800, 540);
+        App.loadScene("menuReportes", 800, 600);
 
     }
 
     private void accionVerAutosDisponibles(ActionEvent event) {
-        App.loadScene("editarInvetario", 800, 540);
+        App.loadScene("editarInvetario", 800, 600);
 
     }
 
     private void accionVerEmpleados(ActionEvent event) {
-        App.loadScene("editarEmpleados", 800, 540);
+        App.loadScene("editarEmpleados", 800, 600);
 
     }
 
     private void accionVerClientes(ActionEvent event) {
 
-        App.loadScene("editarClientes", 800, 540);
+        App.loadScene("editarClientes", 800, 600);
     }
 
     private void accionVerPaginaVentas(ActionEvent event) {
-        App.loadScene("paginaVentas", 800, 540);
+        App.loadScene("paginaVentas", 800, 600);
 
     }
 
     private void accionCerrarSesion(ActionEvent event) {
         try {
-            App.goBack();
+            App.loadScene("menuInicio", 800, 600);
             AppControllerSingleton.getInstance().cerrarSesion();
         } catch (Exception e) {
             // Muestra un mensaje de alerta en caso de error al cargar la escena.

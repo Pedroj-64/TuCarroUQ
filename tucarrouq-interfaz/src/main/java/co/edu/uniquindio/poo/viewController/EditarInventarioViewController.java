@@ -125,7 +125,7 @@ public class EditarInventarioViewController {
     }
 
     private void accionCrearVehiculo(ActionEvent  event){
-        App.loadScene("RegistroVehicular", 640, 450);
+        App.loadScene("RegistroVehicular", 777, 474);
     }
 
     private void eliminarVehiculoSeleccionado(ActionEvent event) {

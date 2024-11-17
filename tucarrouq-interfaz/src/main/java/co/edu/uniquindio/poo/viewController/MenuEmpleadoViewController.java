@@ -39,22 +39,22 @@ public class MenuEmpleadoViewController {
     }
 
     private void accionAgregarCliente(ActionEvent event){
-        App.loadScene("editarClientes", 800, 540);
+        App.loadScene("editarClientes", 800, 600);
     }
 
     private void accionRealizarVenta(ActionEvent event){
-        App.loadScene("paginaVentas", 800, 540);
+        App.loadScene("paginaVentas", 800, 600);
     }
 
     private void accionAgregarVehiculo(ActionEvent event){
-        App.loadScene("registroVehicular", 800, 540);
+        App.loadScene("registroVehicular", 777, 474);
     }
 
 
 
     private void accionCerrarSesion(ActionEvent event) {
         try {
-            App.goBack();
+            App.loadScene("menuInicio", 1250, 950);
             AppControllerSingleton.getInstance().cerrarSesion();
         } catch (Exception e) {
             // Muestra un mensaje de alerta en caso de error al cargar la escena.

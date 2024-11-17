@@ -50,11 +50,11 @@ public class MenuSeleccionUsuarioViewController {
     }
 
     private void adminBtnRegistrarVehiculo(ActionEvent event) {
-        cambiarVista("menuInicioSesionAdmin", 630, 450);
+        cambiarVista("menuInicioSesionAdmin", 800, 600);
     }
 
     public void adminBtnVerAutosDisponibles(ActionEvent event) {
-        cambiarVista("menuInicioSesionEmpleado", 630, 450);
+        cambiarVista("menuInicioSesionEmpleado", 800, 600);
     }
 
     private void accionRegresar(ActionEvent event){

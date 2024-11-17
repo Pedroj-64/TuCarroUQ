@@ -52,7 +52,7 @@ public class MenuInicioSesionAdminController {
 
     public Empleado buscarEmpleado(String identificacion){
         Empleado empleadoBuscado=null;
-        empleadoBuscado=concesionario.buscarEmpleado(identificacion);
+        empleadoBuscado=concesionario.buscarAdministrador(identificacion);
         return empleadoBuscado;
     }
 

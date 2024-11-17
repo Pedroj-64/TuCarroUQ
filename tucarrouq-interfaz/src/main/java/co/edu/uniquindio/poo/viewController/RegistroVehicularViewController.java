@@ -154,6 +154,7 @@ public class RegistroVehicularViewController {
     @FXML
     public void initialize() {
         try {
+            check_RevisionTecnica.setDisable(true);
             ocultarTodosLosCamposInicio();
             configurarBotones();
             configurarComboBoxes();
@@ -256,7 +257,13 @@ public class RegistroVehicularViewController {
     
     private void accionBotonListo(ActionEvent event) {
         try {
-            // Verificar si los campos están configurados correctamente antes de continuar
+            // Verificar si todos los campos relevantes están correctamente llenados
+            if (estánCamposVacios()) {
+                App.showAlert("Advertencia", "Por favor, complete todos los campos antes de continuar.", Alert.AlertType.WARNING);
+                return; // No continuar si algún campo está vacío
+            }
+    
+            // Verificar que el ScrollPane esté correctamente inicializado
             if (ScrollPane_Screen09 == null) {
                 throw new IllegalStateException("El ScrollPane no está inicializado correctamente.");
             }
@@ -273,6 +280,23 @@ public class RegistroVehicularViewController {
             // Registrar el error para depuración
             e.printStackTrace();
         }
+    }
+    
+    // Método para verificar si algún campo está vacío o no válido
+    private boolean estánCamposVacios() {
+        // Verificar los campos uno por uno y retornar true si alguno está vacío o no tiene un valor válido
+        if (cmb_TipoDeVehiculo.getValue() == null || cmb_Vehiculo.getValue() == null || 
+            txt_CapacidadDeTanque.getText().isEmpty() || txt_AutonomiaTanqueLleno.getText().isEmpty() || 
+            txt_tipoDeCombustible.getText().isEmpty() || txt_AutonomiaCargaCompleta.getText().isEmpty() || 
+            txt_TiempoPromedioPorCarga.getText().isEmpty() || txt_Cilindraje.getText().isEmpty() ||
+            txt_Cambios.getText().isEmpty() || txt_Kilometraje.getText().isEmpty() || 
+            txt_PrecioAlquilerDia.getText().isEmpty() || txt_PrecioVenta.getText().isEmpty() || 
+            txt_Marca.getText().isEmpty() || txt_Referencia.getText().isEmpty() || 
+            txt_Placa.getText().isEmpty() || txt_VelocidadMax.getText().isEmpty() || 
+            txt_Modelo.getText().isEmpty()) {
+            return true; // Si algún campo está vacío, retornar true
+        }
+        return false; // Si todos los campos están llenos, retornar false
     }
     
 
@@ -540,6 +564,15 @@ public class RegistroVehicularViewController {
         txt_Cilindraje.setDisable(true);
         txt_Cambios.setDisable(true);
         txt_Kilometraje.setDisable(true);
+        txt_PrecioAlquilerDia.setDisable(true);
+        txt_PrecioVenta.setDisable(true);
+        txt_Marca.setDisable(true);
+        txt_Referencia.setDisable(true);
+        txt_Placa.setDisable(true);
+        txt_VelocidadMax.setDisable(true);
+        txt_Modelo.setDisable(true);
+        check_EsNuevo.setDisable(true);
+        
     }
 
 }

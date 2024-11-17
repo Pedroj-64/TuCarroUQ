@@ -59,7 +59,7 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button id="btn.administrador" fx:id="btn_agregarClientes" layoutX="240.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Agregar cliente" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="btn.administrador" fx:id="btn_agregarClientes" layoutX="240.0" layoutY="339.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="139.0" text="Agregar cliente" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>

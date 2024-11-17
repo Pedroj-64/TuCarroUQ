@@ -5,7 +5,8 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class DetalleTransaccion implements Serializable {
-    private int diasPrestamo, cantidad;
+    private int diasPrestamo;
+    private int cantidad=1;
     private LocalDate fechaActual = LocalDate.now();
     private LocalDate fechaEntregaPrestamo;
     private double subtotal;

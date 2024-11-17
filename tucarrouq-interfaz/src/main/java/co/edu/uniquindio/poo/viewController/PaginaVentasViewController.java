@@ -112,7 +112,7 @@ public class PaginaVentasViewController {
             AppControllerSingleton.getInstance().setVehiculoSeleccionado(vehiculoSeleccionado);
 
             // Cambiar de interfaz
-            App.loadScene("completarVenta", 630, 450);
+            App.loadScene("completarVentas", 800, 600);
         } else {
             App.showAlert("Seleccionar Vehículo", "Por favor, seleccione un vehículo", Alert.AlertType.INFORMATION);
         }
@@ -129,7 +129,7 @@ public class PaginaVentasViewController {
 
     private void agregarCliente(ActionEvent event) {
 
-        App.loadScene("editarClientes", 639, 450);
+        App.loadScene("editarClientes", 800, 600);
     }
 
     private void accionRegresar(ActionEvent event) {

@@ -208,8 +208,31 @@ public class Concesionario implements Serializable {
         agregarAdministrador(administradorEjemplo);
 
         VehiculoHibrido vehiculoHibrido = new VanHibrido("Maseratti", "900", "NOMBRE", 0, 120, true, 5600,
-               69, 450, false, true, true, 5, 4, 3, 6, false, true, false,true);
-        agregarVehiculo(vehiculoHibrido);   
+                69, 450, false, true, true, 5, 4, 3, 6, false, true, false, true);
+
+        agregarVehiculo(vehiculoHibrido);
+
+        // Crear una nueva instancia de MotoElectrica
+        MotoElectrica moto = new MotoElectrica(
+                "Yamaha", // marca
+                "YZF-R1", // referencia
+                "ABC123", // placa
+                1500, // kilometraje
+                300, // velocidad máxima
+                true, // nuevo (si la moto es nueva o usada)
+                25000.00, // precio de venta
+                150.00, // precio alquiler por día
+                2024, // modelo
+                "150 km", // autonomía de carga completa
+                "2 horas", // tiempo promedio por carga
+                true, // si tiene revisión técnica
+                "Deportiva" // tipo de motocicleta
+        );
+        agregarVehiculo(moto);
+
+        Cliente cliente1 = new Cliente("Juan Pérez", "1234567890", "555-1234", "Calle Ficticia 123");
+        agregarCliente(cliente1);
+
     }
 
     // Método para buscar un empleado por identificación
@@ -220,10 +243,11 @@ public class Concesionario implements Serializable {
         }
         for (Empleado empleado : empleados) {
             if (empleado.getIdentificacion().equals(identificacion)) {
-                empleado = empleadoBuscado;
+                empleadoBuscado = empleado; // Asignar el empleado encontrado a empleadoBuscado
+                break; // Termina el ciclo una vez encontrado el empleado
             }
         }
-        return empleadoBuscado; // Retorna null si no se encuentra el empleado
+        return empleadoBuscado;
     }
 
     // Método para obtener un empleado por identificación
@@ -243,7 +267,7 @@ public class Concesionario implements Serializable {
         }
         for (Administrador administrador : administradores) {
             if (administrador.getIdentificacion().equals(identificacion)) {
-                administrador = administradorBuscado;
+                administradorBuscado = administrador;
             }
         }
         return administradorBuscado;

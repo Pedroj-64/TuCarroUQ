@@ -102,10 +102,10 @@
                         <Image url="@imagenes/img1.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="txt_NombreUsuarioActulizar" layoutX="187.0" layoutY="186.0" />
-                  <TextField fx:id="txt_ContraseñaActulizar" layoutX="151.0" layoutY="225.0" />
+                  <TextField fx:id="txt_NombreUsuarioActulizar" layoutX="142.0" layoutY="186.0" />
+                  <TextField fx:id="txt_ContraseñaActulizar" layoutX="122.0" layoutY="225.0" />
                   <TextField fx:id="txt_IdentificacionActualizar" layoutX="130.0" layoutY="138.0" />
-                  <TextField fx:id="txt_EmailRecuperacionActualizar" layoutX="107.0" layoutY="84.0" prefHeight="25.0" prefWidth="172.0" />
+                  <TextField fx:id="txt_EmailRecuperacionActualizar" layoutX="185.0" layoutY="84.0" prefHeight="25.0" prefWidth="172.0" />
                   <Label id="lbl.opcionesAdmin" layoutX="187.0" layoutY="37.0" text="Gestion de Empleados " textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="18.0" />
@@ -114,7 +114,7 @@
                         <Blend />
                      </effect>
                   </Label>
-                  <Label id="lbl.opcionesAdmin" layoutX="14.0" layoutY="217.0" prefHeight="41.0" prefWidth="155.0" text="Nombre (Usuario):" textAlignment="CENTER" textFill="WHITE">
+                  <Label id="lbl.opcionesAdmin" layoutX="5.0" layoutY="178.0" prefHeight="41.0" prefWidth="146.0" text="Nombre (Usuario):" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="15.0" />
                      </font>
@@ -122,7 +122,7 @@
                         <Blend />
                      </effect>
                   </Label>
-                  <Label id="lbl.opcionesAdmin" layoutX="14.0" layoutY="76.0" prefHeight="41.0" prefWidth="155.0" text="Contraseña:" textAlignment="CENTER" textFill="WHITE">
+                  <Label id="lbl.opcionesAdmin" layoutX="32.0" layoutY="217.0" prefHeight="41.0" prefWidth="97.0" text="Contraseña:" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="15.0" />
                      </font>
@@ -130,7 +130,7 @@
                         <Blend />
                      </effect>
                   </Label>
-                  <Label id="lbl.opcionesAdmin" layoutX="14.0" layoutY="130.0" prefHeight="41.0" prefWidth="155.0" text="Identificacion:" textAlignment="CENTER" textFill="WHITE">
+                  <Label id="lbl.opcionesAdmin" layoutX="14.0" layoutY="130.0" prefHeight="41.0" prefWidth="114.0" text="Identificacion:" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="15.0" />
                      </font>
@@ -138,7 +138,7 @@
                         <Blend />
                      </effect>
                   </Label>
-                  <Label id="lbl.opcionesAdmin" layoutX="14.0" layoutY="178.0" prefHeight="41.0" prefWidth="173.0" text="Email de recuperacion:" textAlignment="CENTER" textFill="WHITE">
+                  <Label id="lbl.opcionesAdmin" layoutX="15.0" layoutY="76.0" prefHeight="41.0" prefWidth="173.0" text="Email de recuperacion:" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="15.0" />
                      </font>
