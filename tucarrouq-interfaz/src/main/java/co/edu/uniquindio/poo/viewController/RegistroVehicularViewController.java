@@ -165,8 +165,6 @@ public class RegistroVehicularViewController {
     }
 
     private void configurarBotones() {
-        ScrollPane_Screen09.setDisable(true);
-
         btn_listo.setOnAction(this::accionBotonListo);
         btn_Regresar.setOnAction(this::accionRegresar);
         btn_guardarVehiculo.setOnAction(this::accionGuardarVehiculo);
@@ -182,54 +180,108 @@ public class RegistroVehicularViewController {
         cmb_Vehiculo.setOnAction(event -> {
             String tipoVehiculoSeleccionado = cmb_Vehiculo.getValue();
             try {
+                // Asegúrate de que el valor seleccionado no sea null o vacío
+                if (tipoVehiculoSeleccionado == null || tipoVehiculoSeleccionado.isEmpty()) {
+                    throw new IllegalArgumentException("Por favor, selecciona un tipo de vehículo.");
+                }
                 actualizarCamposSegunVehiculo(tipoVehiculoSeleccionado);
+            } catch (IllegalArgumentException e) {
+                App.showAlert("Advertencia", e.getMessage(), Alert.AlertType.WARNING);
             } catch (Exception e) {
+                // Capturar cualquier otra excepción inesperada
                 App.showAlert("Error", "Error al cambiar el tipo de vehículo: " + e.getMessage(),
                         Alert.AlertType.ERROR);
+                // Log de la excepción para ayudar a la depuración
+                e.printStackTrace();
             }
         });
-
+    
         cmb_TipoDeVehiculo.setOnAction(event -> {
             String tipoVehiculo = cmb_TipoDeVehiculo.getValue();
-
-            actualizarCamposSegunTipo(tipoVehiculo);
-
+    
+            try {
+                // Validación adicional si es necesario
+                if (tipoVehiculo == null || tipoVehiculo.isEmpty()) {
+                    throw new IllegalArgumentException("Por favor, selecciona un tipo de combustible.");
+                }
+                actualizarCamposSegunTipo(tipoVehiculo);
+            } catch (IllegalArgumentException e) {
+                App.showAlert("Advertencia", e.getMessage(), Alert.AlertType.WARNING);
+            } catch (Exception e) {
+                App.showAlert("Error", "Error al actualizar los campos según el tipo de vehículo: " + e.getMessage(),
+                        Alert.AlertType.ERROR);
+                e.printStackTrace();  // Ayuda en la depuración
+            }
         });
     }
+    
 
     private void actualizarCamposSegunTipo(String tipoSeleccionado) {
-        ocultarTodosLosCamposInicio();
-
-        if ("Híbrido".equals(tipoSeleccionado)) {
-            check_EsEnchufable.setVisible(true);
-            check_EsHidridoLigero.setVisible(true);
-            txt_Cambios.setVisible(true);
-        } else if ("Combustión".equals(tipoSeleccionado)) {
-            txt_CapacidadDeTanque.setVisible(true);
-            txt_AutonomiaTanqueLleno.setVisible(true);
-            txt_tipoDeCombustible.setVisible(true);
-            txt_Cilindraje.setVisible(true);
-            txt_Cambios.setVisible(true);
-        } else if ("Eléctrico".equals(tipoSeleccionado)) {
-            txt_AutonomiaCargaCompleta.setVisible(true);
-            txt_TiempoPromedioPorCarga.setVisible(true);
+        try {
+            // Verificar que el tipo de vehículo no sea nulo ni vacío
+            if (tipoSeleccionado == null || tipoSeleccionado.isEmpty()) {
+                throw new IllegalArgumentException("El tipo de vehículo seleccionado no puede estar vacío.");
+            }
+    
+            ocultarTodosLosCamposInicio();
+    
+            if ("Híbrido".equals(tipoSeleccionado)) {
+                check_EsEnchufable.setVisible(true);
+                check_EsHidridoLigero.setVisible(true);
+                txt_Cambios.setVisible(true);
+            } else if ("Combustión".equals(tipoSeleccionado)) {
+                txt_CapacidadDeTanque.setVisible(true);
+                txt_AutonomiaTanqueLleno.setVisible(true);
+                txt_tipoDeCombustible.setVisible(true);
+                txt_Cilindraje.setVisible(true);
+                txt_Cambios.setVisible(true);
+            } else if ("Eléctrico".equals(tipoSeleccionado)) {
+                txt_AutonomiaCargaCompleta.setVisible(true);
+                txt_TiempoPromedioPorCarga.setVisible(true);
+            } else {
+                // Si el tipo seleccionado no es válido, lanzar una excepción
+                throw new IllegalArgumentException("Tipo de vehículo no reconocido: " + tipoSeleccionado);
+            }
+        } catch (IllegalArgumentException e) {
+            // Mostrar mensaje de advertencia si el tipo es inválido o vacío
+            App.showAlert("Advertencia", e.getMessage(), Alert.AlertType.WARNING);
+        } catch (Exception e) {
+            // Mostrar error genérico si ocurre un problema inesperado
+            App.showAlert("Error", "Error al actualizar los campos según el tipo de vehículo: " + e.getMessage(),
+                    Alert.AlertType.ERROR);
+            // Registrar el error para depuración
+            e.printStackTrace();
         }
     }
+    
+    private void accionBotonListo(ActionEvent event) {
+        try {
+            // Verificar si los campos están configurados correctamente antes de continuar
+            if (ScrollPane_Screen09 == null) {
+                throw new IllegalStateException("El ScrollPane no está inicializado correctamente.");
+            }
+    
+            ScrollPane_Screen09.setDisable(false);
+            inhabilitarCamposGenerales();
+        } catch (IllegalStateException e) {
+            // Mostrar mensaje de error si hay un problema con la inicialización
+            App.showAlert("Advertencia", e.getMessage(), Alert.AlertType.WARNING);
+        } catch (Exception e) {
+            // Capturar cualquier otro error inesperado
+            App.showAlert("Error", "Error al procesar la acción del botón 'Listo': " + e.getMessage(),
+                    Alert.AlertType.ERROR);
+            // Registrar el error para depuración
+            e.printStackTrace();
+        }
+    }
+    
 
     private void accionRegresar(ActionEvent event) {
         App.goBack();
     }
     
 
-    private void accionBotonListo(ActionEvent event) {
-        try {
-            ScrollPane_Screen09.setDisable(false);
-            inhabilitarCamposGenerales();
-        } catch (Exception e) {
-            App.showAlert("Error", "Error al procesar la acción del botón 'Listo': " + e.getMessage(),
-                    Alert.AlertType.ERROR);
-        }
-    }
+
 
     private void accionGuardarVehiculo(ActionEvent event) {
         try {

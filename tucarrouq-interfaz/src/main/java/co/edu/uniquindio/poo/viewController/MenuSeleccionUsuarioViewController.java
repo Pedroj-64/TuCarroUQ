@@ -46,6 +46,7 @@ public class MenuSeleccionUsuarioViewController {
     public void configurarBotones() {
         btn_InicioSesionAdmin.setOnAction(this::adminBtnRegistrarVehiculo);
         btn_inicioSesionEmpleado.setOnAction(this::adminBtnVerAutosDisponibles);
+        btn_Regresar.setOnAction(this::accionRegresar);
     }
 
     private void adminBtnRegistrarVehiculo(ActionEvent event) {
@@ -54,6 +55,10 @@ public class MenuSeleccionUsuarioViewController {
 
     public void adminBtnVerAutosDisponibles(ActionEvent event) {
         cambiarVista("menuInicioSesionEmpleado", 630, 450);
+    }
+
+    private void accionRegresar(ActionEvent event){
+        App.goBack();
     }
 
     /**

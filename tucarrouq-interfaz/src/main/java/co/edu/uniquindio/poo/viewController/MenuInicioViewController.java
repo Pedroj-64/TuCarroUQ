@@ -53,11 +53,11 @@ public class MenuInicioViewController {
     }
 
     private void adminBtnRegistrarVehiculo(ActionEvent event) {
-        cambiarVista("menuSeleccionUsuario", 630, 450);
+        cambiarVista("menuSeleccionUsuario", 1250, 950);
     }
 
     public void adminBtnVerAutosDisponibles(ActionEvent event){
-        cambiarVista("verAutosDisponibles", 630, 450);
+        cambiarVista("verAutosDisponibles", 1250, 950);
     }
 
 

@@ -98,7 +98,6 @@ public class EditarClientesViewController {
     private void verificarAccesoAdministrador() {
         Empleado usuarioActual = AppControllerSingleton.getInstance().getUsuarioActual();
         if (!(usuarioActual instanceof Administrador)) {
-            tab_EditarClientes.setDisable(true);
             tab_EditarClientes.setOnSelectionChanged(event -> {
                 if (tab_EditarClientes.isSelected()) {
                     App.showAlert("Acceso Restringido", "Usted no es administrador y no tiene acceso a esta pestaña.", Alert.AlertType.ERROR);

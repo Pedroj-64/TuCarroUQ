@@ -82,5 +82,20 @@
             <Font name="Comic Sans MS Italic" size="11.0" />
          </font>
       </Label>
+      <Button id="btn.empleado" fx:id="btn_Regresar" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="105.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

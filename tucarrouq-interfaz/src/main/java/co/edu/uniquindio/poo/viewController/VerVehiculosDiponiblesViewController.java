@@ -21,35 +21,35 @@ import java.util.Map;
 
 public class VerVehiculosDiponiblesViewController {
 
-    @FXML // fx:id="Screen_VerAutosDisponibles"
-    private AnchorPane Screen_VerAutosDisponibles; // Value injected by FXMLLoader
+    @FXML
+    private AnchorPane Screen_VerAutosDisponibles;
 
-    @FXML // fx:id="btn_EstoyInteresado"
-    private Button btn_EstoyInteresado; // Value injected by FXMLLoader
+    @FXML
+    private Button btn_EstoyInteresado;
 
-    @FXML // fx:id="btn_Regresar"
-    private Button btn_Regresar; // Value injected by FXMLLoader
+    @FXML
+    private Button btn_Regresar;
 
-    @FXML // fx:id="img_Vehiculos"
-    private ImageView img_Vehiculos; // Value injected by FXMLLoader
+    @FXML
+    private ImageView img_Vehiculos;
 
-    @FXML // fx:id="tbc_CostoDia"
-    private TableColumn<Vehiculo, Double> tbc_CostoDia; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Vehiculo, Double> tbc_CostoDia;
 
-    @FXML // fx:id="tbc_CostoTotal"
-    private TableColumn<Vehiculo, Double> tbc_CostoTotal; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Vehiculo, Double> tbc_CostoTotal;
 
-    @FXML // fx:id="tbc_Marca"
-    private TableColumn<Vehiculo, String> tbc_Marca; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Vehiculo, String> tbc_Marca;
 
-    @FXML // fx:id="tbc_Placa"
-    private TableColumn<Vehiculo, String> tbc_Placa; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Vehiculo, String> tbc_Placa;
 
-    @FXML // fx:id="tbc_tipoDeVehiculo"
-    private TableColumn<Vehiculo, String> tbc_tipoDeVehiculo; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Vehiculo, String> tbc_tipoDeVehiculo;
 
-    @FXML // fx:id="tbl_verVehiculos"
-    private TableView<Vehiculo> tbl_verVehiculos; // Value injected by FXMLLoader
+    @FXML
+    private TableView<Vehiculo> tbl_verVehiculos;
 
     private ObservableList<Vehiculo> listaVehiculos = FXCollections.observableArrayList();
     VerVehiculosDiponiblesController verVehiculosDiponiblesController = new VerVehiculosDiponiblesController();
@@ -73,16 +73,11 @@ public class VerVehiculosDiponiblesViewController {
         try {
             tbc_Marca.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getMarca()));
             tbc_Placa.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPlaca()));
-            tbc_CostoDia.setCellValueFactory(
-                    cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecioAlquilerPorDia()));
-            tbc_CostoTotal
-                    .setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecioVenta()));
-            tbc_tipoDeVehiculo.setCellValueFactory(
-                    cellData -> new SimpleObjectProperty<>(cellData.getValue().getClass().getSimpleName()));
-
+            tbc_CostoDia.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecioAlquilerPorDia()));
+            tbc_CostoTotal.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecioVenta()));
+            tbc_tipoDeVehiculo.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getClass().getSimpleName()));
         } catch (Exception e) {
-            App.showAlert("Error de Configuración", "Error al configurar las columnas de la tabla: " + e.getMessage(),
-                    Alert.AlertType.ERROR);
+            App.showAlert("Error de Configuración", "Error al configurar las columnas de la tabla: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
@@ -91,8 +86,7 @@ public class VerVehiculosDiponiblesViewController {
             listaVehiculos.setAll(verVehiculosDiponiblesController.obtenerVehiculos());
             tbl_verVehiculos.setItems(listaVehiculos);
         } catch (Exception e) {
-            App.showAlert("Error de Carga", "No se pudieron cargar los vehículos: " + e.getMessage(),
-                    Alert.AlertType.ERROR);
+            App.showAlert("Error de Carga", "No se pudieron cargar los vehículos: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
@@ -101,67 +95,71 @@ public class VerVehiculosDiponiblesViewController {
             btn_EstoyInteresado.setOnAction(this::accionEstoyInteresado);
             btn_Regresar.setOnAction(this::accionRegresar);
         } catch (Exception e) {
-            App.showAlert("Error de Configuración",
-                    "Error al configurar las acciones de los botones: " + e.getMessage(), Alert.AlertType.ERROR);
+            App.showAlert("Error de Configuración", "Error al configurar las acciones de los botones: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
     private void accionEstoyInteresado(ActionEvent event) {
-        App.showAlert("Información",
-                "Comuníquese con un empleado o administrador de la sucursal para obtener más información.",
-                Alert.AlertType.INFORMATION);
+        try {
+            App.showAlert("Información", "Comuníquese con un empleado o administrador de la sucursal para obtener más información.", Alert.AlertType.INFORMATION);
+        } catch (Exception e) {
+            App.showAlert("Error", "Ocurrió un error al mostrar la información: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     private void accionRegresar(ActionEvent event) {
-        App.goBack();
+        try {
+            App.goBack();
+        } catch (Exception e) {
+            App.showAlert("Error", "Ocurrió un error al regresar a la escena anterior: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
-    // Inicializar el mapa de imágenes con las imágenes correspondientes a cada tipo de vehículo
     private void inicializarImagenes() {
-        imagenesVehiculos = new HashMap<>();
-
-        // Imágenes para tipos generales de vehículos
-        imagenesVehiculos.put("Van", new Image(getClass().getResourceAsStream("/imagenes/van.png")));
-        imagenesVehiculos.put("Sedan", new Image(getClass().getResourceAsStream("/imagenes/sedan.png")));
-        imagenesVehiculos.put("Deportivo", new Image(getClass().getResourceAsStream("/imagenes/deportivo.png")));
-        imagenesVehiculos.put("Moto", new Image(getClass().getResourceAsStream("/imagenes/moto.png")));
-        imagenesVehiculos.put("Camion", new Image(getClass().getResourceAsStream("/imagenes/camion.png")));
-        imagenesVehiculos.put("Bus", new Image(getClass().getResourceAsStream("/imagenes/bus.png")));
-        imagenesVehiculos.put("Camioneta", new Image(getClass().getResourceAsStream("/imagenes/camioneta.png")));
-        imagenesVehiculos.put("Pickup", new Image(getClass().getResourceAsStream("/imagenes/pickup.png")));
+        try {
+            imagenesVehiculos = new HashMap<>();
+            imagenesVehiculos.put("Van", new Image(getClass().getResourceAsStream("/imagenes/van.jpeg")));
+            imagenesVehiculos.put("Sedan", new Image(getClass().getResourceAsStream("/imagenes/sedan.jpg")));
+            imagenesVehiculos.put("Deportivo", new Image(getClass().getResourceAsStream("/imagenes/deportivo.jpg")));
+            imagenesVehiculos.put("Moto", new Image(getClass().getResourceAsStream("/imagenes/moto.jpeg")));
+            imagenesVehiculos.put("Camion", new Image(getClass().getResourceAsStream("/imagenes/camion.jpeg")));
+            imagenesVehiculos.put("Bus", new Image(getClass().getResourceAsStream("/imagenes/bus.jpg")));
+            imagenesVehiculos.put("Camioneta", new Image(getClass().getResourceAsStream("/imagenes/camioneta.png")));
+            imagenesVehiculos.put("Pickup", new Image(getClass().getResourceAsStream("/imagenes/pickup.jpg")));
+        } catch (Exception e) {
+            App.showAlert("Error de Inicialización", "Error al cargar las imágenes: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
-    // Configurar listener para cambios de selección en la tabla
     private void configurarListenerTabla() {
-        // Listener para el cambio de selección en la tabla
-        tbl_verVehiculos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                // Obtener el nombre de la clase del vehículo seleccionado
-                String tipoVehiculo = newValue.getClass().getSimpleName();
+        try {
+            tbl_verVehiculos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null) {
+                    String tipoVehiculo = newValue.getClass().getSimpleName();
 
-                // Determinar el tipo general del vehículo (sin importar si es una subclase)
-                if (tipoVehiculo.contains("Van")) {
-                    tipoVehiculo = "Van";
-                } else if (tipoVehiculo.contains("Sedan")) {
-                    tipoVehiculo = "Sedan";
-                } else if (tipoVehiculo.contains("Deportivo")) {
-                    tipoVehiculo = "Deportivo";
-                } else if (tipoVehiculo.contains("Moto")) {
-                    tipoVehiculo = "Moto";
-                } else if (tipoVehiculo.contains("Camion")) {
-                    tipoVehiculo = "Camion";
-                } else if (tipoVehiculo.contains("Bus")) {
-                    tipoVehiculo = "Bus";
-                } else if (tipoVehiculo.contains("Camioneta")) {
-                    tipoVehiculo = "Camioneta";
-                } else if (tipoVehiculo.contains("Pickup")) {
-                    tipoVehiculo = "Pickup";
+                    if (tipoVehiculo.contains("Van")) {
+                        tipoVehiculo = "Van";
+                    } else if (tipoVehiculo.contains("Sedan")) {
+                        tipoVehiculo = "Sedan";
+                    } else if (tipoVehiculo.contains("Deportivo")) {
+                        tipoVehiculo = "Deportivo";
+                    } else if (tipoVehiculo.contains("Moto")) {
+                        tipoVehiculo = "Moto";
+                    } else if (tipoVehiculo.contains("Camion")) {
+                        tipoVehiculo = "Camion";
+                    } else if (tipoVehiculo.contains("Bus")) {
+                        tipoVehiculo = "Bus";
+                    } else if (tipoVehiculo.contains("Camioneta")) {
+                        tipoVehiculo = "Camioneta";
+                    } else if (tipoVehiculo.contains("Pickup")) {
+                        tipoVehiculo = "Pickup";
+                    }
+
+                    img_Vehiculos.setImage(imagenesVehiculos.get(tipoVehiculo));
                 }
-
-                // Actualizar la imagen correspondiente en el ImageView
-                img_Vehiculos.setImage(imagenesVehiculos.get(tipoVehiculo));
-            }
-        });
+            });
+        } catch (Exception e) {
+            App.showAlert("Error de Configuración", "Error al configurar el listener de la tabla: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
-
 }

@@ -1,10 +1,9 @@
 package co.edu.uniquindio.poo.controller;
 
 import co.edu.uniquindio.poo.model.Vehiculo;
+import javafx.scene.control.Alert;
 import co.edu.uniquindio.poo.model.Empleado;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
+import co.edu.uniquindio.poo.App;
 import java.util.Stack;
 
 public class AppControllerSingleton {
@@ -12,7 +11,7 @@ public class AppControllerSingleton {
     private static AppControllerSingleton instance;
     private Vehiculo vehiculoSeleccionado;
     private Empleado usuarioActual; // Almacena el usuario que ha iniciado sesión
-    private Stack<Scene> sceneHistoryStack; // Pila para el historial de navegación
+    private Stack<String> sceneHistoryStack; // Pila para el historial de rutas FXML
 
     private AppControllerSingleton() {
         // Constructor privado para evitar instanciación externa
@@ -46,12 +45,15 @@ public class AppControllerSingleton {
         this.usuarioActual = null;
     }
 
-    // Métodos para gestionar el historial de navegación
-    public void pushScene(Scene scene) {
-        sceneHistoryStack.push(scene);
+    public void pushScene(String fxml) {
+        if (!sceneHistoryStack.isEmpty() && sceneHistoryStack.peek().equals(fxml)) {
+            // Evitar duplicar la misma escena consecutivamente
+            return;
+        }
+        sceneHistoryStack.push(fxml);
     }
 
-    public Scene popScene() {
+    public String popScene() {
         if (!sceneHistoryStack.isEmpty()) {
             return sceneHistoryStack.pop();
         }
@@ -62,19 +64,18 @@ public class AppControllerSingleton {
         return sceneHistoryStack.isEmpty();
     }
 
-    // Método para ir a la escena anterior
     public void goBack() {
-        if (sceneHistoryStack.size() > 1) { // Verificar que haya más de una escena en el historial
-            sceneHistoryStack.pop(); // Sacar la escena actual
-            Scene previousScene = sceneHistoryStack.peek(); // Obtener la escena anterior
+        if (sceneHistoryStack.size() > 1) {
+            // Eliminar la escena actual del stack
+            sceneHistoryStack.pop();
+            // Obtener la escena anterior
+            String previousScene = sceneHistoryStack.peek();
 
-            if (previousScene != null) {
-                // Cambiar a la escena anterior
-                Stage stage = (Stage) previousScene.getWindow(); // Convertir la ventana en Stage
-                stage.setScene(previousScene); // Establecer la escena previa
-            }
+            // Cargar la escena anterior
+            App.loadScene(previousScene, 630, 450); // Ajusta el tamaño según tu necesidad
         } else {
-            System.out.println("No hay escenas anteriores en el historial.");
+            // Si no hay más escenas en el stack, muestra un mensaje o no hace nada
+            App.showAlert("Navegación", "No hay más vistas a las que retroceder.", Alert.AlertType.INFORMATION);
         }
     }
 

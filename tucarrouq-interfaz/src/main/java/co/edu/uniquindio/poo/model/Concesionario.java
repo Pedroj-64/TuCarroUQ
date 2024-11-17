@@ -199,13 +199,17 @@ public class Concesionario implements Serializable {
      */
     public void agregarEjemplo() {
         // Crear un empleado de ejemplo
-        Empleado empleadoEjemplo = new Empleado("Juan Pérez", "E001", "contrasenaEmpleado", "hola@gmail.com");
+        Empleado empleadoEjemplo = new Empleado("123", "123", "123", "123@gmail.com");
         agregarEmpleado(empleadoEjemplo);
 
         // Crear un administrador de ejemplo
-        Administrador administradorEjemplo = new Administrador("Ana García", "A001", "contrasenaAdmin",
-                "hola@gmail.com");
+        Administrador administradorEjemplo = new Administrador("1234", "1234", "1234",
+                "123@gmail.com");
         agregarAdministrador(administradorEjemplo);
+
+        VehiculoHibrido vehiculoHibrido = new VanHibrido("Maseratti", "900", "NOMBRE", 0, 120, true, 5600,
+               69, 450, false, true, true, 5, 4, 3, 6, false, true, false,true);
+        agregarVehiculo(vehiculoHibrido);   
     }
 
     // Método para buscar un empleado por identificación
@@ -424,39 +428,39 @@ public class Concesionario implements Serializable {
     }
 
     public String generarReportePorFechaEmpleado(LocalDate fechaDeseada, Empleado empleado) {
-    if (fechaDeseada == null) {
-        throw new IllegalArgumentException("La fecha deseada no puede ser nula.");
+        if (fechaDeseada == null) {
+            throw new IllegalArgumentException("La fecha deseada no puede ser nula.");
+        }
+        if (empleado == null) {
+            throw new IllegalArgumentException("El empleado no puede ser nulo.");
+        }
+
+        Collection<Transaccion> transaccionesEmpleado = empleado.getTransacciones();
+
+        Collection<Transaccion> transaccionesFiltradas = transaccionesEmpleado.stream()
+                .filter(transaccion -> transaccion.getFechaTransaccion().toLocalDate().isEqual(fechaDeseada))
+                .collect(Collectors.toList());
+
+        if (transaccionesFiltradas.isEmpty()) {
+            return String.format("No se encontraron transacciones para el empleado '%s' en la fecha %s.\n",
+                    empleado.getNombre(), fechaDeseada);
+        }
+
+        StringBuilder reporte = new StringBuilder();
+        reporte.append("-------------------------------------------------\n");
+        reporte.append(String.format("Reporte de Transacciones para el empleado '%s'\n", empleado.getNombre()));
+        reporte.append(String.format("Fecha: %s\n", fechaDeseada));
+        reporte.append("-------------------------------------------------\n");
+
+        for (Transaccion transaccion : transaccionesFiltradas) {
+            reporte.append(transaccion.toString()).append("\n");
+        }
+
+        reporte.append("-------------------------------------------------\n");
+        reporte.append(String.format("Total de transacciones encontradas: %d\n", transaccionesFiltradas.size()));
+
+        return reporte.toString();
     }
-    if (empleado == null) {
-        throw new IllegalArgumentException("El empleado no puede ser nulo.");
-    }
-
-    Collection<Transaccion> transaccionesEmpleado = empleado.getTransacciones();
-
-    Collection<Transaccion> transaccionesFiltradas = transaccionesEmpleado.stream()
-            .filter(transaccion -> transaccion.getFechaTransaccion().toLocalDate().isEqual(fechaDeseada))
-            .collect(Collectors.toList());
-
-    if (transaccionesFiltradas.isEmpty()) {
-        return String.format("No se encontraron transacciones para el empleado '%s' en la fecha %s.\n",
-                empleado.getNombre(), fechaDeseada);
-    }
-
-    StringBuilder reporte = new StringBuilder();
-    reporte.append("-------------------------------------------------\n");
-    reporte.append(String.format("Reporte de Transacciones para el empleado '%s'\n", empleado.getNombre()));
-    reporte.append(String.format("Fecha: %s\n", fechaDeseada));
-    reporte.append("-------------------------------------------------\n");
-
-    for (Transaccion transaccion : transaccionesFiltradas) {
-        reporte.append(transaccion.toString()).append("\n");
-    }
-
-    reporte.append("-------------------------------------------------\n");
-    reporte.append(String.format("Total de transacciones encontradas: %d\n", transaccionesFiltradas.size()));
-
-    return reporte.toString();
-}
 
     @Override
     public String toString() {

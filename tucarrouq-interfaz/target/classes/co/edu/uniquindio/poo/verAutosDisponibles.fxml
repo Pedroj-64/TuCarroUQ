@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Screen_VerAutosDisponibles" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="907.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.MenuVerReservarViewController">
+<AnchorPane fx:id="Screen_VerAutosDisponibles" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="907.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewController.VerVehiculosDiponiblesViewController">
    <children>
       <Label layoutX="290.0" layoutY="14.0" prefHeight="35.0" prefWidth="311.0" text="Ver autos disponibles" textFill="WHITE" underline="true">
          <font>
@@ -31,7 +31,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button id="btn.administrador" fx:id="btn_Regresar" layoutX="56.0" layoutY="497.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
+      <Button id="" fx:id="btn_Regresar" layoutX="56.0" layoutY="497.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="121.0" text="Regresar" textAlignment="CENTER" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
