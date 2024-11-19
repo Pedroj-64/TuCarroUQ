@@ -10,9 +10,9 @@ public class DeportivoElectrico extends VehiculoElectrico{
     public DeportivoElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
-            int numeroBolsasAire, int caballosDeFuerza, double tiempoQueAlcanza100kmh) {
+            int numeroBolsasAire, int caballosDeFuerza, double tiempoQueAlcanza100kmh,boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
+                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica, esTransmisionManual);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
         this.numeroBolsasAire = numeroBolsasAire;

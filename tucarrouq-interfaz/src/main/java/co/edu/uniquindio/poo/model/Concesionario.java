@@ -204,7 +204,7 @@ public class Concesionario implements Serializable {
 
         // Crear un administrador de ejemplo
         Administrador administradorEjemplo = new Administrador("1234", "1234", "1234",
-                "123@gmail.com");
+                "pj245668@gmail.com");
         agregarAdministrador(administradorEjemplo);
 
         VehiculoHibrido vehiculoHibrido = new VanHibrido("Maseratti", "900", "NOMBRE", 0, 120, true, 5600,
@@ -213,22 +213,7 @@ public class Concesionario implements Serializable {
         agregarVehiculo(vehiculoHibrido);
 
         // Crear una nueva instancia de MotoElectrica
-        MotoElectrica moto = new MotoElectrica(
-                "Yamaha", // marca
-                "YZF-R1", // referencia
-                "ABC123", // placa
-                1500, // kilometraje
-                300, // velocidad máxima
-                true, // nuevo (si la moto es nueva o usada)
-                25000.00, // precio de venta
-                150.00, // precio alquiler por día
-                2024, // modelo
-                "150 km", // autonomía de carga completa
-                "2 horas", // tiempo promedio por carga
-                true, // si tiene revisión técnica
-                "Deportiva" // tipo de motocicleta
-        );
-        agregarVehiculo(moto);
+
 
         Cliente cliente1 = new Cliente("Juan Pérez", "1234567890", "555-1234", "Calle Ficticia 123");
         agregarCliente(cliente1);

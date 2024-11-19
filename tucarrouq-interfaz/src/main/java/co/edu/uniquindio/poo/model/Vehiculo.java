@@ -7,9 +7,10 @@ public abstract class Vehiculo implements Serializable {
     private int velocidadMaxima, kilometraje, modelo;
     private boolean nuevo;
     private double precioVenta, precioAlquilerPorDia,PrecioAlquiler;
+    private boolean esTransmisionManual;
 
     public Vehiculo(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima, boolean nuevo,
-            double precioVenta, double precioAlquilerPorDia, int modelo) {
+            double precioVenta, double precioAlquilerPorDia, int modelo,boolean esTransmisionManual) {
         try {
             if (marca == null || referencia == null) {
                 throw new IllegalArgumentException("Los valores no pueden ser nulos");
@@ -124,6 +125,14 @@ public abstract class Vehiculo implements Serializable {
         PrecioAlquiler = precioAlquiler;
     }
 
+    public boolean isEsTransmisionManual() {
+        return esTransmisionManual;
+    }
+
+    public void setEsTransmisionManual(boolean esTransmisionManual) {
+        this.esTransmisionManual = esTransmisionManual;
+    }
+
     public void setPrecioAlquilerPorDia(double precioAlquilerPorDia) {
         if (precioAlquilerPorDia <= 0) {
             throw new IllegalArgumentException("El precio de alquiler debe ser mayor a 0");
@@ -140,7 +149,8 @@ public abstract class Vehiculo implements Serializable {
     public String toString() {
         return "Vehiculo [marca=" + marca + ", referencia=" + referencia + ", placa=" + placa + ", velocidadMaxima="
                 + velocidadMaxima + ", kilometraje=" + kilometraje + ", modelo=" + modelo + ", nuevo=" + nuevo
-                + ", precioVenta=" + precioVenta + ", precioAlquiler=" + precioAlquilerPorDia + "]";
+                + ", precioVenta=" + precioVenta + ", precioAlquilerPorDia=" + precioAlquilerPorDia
+                + ", PrecioAlquiler=" + PrecioAlquiler + ", esTransmisionManual=" + esTransmisionManual + "]";
     }
 
 }

@@ -1,21 +1,21 @@
 package co.edu.uniquindio.poo.model;
 
-public class VanHibrido extends VehiculoHibrido{
+public class VanHibrido extends VehiculoHibrido {
 
     private int cantidadPuertas, numeroBolsasDeAire, numeroPasajeros;
-    private boolean transmisionManual, aireAcondicionado, camaraReversa, abs;
-    
+    private boolean aireAcondicionado, camaraReversa, abs;
+
     public VanHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
-            boolean hibridoLigero, boolean revisionTecnica, int numeroCambios,int cantidadPuertas, int numeroBolsasDeAire,
-            int numeroPasajeros, boolean transmisionManual, boolean aireAcondicionado, boolean camaraReversa,
+            boolean hibridoLigero, boolean revisionTecnica, int numeroCambios, int cantidadPuertas,
+            int numeroBolsasDeAire,
+            int numeroPasajeros, boolean esTransmisionManual, boolean aireAcondicionado, boolean camaraReversa,
             boolean abs) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                enchufable, hibridoLigero, revisionTecnica,numeroCambios);
+                enchufable, hibridoLigero, revisionTecnica, numeroCambios, esTransmisionManual);
         this.cantidadPuertas = cantidadPuertas;
         this.numeroBolsasDeAire = numeroBolsasDeAire;
         this.numeroPasajeros = numeroPasajeros;
-        this.transmisionManual = transmisionManual;
         this.aireAcondicionado = aireAcondicionado;
         this.camaraReversa = camaraReversa;
         this.abs = abs;
@@ -45,14 +45,6 @@ public class VanHibrido extends VehiculoHibrido{
         this.numeroPasajeros = numeroPasajeros;
     }
 
-    public boolean isTransmisionManual() {
-        return transmisionManual;
-    }
-
-    public void setTransmisionManual(boolean transmisionManual) {
-        this.transmisionManual = transmisionManual;
-    }
-
     public boolean isAireAcondicionado() {
         return aireAcondicionado;
     }
@@ -80,10 +72,9 @@ public class VanHibrido extends VehiculoHibrido{
     @Override
     public String toString() {
         return "VanHibrido [cantidadPuertas=" + cantidadPuertas + ", numeroBolsasDeAire=" + numeroBolsasDeAire
-                + ", numeroPasajeros=" + numeroPasajeros + ", transmisionManual=" + transmisionManual
+                + ", numeroPasajeros=" + numeroPasajeros + ", transmisionManual="
                 + ", aireAcondicionado=" + aireAcondicionado + ", camaraReversa=" + camaraReversa + ", abs=" + abs
                 + "]";
     }
-    
-    
+
 }

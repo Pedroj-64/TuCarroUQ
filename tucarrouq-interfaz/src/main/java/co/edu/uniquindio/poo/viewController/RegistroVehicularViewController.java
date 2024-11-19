@@ -196,10 +196,10 @@ public class RegistroVehicularViewController {
                 e.printStackTrace();
             }
         });
-    
+
         cmb_TipoDeVehiculo.setOnAction(event -> {
             String tipoVehiculo = cmb_TipoDeVehiculo.getValue();
-    
+
             try {
                 // Validación adicional si es necesario
                 if (tipoVehiculo == null || tipoVehiculo.isEmpty()) {
@@ -211,11 +211,10 @@ public class RegistroVehicularViewController {
             } catch (Exception e) {
                 App.showAlert("Error", "Error al actualizar los campos según el tipo de vehículo: " + e.getMessage(),
                         Alert.AlertType.ERROR);
-                e.printStackTrace();  // Ayuda en la depuración
+                e.printStackTrace(); // Ayuda en la depuración
             }
         });
     }
-    
 
     private void actualizarCamposSegunTipo(String tipoSeleccionado) {
         try {
@@ -223,9 +222,9 @@ public class RegistroVehicularViewController {
             if (tipoSeleccionado == null || tipoSeleccionado.isEmpty()) {
                 throw new IllegalArgumentException("El tipo de vehículo seleccionado no puede estar vacío.");
             }
-    
+
             ocultarTodosLosCamposInicio();
-    
+
             if ("Híbrido".equals(tipoSeleccionado)) {
                 check_EsEnchufable.setVisible(true);
                 check_EsHidridoLigero.setVisible(true);
@@ -254,59 +253,55 @@ public class RegistroVehicularViewController {
             e.printStackTrace();
         }
     }
+
+    private void transformarCamposVacios() {
+        // Convertir campos vacíos a valores por defecto
+        if (txt_CapacidadDeTanque.getText().isEmpty()) txt_CapacidadDeTanque.setText("0");
+        if (txt_AutonomiaTanqueLleno.getText().isEmpty()) txt_AutonomiaTanqueLleno.setText("0");
+        if (txt_tipoDeCombustible.getText().isEmpty()) txt_tipoDeCombustible.setText("N/A");
+        if (txt_AutonomiaCargaCompleta.getText().isEmpty()) txt_AutonomiaCargaCompleta.setText("0");
+        if (txt_TiempoPromedioPorCarga.getText().isEmpty()) txt_TiempoPromedioPorCarga.setText("0");
+        if (txt_Cilindraje.getText().isEmpty()) txt_Cilindraje.setText("0");
+        if (txt_Cambios.getText().isEmpty()) txt_Cambios.setText("0");
+        if (txt_Kilometraje.getText().isEmpty()) txt_Kilometraje.setText("0");
+        if (txt_PrecioAlquilerDia.getText().isEmpty()) txt_PrecioAlquilerDia.setText("0");
+        if (txt_PrecioVenta.getText().isEmpty()) txt_PrecioVenta.setText("0");
+        if (txt_Marca.getText().isEmpty()) txt_Marca.setText("N/A");
+        if (txt_Referencia.getText().isEmpty()) txt_Referencia.setText("N/A");
+        if (txt_Placa.getText().isEmpty()) txt_Placa.setText("N/A");
+        if (txt_VelocidadMax.getText().isEmpty()) txt_VelocidadMax.setText("0");
+        if (txt_Modelo.getText().isEmpty()) txt_Modelo.setText("0");
+    }
     
     private void accionBotonListo(ActionEvent event) {
         try {
-            inhabilitarCamposGenerales();
-            // Verificar si todos los campos relevantes están correctamente llenados
-            if (estánCamposVacios()) {
-                App.showAlert("Advertencia", "Por favor, complete todos los campos antes de continuar.", Alert.AlertType.WARNING);
-                return; // No continuar si algún campo está vacío
-            }
+            // Transformar campos vacíos a valores por defecto
+            transformarCamposVacios();
     
             // Verificar que el ScrollPane esté correctamente inicializado
             if (ScrollPane_Screen09 == null) {
                 throw new IllegalStateException("El ScrollPane no está inicializado correctamente.");
             }
     
+            // Inhabilitar campos generales solo si los campos están llenos y el ScrollPane está inicializado
+            inhabilitarCamposGenerales();
             ScrollPane_Screen09.setDisable(false);
-            
+    
         } catch (IllegalStateException e) {
             // Mostrar mensaje de error si hay un problema con la inicialización
             App.showAlert("Advertencia", e.getMessage(), Alert.AlertType.WARNING);
         } catch (Exception e) {
             // Capturar cualquier otro error inesperado
-            App.showAlert("Error", "Error al procesar la acción del botón 'Listo': " + e.getMessage(),
-                    Alert.AlertType.ERROR);
+            App.showAlert("Error", "Error al procesar la acción del botón 'Listo': " + e.getMessage(), Alert.AlertType.ERROR);
             // Registrar el error para depuración
             e.printStackTrace();
         }
-    }
-    
-    // Método para verificar si algún campo está vacío o no válido
-    private boolean estánCamposVacios() {
-        // Verificar los campos uno por uno y retornar true si alguno está vacío o no tiene un valor válido
-        if (cmb_TipoDeVehiculo.getValue() == null || cmb_Vehiculo.getValue() == null || 
-            txt_CapacidadDeTanque.getText().isEmpty() || txt_AutonomiaTanqueLleno.getText().isEmpty() || 
-            txt_tipoDeCombustible.getText().isEmpty() || txt_AutonomiaCargaCompleta.getText().isEmpty() || 
-            txt_TiempoPromedioPorCarga.getText().isEmpty() || txt_Cilindraje.getText().isEmpty() ||
-            txt_Cambios.getText().isEmpty() || txt_Kilometraje.getText().isEmpty() || 
-            txt_PrecioAlquilerDia.getText().isEmpty() || txt_PrecioVenta.getText().isEmpty() || 
-            txt_Marca.getText().isEmpty() || txt_Referencia.getText().isEmpty() || 
-            txt_Placa.getText().isEmpty() || txt_VelocidadMax.getText().isEmpty() || 
-            txt_Modelo.getText().isEmpty()) {
-            return true; // Si algún campo está vacío, retornar true
-        }
-        return false; // Si todos los campos están llenos, retornar false
     }
     
 
     private void accionRegresar(ActionEvent event) {
         App.goBack();
     }
-    
-
-
 
     private void accionGuardarVehiculo(ActionEvent event) {
         try {
@@ -358,16 +353,16 @@ public class RegistroVehicularViewController {
 
             // Llamar al método para crear el vehículo
             boolean banderilla = registroVehicularController.crearVehiculo(tipoDeCombustion, tipoDeVehiculo, marca,
-                    referencia, placa, kilometraje, velocidadMax, esNuevo, precioVenta, precioAlquilerDia, modelo,
-                    referencia, autonomiaTanqueLleno, capacidadDeMaletero, cilindraje, revisionTecnica, cambios,
-                    autonomiaCargaCompleta, tiempoPromedioPorCarga, esEnchufable, esHibridoLigero, cantidadPuertas,
-                    numeroBolsasAire, numeroPasajeros, transmisionManual, aireAcondicionado, camaraReversa, abs,
-                    numeroPasajeros, autonomiaTanqueLleno, numeroBolsasAire, velocidadCrucero, sensorColision,
-                    sensorTraficoCruzado, asistenteCarril, capacidadDeMaletero, es4x4, tipoDeMoto, numeroDeEjes,
-                    tiempoQueAlcanza100kmh, tipoDeCamion, capacidadDeCarga, numeroSalidasEmergencia, frenosAire);
+                    placa, referencia, cambios, velocidadMax, kilometraje, modelo, precioVenta, precioAlquilerDia,
+                    esNuevo, cilindraje, cantidadPuertas, numeroBolsasAire, numeroPasajeros, transmisionManual,
+                    aireAcondicionado, camaraReversa, abs, velocidadCrucero, sensorColision, sensorTraficoCruzado,
+                    asistenteCarril, revisionTecnica, frenosAire, es4x4, esEnchufable, esHibridoLigero,
+                    autonomiaCargaCompleta, autonomiaTanqueLleno, capacidadDeCarga, capacidadDeMaletero, numeroDeEjes,
+                    numeroSalidasEmergencia, tiempoPromedioPorCarga, tiempoQueAlcanza100kmh, tipoDeCamion, tipoDeMoto);
             if (banderilla) {
-                App.showAlert("Éxito", "El vehículo ha sido creado correctamente", Alert.AlertType.INFORMATION);
-                
+                App.showAlert("Éxito", "El vehículo ha sido creado correctamente, sera redirigido al menu anterior", Alert.AlertType.INFORMATION);
+                App.goBack();
+
             } else {
                 App.showAlert("Error", "No se pudo crear el vehículo", Alert.AlertType.ERROR);
             }
@@ -573,7 +568,7 @@ public class RegistroVehicularViewController {
         txt_VelocidadMax.setDisable(true);
         txt_Modelo.setDisable(true);
         check_EsNuevo.setDisable(true);
-        
+
     }
 
 }

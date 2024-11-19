@@ -3,19 +3,18 @@ package co.edu.uniquindio.poo.model;
 public class VanElectrico extends VehiculoElectrico{
     
     private int cantidadPuertas, numeroBolsasDeAire, numeroPasajeros;
-    private boolean transmisionManual, aireAcondicionado, camaraReversa, abs;
+    private boolean aireAcondicionado, camaraReversa, abs;
     
     public VanElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int cantidadPuertas, int numeroBolsasDeAire,
-            int numeroPasajeros, boolean transmisionManual, boolean aireAcondicionado, boolean camaraReversa,
+            int numeroPasajeros, boolean esTransmisionManual, boolean aireAcondicionado, boolean camaraReversa,
             boolean abs) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
+                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica, esTransmisionManual);
         this.cantidadPuertas = cantidadPuertas;
         this.numeroBolsasDeAire = numeroBolsasDeAire;
         this.numeroPasajeros = numeroPasajeros;
-        this.transmisionManual = transmisionManual;
         this.aireAcondicionado = aireAcondicionado;
         this.camaraReversa = camaraReversa;
         this.abs = abs;
@@ -45,14 +44,6 @@ public class VanElectrico extends VehiculoElectrico{
         this.numeroPasajeros = numeroPasajeros;
     }
 
-    public boolean isTransmisionManual() {
-        return transmisionManual;
-    }
-
-    public void setTransmisionManual(boolean transmisionManual) {
-        this.transmisionManual = transmisionManual;
-    }
-
     public boolean isAireAcondicionado() {
         return aireAcondicionado;
     }
@@ -80,7 +71,7 @@ public class VanElectrico extends VehiculoElectrico{
     @Override
     public String toString() {
         return "VanElectrico [cantidadPuertas=" + cantidadPuertas + ", numeroBolsasDeAire=" + numeroBolsasDeAire
-                + ", numeroPasajeros=" + numeroPasajeros + ", transmisionManual=" + transmisionManual
+                + ", numeroPasajeros=" + numeroPasajeros + ", transmisionManual="
                 + ", aireAcondicionado=" + aireAcondicionado + ", camaraReversa=" + camaraReversa + ", abs=" + abs
                 + "]";
     }

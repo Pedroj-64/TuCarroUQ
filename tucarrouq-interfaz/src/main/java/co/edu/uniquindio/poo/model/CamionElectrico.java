@@ -6,20 +6,20 @@ public class CamionElectrico extends VehiculoElectrico {
 
     private String tipoCamion;
     private int capacidadCarga, numeroEjes;
-    private boolean aireAcondicionado, frenosDeAire, frenosABS;
+    private boolean aireAcondicionado, frenosDeAire, ABS;
 
     public CamionElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, String tipoCamion, int capacidadCarga,
-            int numeroEjes, boolean aireAcondicionado, boolean frenosDeAire, boolean frenosABS) {
+            int numeroEjes, boolean aireAcondicionado, boolean frenosDeAire, boolean ABS,boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
+                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica, esTransmisionManual);
         this.tipoCamion = tipoCamion;
         this.capacidadCarga = capacidadCarga;
         this.numeroEjes = numeroEjes;
         this.aireAcondicionado = aireAcondicionado;
         this.frenosDeAire = frenosDeAire;
-        this.frenosABS = frenosABS;
+        this.ABS = ABS;
     }
 
     public String getTipoCamion() {
@@ -63,18 +63,18 @@ public class CamionElectrico extends VehiculoElectrico {
     }
 
     public boolean isFrenosABS() {
-        return frenosABS;
+        return ABS;
     }
 
     public void setFrenosABS(boolean frenosABS) {
-        this.frenosABS = frenosABS;
+        this.ABS = frenosABS;
     }
 
     @Override
     public String toString() {
         return "CamionElectrico [tipoCamion=" + tipoCamion + ", capacidadCarga=" + capacidadCarga + ", numeroEjes="
                 + numeroEjes + ", aireAcondicionado=" + aireAcondicionado + ", frenosDeAire=" + frenosDeAire
-                + ", frenosABS=" + frenosABS + "]";
+                + ", frenosABS=" + ABS + "]";
     }
 
 }

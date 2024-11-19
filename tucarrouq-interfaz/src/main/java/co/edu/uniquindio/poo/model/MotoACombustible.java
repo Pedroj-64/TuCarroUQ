@@ -7,9 +7,9 @@ public class MotoACombustible extends VehiculoACombustible{
     public MotoACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroCambios,
-            String tipoDeMotocicleta) {
+            String tipoDeMotocicleta,boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios);
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios, esTransmisionManual);
         this.tipoDeMotocicleta = tipoDeMotocicleta;
     }
 

@@ -49,25 +49,38 @@ public class MenuInicioSesionEmpleadoViewController {
     }
 
     private void iniciarSesion(ActionEvent event){
-        String identificacion = txt_Identificacion.getText();
-        String contrasena = txt_Contraseña.getText();
+        try {
+            String identificacion = txt_Identificacion.getText();
+            String contrasena = txt_Contraseña.getText();
 
-        // Verificar si las credenciales del empleado son correctas
-        boolean esValido = menuInicioSesionEmpleadoController.verificarEmpleado(identificacion, contrasena);
+            // Verificar si las credenciales del empleado son correctas
+            boolean esValido = menuInicioSesionEmpleadoController.verificarEmpleado(identificacion, contrasena);
 
-        if (esValido) {
-            // Redirigir a la interfaz de empleado
-            Empleado empleado=menuInicioSesionEmpleadoController.buscarEmpleado(identificacion);
-            AppControllerSingleton.getInstance().setUsuarioActual(empleado);
-            App.loadScene("menuEmpleado", 800, 600);
-        } else {
-            // Mostrar el botón de recuperar contraseña si las credenciales son incorrectas
-            btn_RecuperarContraseña.setVisible(true);
+            if (esValido) {
+                // Redirigir a la interfaz de empleado
+                Empleado empleado=menuInicioSesionEmpleadoController.buscarEmpleado(identificacion);
+                AppControllerSingleton.getInstance().setUsuarioActual(empleado);
+                App.loadScene("menuEmpleado", 800, 600);
+            } else {
+                // Mostrar el botón de recuperar contraseña si las credenciales son incorrectas
+                btn_RecuperarContraseña.setVisible(true);
+            }
+        } catch (Exception e) {
+            App.showAlert("Error", "Ocurrió un error al iniciar sesión: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
     private void recuperarContraseña(ActionEvent event){
-        menuInicioSesionEmpleadoController.recuperarContrasena(txt_Identificacion.getText());
+        try {
+            String identificacion = txt_Identificacion.getText();
+            if (identificacion.isEmpty()) {
+                App.showAlert("Error", "La identificación no puede estar vacía.", Alert.AlertType.ERROR);
+                return;
+            }
+            menuInicioSesionEmpleadoController.recuperarContrasena(identificacion);
+        } catch (Exception e) {
+            App.showAlert("Error", "Ocurrió un error al recuperar la contraseña: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     private void accionRegresarAlInicio(ActionEvent event) {
@@ -80,3 +93,4 @@ public class MenuInicioSesionEmpleadoViewController {
         }
     }
 }
+

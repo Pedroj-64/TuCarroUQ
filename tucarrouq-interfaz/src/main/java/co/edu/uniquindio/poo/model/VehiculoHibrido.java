@@ -7,8 +7,8 @@ public abstract class VehiculoHibrido extends Vehiculo {
 
     public VehiculoHibrido(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, boolean enchufable,
-            boolean hibridoLigero, boolean revisionTecnica, int numeroCambios) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo);
+            boolean hibridoLigero, boolean revisionTecnica, int numeroCambios,boolean esTransmisionManual) {
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,esTransmisionManual);
         this.enchufable = enchufable;
         this.hibridoLigero = hibridoLigero;
         this.revisionTecnica = revisionTecnica;

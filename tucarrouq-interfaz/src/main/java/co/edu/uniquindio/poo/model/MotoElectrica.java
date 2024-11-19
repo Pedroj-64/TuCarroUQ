@@ -6,9 +6,9 @@ public class MotoElectrica extends VehiculoElectrico{
 
     public MotoElectrica(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
-            String tiempoPromedioPorCarga, boolean revisionTecnica, String tipoMotocicleta) {
+            String tiempoPromedioPorCarga, boolean revisionTecnica, String tipoMotocicleta,boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
+                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica,esTransmisionManual);
         this.tipoMotocicleta = tipoMotocicleta;
     }
 

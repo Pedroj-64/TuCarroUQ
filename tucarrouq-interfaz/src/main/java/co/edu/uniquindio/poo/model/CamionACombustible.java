@@ -6,20 +6,20 @@ public class CamionACombustible extends VehiculoACombustible  {
 
     private String tipoCamion;
     private int capacidadCarga, numeroEjes;
-    private boolean aireAcondicionado, frenosDeAire, frenosABS;
+    private boolean aireAcondicionado, frenosDeAire,ABS;
 
     public CamionACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica,int numeroCambios ,String tipoCamion,
-            int capacidadCarga, int numeroEjes, boolean aireAcondicionado, boolean frenosDeAire, boolean frenosABS) {
+            int capacidadCarga, int numeroEjes, boolean aireAcondicionado, boolean frenosDeAire, boolean ABS, boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica,numeroCambios);
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica,numeroCambios, esTransmisionManual);
         this.tipoCamion = tipoCamion;
         this.capacidadCarga = capacidadCarga;
         this.numeroEjes = numeroEjes;
         this.aireAcondicionado = aireAcondicionado;
         this.frenosDeAire = frenosDeAire;
-        this.frenosABS = frenosABS;
+        this.ABS = ABS;
     }
 
     public String getTipoCamion() {
@@ -63,18 +63,18 @@ public class CamionACombustible extends VehiculoACombustible  {
     }
 
     public boolean isFrenosABS() {
-        return frenosABS;
+        return ABS;
     }
 
-    public void setFrenosABS(boolean frenosABS) {
-        this.frenosABS = frenosABS;
+    public void setFrenosABS(boolean ABS) {
+        this.ABS = ABS;
     }
 
     @Override
     public String toString() {
         return "CamionACombustible [tipoCamion=" + tipoCamion + ", capacidadCarga=" + capacidadCarga + ", numeroEjes="
                 + numeroEjes + ", aireAcondicionado=" + aireAcondicionado + ", frenosDeAire=" + frenosDeAire
-                + ", frenosABS=" + frenosABS + "]";
+                + ", frenosABS=" + ABS + "]";
     }
 
 }

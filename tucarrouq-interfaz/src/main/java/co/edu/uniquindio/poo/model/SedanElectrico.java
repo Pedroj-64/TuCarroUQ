@@ -3,16 +3,16 @@ package co.edu.uniquindio.poo.model;
 public class SedanElectrico extends VehiculoElectrico {
 
     private int  numeroPuertas, numeroPasajeros, capacidadMaletero, numeroBolsasAire;
-    private boolean AireAcondicionado, camaraReversa, velocidadCrucero, frenosABS, sensorColision, sensorTraficoCruzado, asistentePermanenciaEnCarril;
+    private boolean AireAcondicionado, camaraReversa, velocidadCrucero, ABS, sensorColision, sensorTraficoCruzado, asistentePermanenciaEnCarril;
     
     public SedanElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPuertas, int numeroPasajeros,
             int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean camaraReversa,
-            boolean velocidadCrucero, boolean frenosABS, boolean sensorColision, boolean sensorTraficoCruzado,
-            boolean asistentePermanenciaEnCarril) {
+            boolean velocidadCrucero, boolean ABS, boolean sensorColision, boolean sensorTraficoCruzado,
+            boolean asistentePermanenciaEnCarril,boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
+                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica,esTransmisionManual);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.capacidadMaletero = capacidadMaletero;
@@ -20,7 +20,7 @@ public class SedanElectrico extends VehiculoElectrico {
         AireAcondicionado = aireAcondicionado;
         this.camaraReversa = camaraReversa;
         this.velocidadCrucero = velocidadCrucero;
-        this.frenosABS = frenosABS;
+        this.ABS = ABS;
         this.sensorColision = sensorColision;
         this.sensorTraficoCruzado = sensorTraficoCruzado;
         this.asistentePermanenciaEnCarril = asistentePermanenciaEnCarril;
@@ -83,11 +83,11 @@ public class SedanElectrico extends VehiculoElectrico {
     }
 
     public boolean isFrenosABS() {
-        return frenosABS;
+        return ABS;
     }
 
-    public void setFrenosABS(boolean frenosABS) {
-        this.frenosABS = frenosABS;
+    public void setFrenosABS(boolean ABS) {
+        this.ABS = ABS;
     }
 
     public boolean isSensorColision() {
@@ -119,7 +119,7 @@ public class SedanElectrico extends VehiculoElectrico {
         return "SedanElectrico [numeroPuertas=" + numeroPuertas + ", numeroPasajeros=" + numeroPasajeros
                 + ", capacidadMaletero=" + capacidadMaletero + ", numeroBolsasAire=" + numeroBolsasAire
                 + ", AireAcondicionado=" + AireAcondicionado + ", camaraReversa=" + camaraReversa
-                + ", velocidadCrucero=" + velocidadCrucero + ", frenosABS=" + frenosABS + ", sensorColision="
+                + ", velocidadCrucero=" + velocidadCrucero + ", frenosABS=" + ABS + ", sensorColision="
                 + sensorColision + ", sensorTraficoCruzado=" + sensorTraficoCruzado + ", asistentePermanenciaEnCarril="
                 + asistentePermanenciaEnCarril + "]";
     }

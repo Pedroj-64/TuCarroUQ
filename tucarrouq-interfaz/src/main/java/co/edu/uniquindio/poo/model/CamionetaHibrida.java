@@ -13,9 +13,9 @@ public class CamionetaHibrida extends VehiculoHibrido  {
             boolean hibridoLigero, boolean revisionTecnica,int numeroCambios ,int numeroPuertas, int numeroPasajeros,
             int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean ABS,
             boolean camaraReversa, boolean velocidadCrucero, boolean sensorColision, boolean sensorTraficoCruzado,
-            boolean asistentePermanenciaEnCarril, boolean es4x4) {
+            boolean asistentePermanenciaEnCarril, boolean es4x4,boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                enchufable, hibridoLigero, revisionTecnica,numeroCambios);
+                enchufable, hibridoLigero, revisionTecnica,numeroCambios,esTransmisionManual);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.capacidadMaletero = capacidadMaletero;

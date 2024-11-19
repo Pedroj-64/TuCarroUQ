@@ -7,8 +7,8 @@ public abstract class VehiculoElectrico extends Vehiculo {
 
     public VehiculoElectrico(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
-            String tiempoPromedioPorCarga, boolean revisionTecnica) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo);
+            String tiempoPromedioPorCarga, boolean revisionTecnica, boolean esTransmisionManual) {
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,esTransmisionManual);
         this.autonomiaCargaCompleta = autonomiaCargaCompleta;
         this.tiempoPromedioPorCarga = tiempoPromedioPorCarga;
         this.revisionTecnica = revisionTecnica;

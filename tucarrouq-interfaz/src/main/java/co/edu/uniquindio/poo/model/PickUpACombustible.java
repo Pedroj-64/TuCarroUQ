@@ -3,23 +3,23 @@ package co.edu.uniquindio.poo.model;
 public class PickUpACombustible extends VehiculoACombustible {
 
     private int numeroPuertas, numeroPasajeros, numeroBolsasAire, capacidadCajaDeCarga;
-    private boolean aireAcondicionado, camaraReversa, frenosABS, es4x4;
+    private boolean aireAcondicionado, camaraReversa, ABS, es4x4;
 
     public PickUpACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroCambios,
             int numeroPuertas,
             int numeroPasajeros, int numeroBolsasAire, int capacidadCajaDeCarga, boolean aireAcondicionado,
-            boolean camaraReversa, boolean frenosABS, boolean es4x4) {
+            boolean camaraReversa, boolean ABS, boolean es4x4,boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios);
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios,esTransmisionManual);
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.numeroBolsasAire = numeroBolsasAire;
         this.capacidadCajaDeCarga = capacidadCajaDeCarga;
         this.aireAcondicionado = aireAcondicionado;
         this.camaraReversa = camaraReversa;
-        this.frenosABS = frenosABS;
+        this.ABS = ABS;
         this.es4x4 = es4x4;
     }
 
@@ -72,11 +72,11 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public boolean isFrenosABS() {
-        return frenosABS;
+        return ABS;
     }
 
-    public void setFrenosABS(boolean frenosABS) {
-        this.frenosABS = frenosABS;
+    public void setFrenosABS(boolean ABS) {
+        this.ABS = ABS;
     }
 
     public boolean isEs4x4() {
@@ -92,7 +92,7 @@ public class PickUpACombustible extends VehiculoACombustible {
         return "PickUpACombustible [numeroPuertas=" + numeroPuertas + ", numeroPasajeros=" + numeroPasajeros
                 + ", numeroBolsasAire=" + numeroBolsasAire + ", capacidadCajaDeCarga=" + capacidadCajaDeCarga
                 + ", aireAcondicionado=" + aireAcondicionado + ", camaraReversa=" + camaraReversa + ", frenosABS="
-                + frenosABS + ", es4x4=" + es4x4 + "]";
+                + ABS + ", es4x4=" + es4x4 + "]";
     }
 
 }

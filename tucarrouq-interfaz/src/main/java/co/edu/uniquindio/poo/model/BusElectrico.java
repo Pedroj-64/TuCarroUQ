@@ -12,9 +12,9 @@ public class BusElectrico extends VehiculoElectrico {
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPasajeros, int numeroPuertas,
             int capacidadMaletero, int numeroBolsasAire, int numeroEjes, int numeroSalidasEmergencia,
-            boolean aireAcondicionado, boolean camaraReversa, boolean ABS) {
+            boolean aireAcondicionado, boolean camaraReversa, boolean ABS,boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
+                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica,esTransmisionManual);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
         this.capacidadMaletero = capacidadMaletero;

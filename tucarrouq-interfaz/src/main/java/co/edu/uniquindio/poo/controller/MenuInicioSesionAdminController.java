@@ -73,11 +73,12 @@ public class MenuInicioSesionAdminController {
         propiedades.put("mail.smtp.auth", "true");
         propiedades.put("mail.smtp.starttls.enable", "true");
         propiedades.put("mail.smtp.host", "smtp.gmail.com");
+        propiedades.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         propiedades.put("mail.smtp.port", "587");
 
         // Autenticación
-        String miCorreo = "tu-email@gmail.com";
-        String miContrasena = "tu-contrasena";
+        String miCorreo = "margadev49@gmail.com";
+        String miContrasena = "ybju stjr hlne bbdw";
 
         Session session = Session.getInstance(propiedades, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
