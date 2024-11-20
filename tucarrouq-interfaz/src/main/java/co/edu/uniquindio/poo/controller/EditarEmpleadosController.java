@@ -7,14 +7,33 @@ import co.edu.uniquindio.poo.model.Empleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Controlador para gestionar las operaciones de edición de empleados.
+ */
 public class EditarEmpleadosController {
     
+    // Instancia del concesionario obtenida desde la clase App
     Concesionario concesionario = App.getConcesionario();
 
+    /**
+     * Obtiene una lista observable de empleados del concesionario.
+     * 
+     * @return una lista observable de empleados
+     */
     public ObservableList<Empleado> obtenerEmpleados() {
         return FXCollections.observableArrayList(concesionario.getEmpleados());
     }
 
+    /**
+     * Crea un nuevo empleado y lo agrega al concesionario.
+     * 
+     * @param nombre el nombre del empleado
+     * @param contrasena la contraseña del empleado
+     * @param identificacion la identificación del empleado
+     * @param emailRecuperacion el correo electrónico de recuperación del empleado
+     * @param rangoEmpleado el rango del empleado (puede ser "empleado" o "administrador")
+     * @return true si la creación del empleado fue exitosa, false en caso contrario
+     */
     public boolean crearEmpleado(String nombre, String contrasena, String identificacion, String emailRecuperacion, String rangoEmpleado) {
         boolean banderilla = false;
         try {
@@ -43,6 +62,12 @@ public class EditarEmpleadosController {
         return banderilla;
     }
 
+    /**
+     * Elimina un empleado del concesionario utilizando su identificación.
+     * 
+     * @param identificacion la identificación del empleado a eliminar
+     * @return true si la eliminación del empleado fue exitosa, false en caso contrario
+     */
     public boolean eliminarEmpleado(String identificacion) {
         boolean banderilla = false;
         try {
@@ -54,7 +79,17 @@ public class EditarEmpleadosController {
         return banderilla;
     }
 
-    public boolean actualizarEmpleado(String nombre, String identificacion, String contrasena, String emailDeRecuperacion,String cargo) {
+    /**
+     * Actualiza la información de un empleado existente.
+     * 
+     * @param nombre el nuevo nombre del empleado
+     * @param identificacion la identificación del empleado
+     * @param contrasena la nueva contraseña del empleado
+     * @param emailDeRecuperacion el nuevo correo electrónico de recuperación del empleado
+     * @param cargo el nuevo cargo del empleado (puede ser "empleado" o "administrador")
+     * @return true si la actualización del empleado fue exitosa, false en caso contrario
+     */
+    public boolean actualizarEmpleado(String nombre, String identificacion, String contrasena, String emailDeRecuperacion, String cargo) {
         boolean banderilla = false;
         try {
             Empleado empleadoExistente = concesionario.obtenerEmpleado(identificacion);
@@ -66,8 +101,8 @@ public class EditarEmpleadosController {
             } else {
                 System.out.println("El empleado no existe.");
             }
-            if(cargo.toLowerCase()== "administrador"){
-                Administrador administrador= new Administrador(nombre, identificacion, contrasena, emailDeRecuperacion);
+            if(cargo.toLowerCase().equals("administrador")){
+                Administrador administrador = new Administrador(nombre, identificacion, contrasena, emailDeRecuperacion);
                 concesionario.agregarAdministrador(administrador);
             }
         } catch (Exception e) {
@@ -75,4 +110,5 @@ public class EditarEmpleadosController {
         }
         return banderilla;
     }
+
 }

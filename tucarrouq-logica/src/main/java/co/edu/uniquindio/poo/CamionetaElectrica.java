@@ -1,24 +1,68 @@
 package co.edu.uniquindio.poo;
 
-public class CamionetaElectrica extends VehiculoElectrico{
+public class CamionetaElectrica extends VehiculoElectrico {
 
     private int numeroPuertas, numeroPasajeros, capacidadMaletero, numeroBolsasAire;
-    private boolean aireAcondicionado, frenosABS, camaraReversa, velocidadCrucero, sensorColision, sensorTraficoCruzado, asistentePermanenciaEnCarril, es4x4;
-    
+    private boolean aireAcondicionado, ABS, camaraReversa, velocidadCrucero, sensorColision, sensorTraficoCruzado,
+            asistentePermanenciaEnCarril, es4x4;
+
+    /**
+     * Constructor de la clase CamionetaElectrica.
+     * Inicializa todos los atributos del vehículo y los atributos heredados de la
+     * clase VehiculoElectrico.
+     * 
+     * @param marca                        Marca del vehículo.
+     * @param referencia                   Referencia del vehículo.
+     * @param placa                        Placa del vehículo.
+     * @param kilometraje                  Kilometraje del vehículo.
+     * @param velocidadMaxima              Velocidad máxima del vehículo.
+     * @param nuevo                        Indica si el vehículo es nuevo.
+     * @param precioVenta                  Precio de venta del vehículo.
+     * @param precioAlquilerPorDia         Precio de alquiler por día del vehículo.
+     * @param modelo                       Modelo del vehículo.
+     * @param autonomiaCargaCompleta       Autonomía con la carga completa.
+     * @param tiempoPromedioPorCarga       Tiempo promedio por carga.
+     * @param revisionTecnica              Indica si el vehículo tiene revisión
+     *                                     técnica.
+     * @param numeroPuertas                Número de puertas del vehículo.
+     * @param numeroPasajeros              Número de pasajeros que puede llevar el
+     *                                     vehículo.
+     * @param capacidadMaletero            Capacidad del maletero del vehículo.
+     * @param numeroBolsasAire             Número de bolsas de aire del vehículo.
+     * @param aireAcondicionado            Indica si el vehículo tiene aire
+     *                                     acondicionado.
+     * @param ABS                          Indica si el vehículo tiene sistema de
+     *                                     frenos ABS.
+     * @param camaraReversa                Indica si el vehículo tiene cámara de
+     *                                     reversa.
+     * @param velocidadCrucero             Indica si el vehículo tiene velocidad
+     *                                     crucero.
+     * @param sensorColision               Indica si el vehículo tiene sensor de
+     *                                     colisión.
+     * @param sensorTraficoCruzado         Indica si el vehículo tiene sensor de
+     *                                     tráfico cruzado.
+     * @param asistentePermanenciaEnCarril Indica si el vehículo tiene asistente de
+     *                                     permanencia en carril.
+     * @param es4x4                        Indica si el vehículo es 4x4.
+     * @param esTransmisionManual          Indica si el vehículo tiene transmisión
+     *                                     manual.
+     */
     public CamionetaElectrica(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String autonomiaCargaCompleta,
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String autonomiaCargaCompleta,
             String tiempoPromedioPorCarga, boolean revisionTecnica, int numeroPuertas, int numeroPasajeros,
-            int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean frenosABS,
+            int capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean ABS,
             boolean camaraReversa, boolean velocidadCrucero, boolean sensorColision, boolean sensorTraficoCruzado,
-            boolean asistentePermanenciaEnCarril, boolean es4x4) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
-                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica);
+            boolean asistentePermanenciaEnCarril, boolean es4x4, boolean esTransmisionManual) {
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
+                autonomiaCargaCompleta, tiempoPromedioPorCarga, revisionTecnica, esTransmisionManual);
+
+        // Inicialización de los atributos específicos de la camioneta eléctrica
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.capacidadMaletero = capacidadMaletero;
         this.numeroBolsasAire = numeroBolsasAire;
         this.aireAcondicionado = aireAcondicionado;
-        this.frenosABS = frenosABS;
+        this.ABS = ABS;
         this.camaraReversa = camaraReversa;
         this.velocidadCrucero = velocidadCrucero;
         this.sensorColision = sensorColision;
@@ -32,7 +76,14 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setNumeroPuertas(int numeroPuertas) {
-        this.numeroPuertas = numeroPuertas;
+        try {
+            if (numeroPuertas < 0) {
+                throw new IllegalArgumentException("El número de puertas no puede ser negativo.");
+            }
+            this.numeroPuertas = numeroPuertas;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de puertas: " + e.getMessage());
+        }
     }
 
     public int getNumeroPasajeros() {
@@ -40,7 +91,14 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setNumeroPasajeros(int numeroPasajeros) {
-        this.numeroPasajeros = numeroPasajeros;
+        try {
+            if (numeroPasajeros < 0) {
+                throw new IllegalArgumentException("El número de pasajeros no puede ser negativo.");
+            }
+            this.numeroPasajeros = numeroPasajeros;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de pasajeros: " + e.getMessage());
+        }
     }
 
     public int getCapacidadMaletero() {
@@ -48,7 +106,14 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setCapacidadMaletero(int capacidadMaletero) {
-        this.capacidadMaletero = capacidadMaletero;
+        try {
+            if (capacidadMaletero < 0) {
+                throw new IllegalArgumentException("La capacidad del maletero no puede ser negativa.");
+            }
+            this.capacidadMaletero = capacidadMaletero;
+        } catch (Exception e) {
+            System.err.println("Error al establecer la capacidad del maletero: " + e.getMessage());
+        }
     }
 
     public int getNumeroBolsasAire() {
@@ -56,7 +121,14 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setNumeroBolsasAire(int numeroBolsasAire) {
-        this.numeroBolsasAire = numeroBolsasAire;
+        try {
+            if (numeroBolsasAire < 0) {
+                throw new IllegalArgumentException("El número de bolsas de aire no puede ser negativo.");
+            }
+            this.numeroBolsasAire = numeroBolsasAire;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de bolsas de aire: " + e.getMessage());
+        }
     }
 
     public boolean isAireAcondicionado() {
@@ -64,15 +136,23 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setAireAcondicionado(boolean aireAcondicionado) {
-        this.aireAcondicionado = aireAcondicionado;
+        try {
+            this.aireAcondicionado = aireAcondicionado;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el aire acondicionado: " + e.getMessage());
+        }
     }
 
     public boolean isFrenosABS() {
-        return frenosABS;
+        return ABS;
     }
 
-    public void setFrenosABS(boolean frenosABS) {
-        this.frenosABS = frenosABS;
+    public void setFrenosABS(boolean ABS) {
+        try {
+            this.ABS = ABS;
+        } catch (Exception e) {
+            System.err.println("Error al establecer los frenos ABS: " + e.getMessage());
+        }
     }
 
     public boolean isCamaraReversa() {
@@ -80,7 +160,11 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setCamaraReversa(boolean camaraReversa) {
-        this.camaraReversa = camaraReversa;
+        try {
+            this.camaraReversa = camaraReversa;
+        } catch (Exception e) {
+            System.err.println("Error al establecer la cámara de reversa: " + e.getMessage());
+        }
     }
 
     public boolean isVelocidadCrucero() {
@@ -88,7 +172,11 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setVelocidadCrucero(boolean velocidadCrucero) {
-        this.velocidadCrucero = velocidadCrucero;
+        try {
+            this.velocidadCrucero = velocidadCrucero;
+        } catch (Exception e) {
+            System.err.println("Error al establecer la velocidad crucero: " + e.getMessage());
+        }
     }
 
     public boolean isSensorColision() {
@@ -96,7 +184,11 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setSensorColision(boolean sensorColision) {
-        this.sensorColision = sensorColision;
+        try {
+            this.sensorColision = sensorColision;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el sensor de colisión: " + e.getMessage());
+        }
     }
 
     public boolean isSensorTraficoCruzado() {
@@ -104,7 +196,11 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setSensorTraficoCruzado(boolean sensorTraficoCruzado) {
-        this.sensorTraficoCruzado = sensorTraficoCruzado;
+        try {
+            this.sensorTraficoCruzado = sensorTraficoCruzado;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el sensor de tráfico cruzado: " + e.getMessage());
+        }
     }
 
     public boolean isAsistentePermanenciaEnCarril() {
@@ -112,7 +208,11 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setAsistentePermanenciaEnCarril(boolean asistentePermanenciaEnCarril) {
-        this.asistentePermanenciaEnCarril = asistentePermanenciaEnCarril;
+        try {
+            this.asistentePermanenciaEnCarril = asistentePermanenciaEnCarril;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el asistente de permanencia en carril: " + e.getMessage());
+        }
     }
 
     public boolean isEs4x4() {
@@ -120,18 +220,21 @@ public class CamionetaElectrica extends VehiculoElectrico{
     }
 
     public void setEs4x4(boolean es4x4) {
-        this.es4x4 = es4x4;
+        try {
+            this.es4x4 = es4x4;
+        } catch (Exception e) {
+            System.err.println("Error al establecer si es 4x4: " + e.getMessage());
+        }
     }
 
     @Override
     public String toString() {
         return "CamionetaElectrica [numeroPuertas=" + numeroPuertas + ", numeroPasajeros=" + numeroPasajeros
                 + ", capacidadMaletero=" + capacidadMaletero + ", numeroBolsasAire=" + numeroBolsasAire
-                + ", aireAcondicionado=" + aireAcondicionado + ", frenosABS=" + frenosABS + ", camaraReversa="
+                + ", aireAcondicionado=" + aireAcondicionado + ", frenosABS=" + ABS + ", camaraReversa="
                 + camaraReversa + ", velocidadCrucero=" + velocidadCrucero + ", sensorColision=" + sensorColision
                 + ", sensorTraficoCruzado=" + sensorTraficoCruzado + ", asistentePermanenciaEnCarril="
                 + asistentePermanenciaEnCarril + ", es4x4=" + es4x4 + "]";
     }
-    
-    
+
 }

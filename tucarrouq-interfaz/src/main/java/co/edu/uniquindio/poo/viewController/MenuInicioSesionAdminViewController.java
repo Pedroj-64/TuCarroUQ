@@ -64,7 +64,7 @@
                  // Redirigir a la interfaz de empleado
                  Empleado administrador = menuInicioSesionAdminController.buscarEmpleado(identificacion);
                  AppControllerSingleton.getInstance().setUsuarioActual(administrador);
-                 App.loadScene("menuAdmin", 800, 600);
+                 App.loadScene("menuAdmin", 600, 430);
              } else {
                  // Mostrar el botón de recuperar contraseña si las credenciales son incorrectas
                  btn_RecuperarContraseña.setVisible(true);

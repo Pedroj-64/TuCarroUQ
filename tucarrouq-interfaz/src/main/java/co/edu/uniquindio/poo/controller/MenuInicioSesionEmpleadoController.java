@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.controller;
 
 import co.edu.uniquindio.poo.App;
+import co.edu.uniquindio.poo.model.Administrador;
 import co.edu.uniquindio.poo.model.Concesionario;
 import co.edu.uniquindio.poo.model.Empleado;
 import javafx.scene.control.Alert.AlertType;
@@ -57,10 +58,10 @@ public class MenuInicioSesionEmpleadoController {
     public void recuperarContrasena(String identificacion) {
         String nuevaContrasena = generarContrasenaAleatoria();
         String emailBuscado = null;
-        Empleado empleado = concesionario.buscarEmpleado(identificacion);
-        emailBuscado = empleado.getEmailDeRecuperacion();
-        empleado.setContrasena(nuevaContrasena);
-
+        Administrador administrador = concesionario.buscarAdministrador(identificacion);
+        emailBuscado = administrador.getEmailDeRecuperacion();
+        administrador.setContrasena(nuevaContrasena);
+    
         // Configurar las propiedades de JavaMail
         Properties propiedades = new Properties();
         propiedades.put("mail.smtp.auth", "true");
@@ -68,25 +69,45 @@ public class MenuInicioSesionEmpleadoController {
         propiedades.put("mail.smtp.host", "smtp.gmail.com");
         propiedades.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         propiedades.put("mail.smtp.port", "587");
-
+    
         // Autenticación
         String miCorreo = "margadev49@gmail.com";
         String miContrasena = "ybju stjr hlne bbdw";
-
+    
         Session session = Session.getInstance(propiedades, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(miCorreo, miContrasena);
             }
         });
-
+    
         try {
             // Crear el mensaje
             Message mensaje = new MimeMessage(session);
             mensaje.setFrom(new InternetAddress(miCorreo));
             mensaje.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailBuscado));
             mensaje.setSubject("Recuperación de Contraseña Tu Carro UQ");
-            mensaje.setText("Hola, \n\nTu nueva contraseña es: " + nuevaContrasena + "\n\nSaludos,\nTu Carro UQ");
-
+    
+            // Crear el contenido del mensaje en HTML
+            String htmlContent = "<!DOCTYPE html>" +
+                    "<html>" +
+                    "<body style='font-family: Arial, sans-serif;'>" +
+                    "<div style='max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;'>" +
+                    "<h2 style='color: #333;'>Recuperación de Contraseña</h2>" +
+                    "<p>Hola,</p>" +
+                    "<p>Tu nueva contraseña es: <strong>" + nuevaContrasena + "</strong></p>" +
+                    "<p>Por favor, asegúrate de comunicarte con un superior para cambiar esta contraseña una vez que hayas iniciado sesión.</p>" +
+                    "<br>" +
+                    "<img src='https://imgur.com/t49gmcu' alt='Logo Tu Carro UQ' style='max-width: 200px;'>" +
+                    "<br><br>" +
+                    "<p>Saludos,</p>" +
+                    "<p><strong>Tu Carro UQ</strong></p>" +
+                    "</div>" +
+                    "</body>" +
+                    "</html>";
+    
+            // Establecer el contenido del mensaje
+            mensaje.setContent(htmlContent, "text/html");
+    
             // Enviar el mensaje
             Transport.send(mensaje);
             App.showAlert("Correo Enviado", "La nueva contraseña ha sido enviada a tu correo.", AlertType.INFORMATION);
@@ -94,6 +115,7 @@ public class MenuInicioSesionEmpleadoController {
             App.showAlert("Error", "No se pudo enviar el correo: " + e.getMessage(), AlertType.ERROR);
         }
     }
+    
 
     /**
      * Método para generar una contraseña aleatoria.

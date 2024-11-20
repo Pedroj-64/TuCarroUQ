@@ -132,7 +132,7 @@ public class EditarInventarioViewController {
         Vehiculo vehiculoSeleccionado = tbl_listaVehiculosInventario.getSelectionModel().getSelectedItem();
         if (vehiculoSeleccionado != null) {
             listaVehiculos.remove(vehiculoSeleccionado);
-            editarInventarioController.elimarVehiculo(vehiculoSeleccionado);
+            editarInventarioController.eliminarVehiculo(vehiculoSeleccionado);
         } else {
             App.showAlert("Seleccionar Vehículo", "Por favor, seleccione un vehículo a eliminar",
                     Alert.AlertType.INFORMATION);

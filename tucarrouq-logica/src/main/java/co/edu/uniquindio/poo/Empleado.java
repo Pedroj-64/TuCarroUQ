@@ -6,10 +6,10 @@ import java.util.LinkedList;
 public class Empleado extends Usuario {
     private Collection<Transaccion> transacciones; // Registro de transacciones del empleado
 
-    public Empleado(String nombre, String identificacion, String contrasena, String preguntaSeguridad, String respuestaSeguridad) {
-        super(nombre, identificacion, contrasena, preguntaSeguridad, respuestaSeguridad);
+    public Empleado(String nombre, String identificacion, String contrasena, String emailDeRecuperacion) {
+        super(nombre, identificacion, contrasena, emailDeRecuperacion);
 
-        if (nombre == null || identificacion == null || contrasena == null || preguntaSeguridad == null || respuestaSeguridad == null) {
+        if (nombre == null || identificacion == null || contrasena == null) {
             throw new IllegalArgumentException("Los valores no pueden ser nulos");
         }
 
@@ -35,8 +35,16 @@ public class Empleado extends Usuario {
         this.transacciones = transacciones;
     }
 
+    // Método para obtener el cargo del empleado
+    public String getCargo() {
+        if (this instanceof Administrador) {
+            return "Administrador";
+        }
+        return "Empleado";
+    }
+
     @Override
     public String toString() {
-        return "La persona: " + super.toString() + " es Empleado [transacciones=" + transacciones + "]";
+        return getNombre();
     }
 }

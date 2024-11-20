@@ -143,7 +143,7 @@ public class EditarClientesViewController {
         String direccion = txt_DireccionActualizar.getText();
         String emailDeRecuperacion = txt_TelefonoActulizar.getText();
 
-        boolean resultado = editarClientesController.actulizarCliente(nombre, identificacion, direccion, emailDeRecuperacion);
+        boolean resultado = editarClientesController.actualizarCliente(nombre, identificacion, direccion, emailDeRecuperacion);
         if (resultado) {
             App.showAlert("Éxito", "El cliente ha sido actualizado correctamente", Alert.AlertType.INFORMATION);
         } else {

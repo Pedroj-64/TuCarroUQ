@@ -1,18 +1,30 @@
 package co.edu.uniquindio.poo;
 
 import java.security.SecureRandom;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Transaccion {
-    private LocalDate fechaTransaccion = LocalDate.now();
+/**
+ * Clase que representa una transacción.
+ * 
+ */
+public class Transaccion  {
+    private LocalDateTime fechaTransaccion = LocalDateTime.now();
     private double total = 0;
     private Collection<DetalleTransaccion> detallesTransaccion;
     private Cliente cliente;
     private Empleado empleado;
     private int id;
 
+    /**
+     * Constructor de la clase Transaccion.
+     * Inicializa los atributos cliente, empleado, id y detallesTransaccion.
+     * 
+     * @param cliente   El cliente asociado a la transacción.
+     * @param empleado  El empleado que realiza la transacción.
+     * @throws IllegalArgumentException si cliente o empleado son nulos.
+     */
     public Transaccion(Cliente cliente, Empleado empleado) {
         if (cliente == null || empleado == null) {
             throw new IllegalArgumentException("Cliente y Empleado no pueden ser nulos");
@@ -24,11 +36,11 @@ public class Transaccion {
         this.detallesTransaccion = new LinkedList<>();
     }
 
-    public LocalDate getFechaTransaccion() {
+    public LocalDateTime getFechaTransaccion() {
         return fechaTransaccion;
     }
 
-    public void setFechaTransaccion(LocalDate fechaTransaccion) {
+    public void setFechaTransaccion(LocalDateTime fechaTransaccion) {
         if (fechaTransaccion == null) {
             throw new IllegalArgumentException("La fecha de transacción no puede ser nula");
         }
@@ -83,6 +95,12 @@ public class Transaccion {
         return id;
     }
 
+    /**
+     * Agrega un detalle de transacción a la colección de detalles.
+     * 
+     * @param transaccion El detalle de la transacción a agregar.
+     * @throws IllegalArgumentException si el detalle de la transacción es nulo.
+     */
     public void agregarDetallesTransaccion(DetalleTransaccion transaccion) {
         if (transaccion == null) {
             throw new IllegalArgumentException("La transacción no puede ser nula");
@@ -91,6 +109,12 @@ public class Transaccion {
         calcularTotal();
     }
 
+    /**
+     * Elimina un detalle de transacción de la colección de detalles.
+     * 
+     * @param transaccion El detalle de la transacción a eliminar.
+     * @throws IllegalArgumentException si el detalle de la transacción es nulo.
+     */
     public void eliminarDetallesTransaccion(DetalleTransaccion transaccion) {
         if (transaccion == null) {
             throw new IllegalArgumentException("La transacción no puede ser nula");
@@ -99,6 +123,11 @@ public class Transaccion {
         calcularTotal();
     }
 
+    /**
+     * Calcula el total de la transacción sumando los subtotales de cada detalle de transacción.
+     * 
+     * @throws IllegalArgumentException si el subtotal de algún detalle es negativo.
+     */
     public void calcularTotal() {
         total = 0;
         for (DetalleTransaccion transaccion : detallesTransaccion) {
@@ -113,7 +142,12 @@ public class Transaccion {
 
     @Override
     public String toString() {
-        return "Transaccion [fechaTransaccion=" + fechaTransaccion + ", total=" + total + ", detallesTransaccion="
-                + detallesTransaccion + ", cliente=" + cliente + ", empleado=" + empleado + ", id=" + id + "]";
+        return String.format("ID: %s | Fecha: %s | Total: %.2f | Cliente: %s | Empleado: %s\nDetalles: %s",
+                id,
+                fechaTransaccion,
+                total,
+                cliente.getNombre(),
+                empleado.getNombre(),
+                detallesTransaccion.toString());
     }
 }

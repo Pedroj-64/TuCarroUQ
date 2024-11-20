@@ -14,15 +14,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * Controlador para gestionar la generación de reportes del concesionario.
+ */
 public class MenuReportesController {
 
     Concesionario concesionario = App.getConcesionario();
 
-    private HostServices hostServices = App.getHostServicesInstance(); // Obtiene la instancia de HostServices
+    // Instancia de HostServices obtenida desde la clase App
+    private HostServices hostServices = App.getHostServicesInstance();
 
+    /**
+     * Genera un reporte general del concesionario y lo guarda en un archivo.
+     * 
+     * @return true si el reporte se generó correctamente, false en caso contrario
+     */
     public boolean generarReporteGeneral() {
         boolean banderilla = false;
 
+        // Contenido del reporte general
         String reporteContenido = concesionario.toString();
         File archivoReporte = new File("reporte_concesionario.txt");
 
@@ -42,6 +52,13 @@ public class MenuReportesController {
         return banderilla;
     }
 
+    /**
+     * Genera un reporte de transacciones por empleado y fecha, y lo guarda en un archivo.
+     * 
+     * @param fechaDeseada la fecha deseada para filtrar las transacciones
+     * @param empleado el empleado cuyas transacciones se deben incluir en el reporte
+     * @return true si el reporte se generó correctamente, false en caso contrario
+     */
     public boolean generarReporteTransaccionesPorEmpleadoYFecha(LocalDate fechaDeseada, Empleado empleado) {
         boolean banderilla = false;
 
@@ -71,7 +88,12 @@ public class MenuReportesController {
         return banderilla;
     }
 
-    public ObservableList<Empleado> obtenerEmpleados (){
+    /**
+     * Obtiene una lista observable de empleados del concesionario.
+     * 
+     * @return una lista observable de empleados
+     */
+    public ObservableList<Empleado> obtenerEmpleados() {
         return FXCollections.observableArrayList(concesionario.getEmpleados());
     }
 }

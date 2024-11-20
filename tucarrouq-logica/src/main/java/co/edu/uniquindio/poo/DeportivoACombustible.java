@@ -4,13 +4,45 @@ public class DeportivoACombustible extends VehiculoACombustible {
 
     private int numeroPasajeros, numeroPuertas, numeroBolsasAire, caballosDeFuerza;
     private double tiempoQueAlcanza100kmh;
-    
+
+    /**
+     * Constructor de la clase DeportivoACombustible.
+     * Inicializa todos los atributos del vehículo y los atributos heredados de la
+     * clase VehiculoACombustible.
+     * 
+     * @param marca                  Marca del vehículo.
+     * @param referencia             Referencia del vehículo.
+     * @param placa                  Placa del vehículo.
+     * @param kilometraje            Kilometraje del vehículo.
+     * @param velocidadMaxima        Velocidad máxima del vehículo.
+     * @param nuevo                  Indica si el vehículo es nuevo.
+     * @param precioVenta            Precio de venta del vehículo.
+     * @param precioAlquilerPorDia   Precio de alquiler por día del vehículo.
+     * @param modelo                 Modelo del vehículo.
+     * @param tipoCombustible        Tipo de combustible del vehículo.
+     * @param autonomiaTanqueLleno   Autonomía con el tanque lleno.
+     * @param capacidadTanque        Capacidad del tanque del vehículo.
+     * @param cilindraje             Cilindraje del vehículo.
+     * @param revisionTecnica        Indica si el vehículo tiene revisión técnica.
+     * @param numeroCambios          Número de cambios del vehículo.
+     * @param numeroPasajeros        Número de pasajeros que puede llevar el
+     *                               vehículo.
+     * @param numeroPuertas          Número de puertas del vehículo.
+     * @param numeroBolsasAire       Número de bolsas de aire del vehículo.
+     * @param caballosDeFuerza       Potencia del vehículo en caballos de fuerza.
+     * @param tiempoQueAlcanza100kmh Tiempo en segundos que el vehículo tarda en
+     *                               alcanzar 100 km/h.
+     * @param esTransmisionManual    Indica si el vehículo tiene transmisión manual.
+     */
     public DeportivoACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
-            boolean nuevo, double precioVenta, double precioAlquiler, int modelo, String tipoCombustible,
-            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroPasajeros,
-            int numeroPuertas, int numeroBolsasAire, int caballosDeFuerza, double tiempoQueAlcanza100kmh) {
-        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquiler, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica);
+            boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
+            int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroCambios,
+            int numeroPasajeros, int numeroPuertas, int numeroBolsasAire, int caballosDeFuerza,
+            double tiempoQueAlcanza100kmh, boolean esTransmisionManual) {
+        super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios,
+                esTransmisionManual);
+
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
         this.numeroBolsasAire = numeroBolsasAire;
@@ -23,7 +55,14 @@ public class DeportivoACombustible extends VehiculoACombustible {
     }
 
     public void setNumeroPasajeros(int numeroPasajeros) {
-        this.numeroPasajeros = numeroPasajeros;
+        try {
+            if (numeroPasajeros < 0) {
+                throw new IllegalArgumentException("El número de pasajeros no puede ser negativo.");
+            }
+            this.numeroPasajeros = numeroPasajeros;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de pasajeros: " + e.getMessage());
+        }
     }
 
     public int getNumeroPuertas() {
@@ -31,7 +70,14 @@ public class DeportivoACombustible extends VehiculoACombustible {
     }
 
     public void setNumeroPuertas(int numeroPuertas) {
-        this.numeroPuertas = numeroPuertas;
+        try {
+            if (numeroPuertas < 0) {
+                throw new IllegalArgumentException("El número de puertas no puede ser negativo.");
+            }
+            this.numeroPuertas = numeroPuertas;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de puertas: " + e.getMessage());
+        }
     }
 
     public int getNumeroBolsasAire() {
@@ -39,7 +85,14 @@ public class DeportivoACombustible extends VehiculoACombustible {
     }
 
     public void setNumeroBolsasAire(int numeroBolsasAire) {
-        this.numeroBolsasAire = numeroBolsasAire;
+        try {
+            if (numeroBolsasAire < 0) {
+                throw new IllegalArgumentException("El número de bolsas de aire no puede ser negativo.");
+            }
+            this.numeroBolsasAire = numeroBolsasAire;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de bolsas de aire: " + e.getMessage());
+        }
     }
 
     public int getCaballosDeFuerza() {
@@ -47,7 +100,14 @@ public class DeportivoACombustible extends VehiculoACombustible {
     }
 
     public void setCaballosDeFuerza(int caballosDeFuerza) {
-        this.caballosDeFuerza = caballosDeFuerza;
+        try {
+            if (caballosDeFuerza < 0) {
+                throw new IllegalArgumentException("La cantidad de caballos de fuerza no puede ser negativa.");
+            }
+            this.caballosDeFuerza = caballosDeFuerza;
+        } catch (Exception e) {
+            System.err.println("Error al establecer los caballos de fuerza: " + e.getMessage());
+        }
     }
 
     public double getTiempoQueAlcanza100kmh() {
@@ -55,7 +115,14 @@ public class DeportivoACombustible extends VehiculoACombustible {
     }
 
     public void setTiempoQueAlcanza100kmh(double tiempoQueAlcanza100kmh) {
-        this.tiempoQueAlcanza100kmh = tiempoQueAlcanza100kmh;
+        try {
+            if (tiempoQueAlcanza100kmh < 0) {
+                throw new IllegalArgumentException("El tiempo no puede ser negativo.");
+            }
+            this.tiempoQueAlcanza100kmh = tiempoQueAlcanza100kmh;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el tiempo que alcanza 100 km/h: " + e.getMessage());
+        }
     }
 
     @Override
@@ -64,6 +131,5 @@ public class DeportivoACombustible extends VehiculoACombustible {
                 + ", numeroBolsasAire=" + numeroBolsasAire + ", caballosDeFuerza=" + caballosDeFuerza
                 + ", tiempoQueAlcanza100kmh=" + tiempoQueAlcanza100kmh + "]";
     }
-    
 
 }

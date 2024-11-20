@@ -2,12 +2,26 @@ package co.edu.uniquindio.poo.model;
 
 import java.io.Serializable;
 
-public abstract class Usuario implements Serializable{
+/**
+ * Clase abstracta que representa un usuario.
+ * Implementa la interfaz Serializable para permitir la serialización de sus objetos.
+ */
+public abstract class Usuario implements Serializable {
     private String nombre;
     private String identificacion;
     private String contrasena;
     private String emailDeRecuperacion;
 
+    /**
+     * Constructor de la clase Usuario.
+     * Inicializa los atributos nombre, identificacion, contrasena y emailDeRecuperacion.
+     * 
+     * @param nombre                El nombre del usuario.
+     * @param identificacion        La identificación del usuario.
+     * @param contrasena            La contraseña del usuario.
+     * @param emailDeRecuperacion   El email de recuperación del usuario.
+     * @throws IllegalArgumentException si alguno de los parámetros es nulo o si el email de recuperación no contiene un '@'.
+     */
     public Usuario(String nombre, String identificacion, String contrasena, String emailDeRecuperacion) {
         if (nombre == null || identificacion == null || contrasena == null || emailDeRecuperacion == null) {
             throw new IllegalArgumentException("Los valores no pueden ser nulos");
@@ -21,7 +35,14 @@ public abstract class Usuario implements Serializable{
         this.emailDeRecuperacion = emailDeRecuperacion;
     }
 
-    // Método para autenticar usuario
+    /**
+     * Método para autenticar al usuario.
+     * 
+     * @param identificacion La identificación del usuario.
+     * @param contrasena     La contraseña del usuario.
+     * @return true si la autenticación es exitosa, false en caso contrario.
+     * @throws IllegalArgumentException si la identificación o la contraseña son nulas.
+     */
     public boolean autenticar(String identificacion, String contrasena) {
         if (identificacion == null || contrasena == null) {
             throw new IllegalArgumentException("La identificación y la contraseña no pueden ser nulas");
@@ -75,7 +96,14 @@ public abstract class Usuario implements Serializable{
 
     @Override
     public String toString() {
-        return "Usuario [nombre=" + nombre + ", identificacion=" + identificacion + ", contrasena=" + contrasena
-                + ", emailDeRecuperacion=" + emailDeRecuperacion + "]";
+        return String.format(
+            "Usuario:\n" +
+            "--------\n" +
+            "Nombre: %s\n" +
+            "Identificación: %s\n" +
+            "Contraseña: %s\n" +
+            "Email de Recuperación: %s\n",
+            nombre, identificacion, contrasena, emailDeRecuperacion
+        );
     }
 }

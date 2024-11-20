@@ -45,10 +45,21 @@ public class Concesionario implements Serializable {
     }
 
     // Métodos getter y setter
+    /**
+     * Obtiene la colección de empleados.
+     * 
+     * @return la colección de empleados.
+     */
     public Collection<Empleado> getEmpleados() {
         return empleados;
     }
 
+    /**
+     * Establece la colección de empleados.
+     * 
+     * @param empleados la nueva colección de empleados.
+     * @throws IllegalArgumentException si la colección de empleados es nula.
+     */
     public void setEmpleados(Collection<Empleado> empleados) {
         if (empleados == null) {
             throw new IllegalArgumentException("La colección de empleados no puede ser nula");
@@ -56,10 +67,21 @@ public class Concesionario implements Serializable {
         this.empleados = empleados;
     }
 
+    /**
+     * Obtiene la colección de administradores.
+     * 
+     * @return la colección de administradores.
+     */
     public Collection<Administrador> getAdministradores() {
         return administradores;
     }
 
+    /**
+     * Establece la colección de administradores.
+     * 
+     * @param administradores la nueva colección de administradores.
+     * @throws IllegalArgumentException si la colección de administradores es nula.
+     */
     public void setAdministradores(Collection<Administrador> administradores) {
         if (administradores == null) {
             throw new IllegalArgumentException("La colección de administradores no puede ser nula");
@@ -67,10 +89,21 @@ public class Concesionario implements Serializable {
         this.administradores = administradores;
     }
 
+    /**
+     * Obtiene la colección de vehículos.
+     * 
+     * @return la colección de vehículos.
+     */
     public Collection<Vehiculo> getVehiculos() {
         return vehiculos;
     }
 
+    /**
+     * Establece la colección de vehículos.
+     * 
+     * @param vehiculos la nueva colección de vehículos.
+     * @throws IllegalArgumentException si la colección de vehículos es nula.
+     */
     public void setVehiculos(Collection<Vehiculo> vehiculos) {
         if (vehiculos == null) {
             throw new IllegalArgumentException("La colección de vehículos no puede ser nula");
@@ -78,10 +111,21 @@ public class Concesionario implements Serializable {
         this.vehiculos = vehiculos;
     }
 
+    /**
+     * Obtiene la colección de ventas.
+     * 
+     * @return la colección de ventas.
+     */
     public Collection<Transaccion> getVentas() {
         return ventas;
     }
 
+    /**
+     * Establece la colección de ventas.
+     * 
+     * @param ventas la nueva colección de ventas.
+     * @throws IllegalArgumentException si la colección de ventas es nula.
+     */
     public void setVentas(Collection<Transaccion> ventas) {
         if (ventas == null) {
             throw new IllegalArgumentException("La colección de ventas no puede ser nula");
@@ -89,31 +133,68 @@ public class Concesionario implements Serializable {
         this.ventas = ventas;
     }
 
+    /**
+     * Obtiene el nombre.
+     * 
+     * @return el nombre.
+     */
     public static String getNombre() {
         return NOMBRE;
     }
 
+    /**
+     * Obtiene el serialVersionUID.
+     * 
+     * @return el serialVersionUID.
+     */
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
 
+    /**
+     * Establece la colección de vehículos vendidos.
+     * 
+     * @param vehiculosVendidos la nueva colección de vehículos vendidos.
+     */
     public void setVehiculosVendidos(Collection<Vehiculo> vehiculosVendidos) {
         this.vehiculosVendidos = vehiculosVendidos;
     }
 
+    /**
+     * Establece la colección de vehículos alquilados.
+     * 
+     * @param vehiculosAlquilados la nueva colección de vehículos alquilados.
+     */
     public void setVehiculosAlquilados(Collection<Vehiculo> vehiculosAlquilados) {
         this.vehiculosAlquilados = vehiculosAlquilados;
     }
 
+    /**
+     * Obtiene la colección de clientes.
+     * 
+     * @return la colección de clientes.
+     */
     public Collection<Cliente> getClientes() {
         return clientes;
     }
 
+    /**
+     * Establece la colección de clientes.
+     * 
+     * @param clientes la nueva colección de clientes.
+     */
     public void setClientes(Collection<Cliente> clientes) {
         this.clientes = clientes;
     }
 
-    // Métodos para agregar empleados, administradores y vehículos
+    /**
+     * Comprueba si existe un empleado con la identificación dada.
+     * 
+     * @param identificacion la identificación del empleado.
+     * @return true si existe un empleado con la identificación dada, false en caso
+     *         contrario.
+     * @throws IllegalArgumentException si la identificación es nula.
+     */
     public boolean existeEmpleado(String identificacion) {
         boolean banderilla = false;
         if (identificacion == null) {
@@ -127,6 +208,12 @@ public class Concesionario implements Serializable {
         return banderilla;
     }
 
+    /**
+     * Agrega un empleado a la colección de empleados.
+     * 
+     * @param empleado el empleado a agregar.
+     * @throws IllegalArgumentException si el empleado es nulo.
+     */
     public void agregarEmpleado(Empleado empleado) {
         if (empleado == null) {
             throw new IllegalArgumentException("El empleado no puede ser nulo");
@@ -136,6 +223,14 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Comprueba si existe un administrador con la identificación dada.
+     * 
+     * @param identificacion la identificación del administrador.
+     * @return true si existe un administrador con la identificación dada, false en
+     *         caso contrario.
+     * @throws IllegalArgumentException si la identificación es nula.
+     */
     public boolean existeAdministrador(String identificacion) {
         boolean banderilla = false;
         if (identificacion == null) {
@@ -149,6 +244,12 @@ public class Concesionario implements Serializable {
         return banderilla;
     }
 
+    /**
+     * Agrega un administrador a la colección de administradores.
+     * 
+     * @param administrador el administrador a agregar.
+     * @throws IllegalArgumentException si el administrador es nulo.
+     */
     public void agregarAdministrador(Administrador administrador) {
         if (administrador == null) {
             throw new IllegalArgumentException("El administrador no puede ser nulo");
@@ -159,7 +260,12 @@ public class Concesionario implements Serializable {
         }
     }
 
-    // Métodos para gestionar vehículos
+    /**
+     * Agrega un vehículo a la colección de vehículos.
+     * 
+     * @param vehiculo el vehículo a agregar.
+     * @throws IllegalArgumentException si el vehículo es nulo.
+     */
     public void agregarVehiculo(Vehiculo vehiculo) {
         if (vehiculo == null) {
             throw new IllegalArgumentException("El vehículo no puede ser nulo");
@@ -167,6 +273,13 @@ public class Concesionario implements Serializable {
         vehiculos.add(vehiculo);
     }
 
+    /**
+     * Vende un vehículo, moviéndolo de la colección de vehículos a la colección de
+     * vehículos vendidos.
+     * 
+     * @param vehiculo el vehículo a vender.
+     * @throws IllegalArgumentException si el vehículo es nulo.
+     */
     public void venderVehiculo(Vehiculo vehiculo) {
         if (vehiculo == null) {
             throw new IllegalArgumentException("El vehículo no puede ser nulo");
@@ -176,6 +289,13 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Alquila un vehículo, moviéndolo de la colección de vehículos a la colección
+     * de vehículos alquilados.
+     * 
+     * @param vehiculo el vehículo a alquilar.
+     * @throws IllegalArgumentException si el vehículo es nulo.
+     */
     public void alquilarVehiculo(Vehiculo vehiculo) {
         if (vehiculo == null) {
             throw new IllegalArgumentException("El vehículo no puede ser nulo");
@@ -185,6 +305,13 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Devuelve un vehículo alquilado, moviéndolo de la colección de vehículos
+     * alquilados a la colección de vehículos.
+     * 
+     * @param vehiculo el vehículo a devolver.
+     * @throws IllegalArgumentException si el vehículo es nulo.
+     */
     public void devolverVehiculoAlquilado(Vehiculo vehiculo) {
         if (vehiculo == null) {
             throw new IllegalArgumentException("El vehículo no puede ser nulo");
@@ -203,24 +330,26 @@ public class Concesionario implements Serializable {
         agregarEmpleado(empleadoEjemplo);
 
         // Crear un administrador de ejemplo
-        Administrador administradorEjemplo = new Administrador("1234", "1234", "1234",
-                "pj245668@gmail.com");
+        Administrador administradorEjemplo = new Administrador("1234", "1234", "1234", "pj245668@gmail.com");
         agregarAdministrador(administradorEjemplo);
 
-        VehiculoHibrido vehiculoHibrido = new VanHibrido("Maseratti", "900", "NOMBRE", 0, 120, true, 5600,
-                69, 450, false, true, true, 5, 4, 3, 6, false, true, false, true);
-
+        // Crear un vehículo híbrido de ejemplo
+        VehiculoHibrido vehiculoHibrido = new VanHibrido("Maseratti", "900", "NOMBRE", 0, 120, true, 5600, 69, 450,
+                false, true, true, 5, 4, 3, 6, false, true, false, true);
         agregarVehiculo(vehiculoHibrido);
 
-        // Crear una nueva instancia de MotoElectrica
-
-
+        // Crear un cliente de ejemplo
         Cliente cliente1 = new Cliente("Juan Pérez", "1234567890", "555-1234", "Calle Ficticia 123");
         agregarCliente(cliente1);
-
     }
 
-    // Método para buscar un empleado por identificación
+    /**
+     * Busca un empleado por su identificación.
+     * 
+     * @param identificacion La identificación del empleado.
+     * @return El empleado encontrado, o null si no se encuentra.
+     * @throws IllegalArgumentException si la identificación es nula.
+     */
     public Empleado buscarEmpleado(String identificacion) {
         Empleado empleadoBuscado = null;
         if (identificacion == null) {
@@ -228,14 +357,21 @@ public class Concesionario implements Serializable {
         }
         for (Empleado empleado : empleados) {
             if (empleado.getIdentificacion().equals(identificacion)) {
-                empleadoBuscado = empleado; // Asignar el empleado encontrado a empleadoBuscado
+                empleadoBuscado = empleado;
                 break; // Termina el ciclo una vez encontrado el empleado
             }
         }
         return empleadoBuscado;
     }
 
-    // Método para obtener un empleado por identificación
+    /**
+     * Obtiene un empleado por su identificación.
+     * 
+     * @param identificacion La identificación del empleado.
+     * @return El empleado encontrado.
+     * @throws IllegalArgumentException si no se encuentra el empleado con la
+     *                                  identificación proporcionada.
+     */
     public Empleado obtenerEmpleado(String identificacion) {
         Empleado empleado = buscarEmpleado(identificacion);
         if (empleado == null) {
@@ -244,7 +380,13 @@ public class Concesionario implements Serializable {
         return empleado;
     }
 
-    // Método para buscar un administrador por identificación
+    /**
+     * Busca un administrador por su identificación.
+     * 
+     * @param identificacion La identificación del administrador.
+     * @return El administrador encontrado, o null si no se encuentra.
+     * @throws IllegalArgumentException si la identificación es nula.
+     */
     public Administrador buscarAdministrador(String identificacion) {
         Administrador administradorBuscado = null;
         if (identificacion == null) {
@@ -258,7 +400,14 @@ public class Concesionario implements Serializable {
         return administradorBuscado;
     }
 
-    // Método para obtener un administrador por identificación
+    /**
+     * Obtiene un administrador por su identificación.
+     * 
+     * @param identificacion La identificación del administrador.
+     * @return El administrador encontrado.
+     * @throws IllegalArgumentException si no se encuentra el administrador con la
+     *                                  identificación proporcionada.
+     */
     public Administrador obtenerAdministrador(String identificacion) {
         Administrador administrador = buscarAdministrador(identificacion);
         if (administrador == null) {
@@ -267,6 +416,13 @@ public class Concesionario implements Serializable {
         return administrador;
     }
 
+    /**
+     * Elimina un vehículo de la colección de vehículos.
+     * 
+     * @param vehiculo El vehículo a eliminar.
+     * @throws IllegalArgumentException si el vehículo es nulo.
+     * @throws IllegalStateException    si la colección de vehículos es nula.
+     */
     public void eliminarVehiculo(Vehiculo vehiculo) {
         if (vehiculo == null) {
             throw new IllegalArgumentException("El vehículo proporcionado no puede ser nulo");
@@ -299,8 +455,9 @@ public class Concesionario implements Serializable {
      * 
      * @param placa La placa del vehículo a buscar.
      * @return El vehículo encontrado.
-     * @throws NoSuchElementException si no se encuentra un vehículo con la placa
-     *                                especificada.
+     * @throws NoSuchElementException   si no se encuentra un vehículo con la placa
+     *                                  especificada.
+     * @throws IllegalArgumentException si la placa es nula o vacía.
      */
     public Vehiculo buscarVehiculoPorPlaca(String placa) throws NoSuchElementException {
         if (placa == null || placa.isEmpty()) {
@@ -314,6 +471,14 @@ public class Concesionario implements Serializable {
         throw new NoSuchElementException("No se encontró un vehículo con la placa: " + placa);
     }
 
+    /**
+     * Comprueba si existe un cliente con la identificación dada.
+     * 
+     * @param identificacion La identificación del cliente.
+     * @return true si existe un cliente con la identificación dada, false en caso
+     *         contrario.
+     * @throws IllegalArgumentException si la identificación es nula.
+     */
     public boolean existeCliente(String identificacion) {
         boolean banderilla = false;
         if (identificacion == null) {
@@ -327,6 +492,12 @@ public class Concesionario implements Serializable {
         return banderilla;
     }
 
+    /**
+     * Elimina un cliente por su identificación.
+     * 
+     * @param identificacion La identificación del cliente a eliminar.
+     * @throws IllegalArgumentException si el cliente no existe.
+     */
     public void eliminarCliente(String identificacion) {
         Cliente cliente = obtenerCliente(identificacion);
         if (cliente != null) {
@@ -336,6 +507,15 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Actualiza la información de un cliente.
+     * 
+     * @param identificacion La identificación del cliente a actualizar.
+     * @param nombre         El nuevo nombre del cliente.
+     * @param telefono       El nuevo teléfono del cliente.
+     * @param direccion      La nueva dirección del cliente.
+     * @throws IllegalArgumentException si el cliente no existe.
+     */
     public void actualizarCliente(String identificacion, String nombre, String telefono, String direccion) {
         Cliente clienteExistente = obtenerCliente(identificacion);
         if (clienteExistente != null) {
@@ -347,6 +527,15 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Actualiza la información de un empleado.
+     * 
+     * @param nombre              El nuevo nombre del empleado.
+     * @param identificacion      La identificación del empleado.
+     * @param contrasena          La nueva contraseña del empleado.
+     * @param emailDeRecuperacion El nuevo email de recuperación del empleado.
+     * @throws IllegalArgumentException si el empleado no existe.
+     */
     public void actualizarEmpleado(String nombre, String identificacion, String contrasena,
             String emailDeRecuperacion) {
         Empleado empleadoExistente = obtenerEmpleado(identificacion);
@@ -359,6 +548,12 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Obtiene un cliente por su identificación.
+     * 
+     * @param identificacion La identificación del cliente.
+     * @return El cliente encontrado.
+     */
     public Cliente obtenerCliente(String identificacion) {
         Cliente clienteBuscado = null;
         for (Cliente cliente : clientes) {
@@ -369,6 +564,13 @@ public class Concesionario implements Serializable {
         return clienteBuscado;
     }
 
+    /**
+     * Agrega un cliente a la colección de clientes.
+     * 
+     * @param cliente el cliente a agregar.
+     * @throws IllegalArgumentException si el cliente es nulo o si ya existe un
+     *                                  cliente con la misma identificación.
+     */
     public void agregarCliente(Cliente cliente) {
         if (cliente == null) {
             throw new IllegalArgumentException("El cliente no puede ser nulo");
@@ -380,7 +582,16 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Elimina un empleado por su identificación.
+     * 
+     * @param identificacion la identificación del empleado a eliminar.
+     * @throws IllegalArgumentException si la identificación es nula.
+     */
     public void eliminarEmpleado(String identificacion) {
+        if (identificacion == null) {
+            throw new IllegalArgumentException("La identificación no puede ser nula");
+        }
         for (Empleado empleado : empleados) {
             if (empleado.getIdentificacion().equals(identificacion)) {
                 empleados.remove(empleado);
@@ -389,6 +600,14 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Calcula el precio de una transacción de préstamo.
+     * 
+     * @param detalleTransaccion el detalle de la transacción.
+     * @param vehiculo           el vehículo asociado a la transacción.
+     * @throws IllegalArgumentException si el número de días de préstamo es menor o
+     *                                  igual a 0.
+     */
     public void calcularPrecioTransaccionPrestamo(DetalleTransaccion detalleTransaccion, Vehiculo vehiculo) {
         if (detalleTransaccion.getDiasPrestamo() <= 0) {
             throw new IllegalArgumentException("El número de días debe ser mayor a 0");
@@ -397,6 +616,14 @@ public class Concesionario implements Serializable {
         vehiculo.setPrecioAlquiler(precioFinal);
     }
 
+    /**
+     * Crea una nueva transacción.
+     * 
+     * @param cliente  el cliente asociado a la transacción.
+     * @param empleado el empleado que realiza la transacción.
+     * @return la transacción creada o una transacción existente si ya existe.
+     * @throws IllegalArgumentException si el cliente o el empleado son nulos.
+     */
     public Transaccion crearTransaccion(Cliente cliente, Empleado empleado) {
         if (cliente == null || empleado == null) {
             throw new IllegalArgumentException("Cliente o Empleado no pueden ser nulos");
@@ -411,6 +638,12 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Busca una transacción por el cliente asociado.
+     * 
+     * @param cliente el cliente asociado a la transacción.
+     * @return la transacción encontrada o null si no se encuentra.
+     */
     private Transaccion buscarTransaccionPorCliente(Cliente cliente) {
         Transaccion transaccionBuscada = null;
         for (Transaccion transaccion : ventas) {
@@ -421,6 +654,16 @@ public class Concesionario implements Serializable {
         return transaccionBuscada;
     }
 
+    /**
+     * Agrega un detalle a una transacción y gestiona el vehículo (vender o
+     * alquilar).
+     * 
+     * @param transaccion la transacción a la que se agregará el detalle.
+     * @param detalle     el detalle de la transacción.
+     * @param esAlquiler  indica si la transacción es de alquiler.
+     * @throws IllegalArgumentException si la transacción, el detalle o el vehículo
+     *                                  son nulos.
+     */
     public void agregarDetalleATransaccion(Transaccion transaccion, DetalleTransaccion detalle, boolean esAlquiler) {
         if (transaccion == null || detalle == null || detalle.getVehiculo() == null) {
             throw new IllegalArgumentException("Transacción, Detalle o Vehículo no pueden ser nulos");
@@ -436,6 +679,15 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Genera un reporte de transacciones para un empleado en una fecha específica.
+     * 
+     * @param fechaDeseada la fecha de las transacciones a incluir en el reporte.
+     * @param empleado     el empleado cuyas transacciones se incluirán en el
+     *                     reporte.
+     * @return el reporte generado.
+     * @throws IllegalArgumentException si la fecha o el empleado son nulos.
+     */
     public String generarReportePorFechaEmpleado(LocalDate fechaDeseada, Empleado empleado) {
         if (fechaDeseada == null) {
             throw new IllegalArgumentException("La fecha deseada no puede ser nula.");

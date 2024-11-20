@@ -5,14 +5,48 @@ public class PickUpACombustible extends VehiculoACombustible {
     private int numeroPuertas, numeroPasajeros, numeroBolsasAire, capacidadCajaDeCarga;
     private boolean aireAcondicionado, camaraReversa, ABS, es4x4;
 
+    /**
+     * Constructor de la clase PickUpACombustible.
+     * Inicializa todos los atributos del vehículo y los atributos heredados de la
+     * clase VehiculoACombustible.
+     * 
+     * @param marca                Marca del vehículo.
+     * @param referencia           Referencia del vehículo.
+     * @param placa                Placa del vehículo.
+     * @param kilometraje          Kilometraje del vehículo.
+     * @param velocidadMaxima      Velocidad máxima del vehículo.
+     * @param nuevo                Indica si el vehículo es nuevo.
+     * @param precioVenta          Precio de venta del vehículo.
+     * @param precioAlquilerPorDia Precio de alquiler por día del vehículo.
+     * @param modelo               Modelo del vehículo.
+     * @param tipoCombustible      Tipo de combustible del vehículo.
+     * @param autonomiaTanqueLleno Autonomía con el tanque lleno.
+     * @param capacidadTanque      Capacidad del tanque del vehículo.
+     * @param cilindraje           Cilindraje del vehículo.
+     * @param revisionTecnica      Indica si el vehículo tiene revisión técnica.
+     * @param numeroCambios        Número de cambios del vehículo.
+     * @param numeroPuertas        Número de puertas del vehículo.
+     * @param numeroPasajeros      Número de pasajeros que puede llevar el vehículo.
+     * @param numeroBolsasAire     Número de bolsas de aire del vehículo.
+     * @param capacidadCajaDeCarga Capacidad de la caja de carga del vehículo.
+     * @param aireAcondicionado    Indica si el vehículo tiene aire acondicionado.
+     * @param camaraReversa        Indica si el vehículo tiene cámara de reversa.
+     * @param ABS                  Indica si el vehículo tiene sistema de frenos
+     *                             ABS.
+     * @param es4x4                Indica si el vehículo es 4x4.
+     * @param esTransmisionManual  Indica si el vehículo tiene transmisión manual.
+     */
     public PickUpACombustible(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima,
             boolean nuevo, double precioVenta, double precioAlquilerPorDia, int modelo, String tipoCombustible,
             int autonomiaTanqueLleno, int capacidadTanque, int cilindraje, boolean revisionTecnica, int numeroCambios,
-            int numeroPuertas,
-            int numeroPasajeros, int numeroBolsasAire, int capacidadCajaDeCarga, boolean aireAcondicionado,
-            boolean camaraReversa, boolean ABS, boolean es4x4,boolean esTransmisionManual) {
+            int numeroPuertas, int numeroPasajeros, int numeroBolsasAire, int capacidadCajaDeCarga,
+            boolean aireAcondicionado,
+            boolean camaraReversa, boolean ABS, boolean es4x4, boolean esTransmisionManual) {
         super(marca, referencia, placa, kilometraje, velocidadMaxima, nuevo, precioVenta, precioAlquilerPorDia, modelo,
-                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios,esTransmisionManual);
+                tipoCombustible, autonomiaTanqueLleno, capacidadTanque, cilindraje, revisionTecnica, numeroCambios,
+                esTransmisionManual);
+
+        // Inicialización de los atributos específicos de la Pick-Up a combustible
         this.numeroPuertas = numeroPuertas;
         this.numeroPasajeros = numeroPasajeros;
         this.numeroBolsasAire = numeroBolsasAire;
@@ -28,7 +62,14 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public void setNumeroPuertas(int numeroPuertas) {
-        this.numeroPuertas = numeroPuertas;
+        try {
+            if (numeroPuertas < 0) {
+                throw new IllegalArgumentException("El número de puertas no puede ser negativo.");
+            }
+            this.numeroPuertas = numeroPuertas;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de puertas: " + e.getMessage());
+        }
     }
 
     public int getNumeroPasajeros() {
@@ -36,7 +77,14 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public void setNumeroPasajeros(int numeroPasajeros) {
-        this.numeroPasajeros = numeroPasajeros;
+        try {
+            if (numeroPasajeros < 0) {
+                throw new IllegalArgumentException("El número de pasajeros no puede ser negativo.");
+            }
+            this.numeroPasajeros = numeroPasajeros;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de pasajeros: " + e.getMessage());
+        }
     }
 
     public int getNumeroBolsasAire() {
@@ -44,7 +92,14 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public void setNumeroBolsasAire(int numeroBolsasAire) {
-        this.numeroBolsasAire = numeroBolsasAire;
+        try {
+            if (numeroBolsasAire < 0) {
+                throw new IllegalArgumentException("El número de bolsas de aire no puede ser negativo.");
+            }
+            this.numeroBolsasAire = numeroBolsasAire;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el número de bolsas de aire: " + e.getMessage());
+        }
     }
 
     public int getCapacidadCajaDeCarga() {
@@ -52,7 +107,14 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public void setCapacidadCajaDeCarga(int capacidadCajaDeCarga) {
-        this.capacidadCajaDeCarga = capacidadCajaDeCarga;
+        try {
+            if (capacidadCajaDeCarga < 0) {
+                throw new IllegalArgumentException("La capacidad de la caja de carga no puede ser negativa.");
+            }
+            this.capacidadCajaDeCarga = capacidadCajaDeCarga;
+        } catch (Exception e) {
+            System.err.println("Error al establecer la capacidad de la caja de carga: " + e.getMessage());
+        }
     }
 
     public boolean isAireAcondicionado() {
@@ -60,7 +122,11 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public void setAireAcondicionado(boolean aireAcondicionado) {
-        this.aireAcondicionado = aireAcondicionado;
+        try {
+            this.aireAcondicionado = aireAcondicionado;
+        } catch (Exception e) {
+            System.err.println("Error al establecer el aire acondicionado: " + e.getMessage());
+        }
     }
 
     public boolean isCamaraReversa() {
@@ -68,7 +134,11 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public void setCamaraReversa(boolean camaraReversa) {
-        this.camaraReversa = camaraReversa;
+        try {
+            this.camaraReversa = camaraReversa;
+        } catch (Exception e) {
+            System.err.println("Error al establecer la cámara de reversa: " + e.getMessage());
+        }
     }
 
     public boolean isFrenosABS() {
@@ -76,7 +146,11 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public void setFrenosABS(boolean ABS) {
-        this.ABS = ABS;
+        try {
+            this.ABS = ABS;
+        } catch (Exception e) {
+            System.err.println("Error al establecer los frenos ABS: " + e.getMessage());
+        }
     }
 
     public boolean isEs4x4() {
@@ -84,7 +158,11 @@ public class PickUpACombustible extends VehiculoACombustible {
     }
 
     public void setEs4x4(boolean es4x4) {
-        this.es4x4 = es4x4;
+        try {
+            this.es4x4 = es4x4;
+        } catch (Exception e) {
+            System.err.println("Error al establecer si es 4x4: " + e.getMessage());
+        }
     }
 
     @Override

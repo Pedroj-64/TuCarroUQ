@@ -193,6 +193,8 @@ public class EditarEmpleadosViewController {
                 txt_IdentificacionActualizar.setText(newValue.getIdentificacion());
                 txt_ContraseñaActulizar.setText(newValue.getContrasena());
                 txt_EmailRecuperacionActualizar.setText(newValue.getEmailDeRecuperacion());
+                String cargoEmpleado = newValue.getCargo();
+                cmb_CargoEmpleadoActulizar.getSelectionModel().select(cargoEmpleado);
                 // Puedes agregar aquí cualquier otro campo que desees actualizar
             }
         });

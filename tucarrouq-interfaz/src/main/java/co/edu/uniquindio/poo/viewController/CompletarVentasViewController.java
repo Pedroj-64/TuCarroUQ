@@ -112,6 +112,11 @@ public class CompletarVentasViewController {
         }
     }
 
+    /**
+     * Acción que se ejecuta al pulsar el botón de vender.
+     * 
+     * @param event El evento de acción.
+     */
     private void accionVender(ActionEvent event) {
         Cliente cliente = cmb_Clientes.getValue();
         boolean resultado = completarVentasController.venderVehiculo(cliente);
@@ -125,20 +130,19 @@ public class CompletarVentasViewController {
                 if (usuario instanceof Administrador) {
                     App.showAlertAndRedirect("Éxito",
                             "El vehículo ha sido vendido correctamente. Será redirigido al menú de administrador.",
-                            Alert.AlertType.INFORMATION, "MenuAdmin", 800, 600);
+                            Alert.AlertType.INFORMATION, "MenuAdmin", 600, 430);
                 } else if (usuario instanceof Empleado) {
                     App.showAlertAndRedirect("Éxito",
                             "El vehículo ha sido vendido correctamente. Será redirigido al menú de empleado.",
-                            Alert.AlertType.INFORMATION, "MenuEmpleado", 800, 600);
+                            Alert.AlertType.INFORMATION, "MenuEmpleado", 600, 430);
                 }
             } else {
                 App.showAlert("Error", "No se ha encontrado el usuario actual.", Alert.AlertType.ERROR);
             }
         } else {
             // Si no se pudo vender el vehículo, redirigir al menú de administrador
-            App.showAlert("Error", "No se ha pddido vender el vehiculo, comuniquese con un superior.",
+            App.showAlert("Error", "No se ha podido vender el vehículo, comuníquese con un superior.",
                     Alert.AlertType.ERROR);
-
         }
     }
 

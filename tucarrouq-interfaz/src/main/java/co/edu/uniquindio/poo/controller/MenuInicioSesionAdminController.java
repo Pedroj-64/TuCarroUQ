@@ -18,12 +18,14 @@ import javax.mail.internet.MimeMessage;
 import co.edu.uniquindio.poo.App;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * Controlador para gestionar el inicio de sesión y la recuperación de contraseñas de administradores.
+ */
 public class MenuInicioSesionAdminController {
     Concesionario concesionario = App.getConcesionario();
 
     /**
-     * Método para verificar si el administrador existe y sus credenciales son
-     * correctas.
+     * Método para verificar si el administrador existe y sus credenciales son correctas.
      * 
      * @param identificacion La identificación del administrador.
      * @param contrasena     La contraseña del administrador.
@@ -50,16 +52,22 @@ public class MenuInicioSesionAdminController {
         return banderilla;
     }
 
-    public Empleado buscarEmpleado(String identificacion){
-        Empleado empleadoBuscado=null;
-        empleadoBuscado=concesionario.buscarAdministrador(identificacion);
+    /**
+     * Busca un empleado en el concesionario usando la identificación proporcionada.
+     * 
+     * @param identificacion La identificación del empleado.
+     * @return El empleado encontrado o null si no se encuentra.
+     */
+    public Empleado buscarEmpleado(String identificacion) {
+        Empleado empleadoBuscado = null;
+        empleadoBuscado = concesionario.buscarAdministrador(identificacion);
         return empleadoBuscado;
     }
 
     /**
      * Método para generar una nueva contraseña y enviarla por correo electrónico.
      * 
-     * @param emailUsuario El correo electrónico del usuario.
+     * @param identificacion La identificación del usuario.
      */
     public void recuperarContrasena(String identificacion) {
         String nuevaContrasena = generarContrasenaAleatoria();
@@ -67,7 +75,7 @@ public class MenuInicioSesionAdminController {
         Administrador administrador = concesionario.buscarAdministrador(identificacion);
         emailBuscado = administrador.getEmailDeRecuperacion();
         administrador.setContrasena(nuevaContrasena);
-
+    
         // Configurar las propiedades de JavaMail
         Properties propiedades = new Properties();
         propiedades.put("mail.smtp.auth", "true");
@@ -75,25 +83,45 @@ public class MenuInicioSesionAdminController {
         propiedades.put("mail.smtp.host", "smtp.gmail.com");
         propiedades.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         propiedades.put("mail.smtp.port", "587");
-
+    
         // Autenticación
         String miCorreo = "margadev49@gmail.com";
         String miContrasena = "ybju stjr hlne bbdw";
-
+    
         Session session = Session.getInstance(propiedades, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(miCorreo, miContrasena);
             }
         });
-
+    
         try {
             // Crear el mensaje
             Message mensaje = new MimeMessage(session);
             mensaje.setFrom(new InternetAddress(miCorreo));
             mensaje.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailBuscado));
             mensaje.setSubject("Recuperación de Contraseña Tu Carro UQ");
-            mensaje.setText("Hola, \n\nTu nueva contraseña es: " + nuevaContrasena + "\n\nSaludos,\nTu Carro UQ");
-
+    
+            // Crear el contenido del mensaje en HTML
+            String htmlContent = "<!DOCTYPE html>" +
+                    "<html>" +
+                    "<body style='font-family: Arial, sans-serif;'>" +
+                    "<div style='max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;'>" +
+                    "<h2 style='color: #333;'>Recuperación de Contraseña</h2>" +
+                    "<p>Hola,</p>" +
+                    "<p>Tu nueva contraseña es: <strong>" + nuevaContrasena + "</strong></p>" +
+                    "<p>Por favor, asegúrate de comunicarte con un superior para cambiar esta contraseña una vez que hayas iniciado sesión.</p>" +
+                    "<br>" +
+                    "<img src='https://imgur.com/t49gmcu' alt='Logo Tu Carro UQ' style='max-width: 200px;'>" +
+                    "<br><br>" +
+                    "<p>Saludos,</p>" +
+                    "<p><strong>Tu Carro UQ</strong></p>" +
+                    "</div>" +
+                    "</body>" +
+                    "</html>";
+    
+            // Establecer el contenido del mensaje
+            mensaje.setContent(htmlContent, "text/html");
+    
             // Enviar el mensaje
             Transport.send(mensaje);
             App.showAlert("Correo Enviado", "La nueva contraseña ha sido enviada a tu correo.", AlertType.INFORMATION);
@@ -101,6 +129,7 @@ public class MenuInicioSesionAdminController {
             App.showAlert("Error", "No se pudo enviar el correo: " + e.getMessage(), AlertType.ERROR);
         }
     }
+    
 
     /**
      * Método para generar una contraseña aleatoria.

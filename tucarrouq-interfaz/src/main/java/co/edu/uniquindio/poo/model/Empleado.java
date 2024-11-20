@@ -35,6 +35,14 @@ public class Empleado extends Usuario {
         this.transacciones = transacciones;
     }
 
+    // Método para obtener el cargo del empleado
+    public String getCargo() {
+        if (this instanceof Administrador) {
+            return "Administrador";
+        }
+        return "Empleado";
+    }
+
     @Override
     public String toString() {
         return getNombre();

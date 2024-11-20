@@ -1,33 +1,51 @@
 package co.edu.uniquindio.poo;
 
+/**
+ * Clase abstracta que representa un vehículo.
+ * 
+ */
 public abstract class Vehiculo {
     private String marca, referencia, placa;
     private int velocidadMaxima, kilometraje, modelo;
     private boolean nuevo;
-    private double precioVenta, precioAlquiler;
+    private double precioVenta, precioAlquilerPorDia, PrecioAlquiler;
+    private boolean esTransmisionManual;
 
-    public Vehiculo(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima, boolean nuevo, double precioVenta, double precioAlquiler, int modelo) {
-        try {
-            if (marca == null || referencia == null) {
-                throw new IllegalArgumentException("Los valores no pueden ser nulos");
-            }
-            if (velocidadMaxima <= 0 || kilometraje < 0 || precioVenta < 0 || precioAlquiler < 0) {
-                throw new IllegalArgumentException("Valores inválidos para velocidad máxima, cilindraje o kilometraje");
-            }
-
-            this.marca = marca;
-            this.referencia = referencia;
-            this.placa=placa;
-            this.kilometraje = kilometraje;
-            this.velocidadMaxima = velocidadMaxima;
-            this.nuevo = nuevo;
-            this.precioVenta = precioVenta;
-            this.precioAlquiler = precioAlquiler;
-            this.modelo=modelo;
-
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error al crear el vehículo: " + e.getMessage());
+    /**
+     * Constructor de la clase Vehiculo.
+     * Inicializa todos los atributos del vehículo.
+     * 
+     * @param marca                Marca del vehículo.
+     * @param referencia           Referencia del vehículo.
+     * @param placa                Placa del vehículo.
+     * @param kilometraje          Kilometraje del vehículo.
+     * @param velocidadMaxima      Velocidad máxima del vehículo.
+     * @param nuevo                Indica si el vehículo es nuevo.
+     * @param precioVenta          Precio de venta del vehículo.
+     * @param precioAlquilerPorDia Precio de alquiler por día del vehículo.
+     * @param modelo               Modelo del vehículo.
+     * @param esTransmisionManual  Indica si el vehículo tiene transmisión manual.
+     * @throws IllegalArgumentException si alguno de los parámetros es inválido.
+     */
+    public Vehiculo(String marca, String referencia, String placa, int kilometraje, int velocidadMaxima, boolean nuevo,
+            double precioVenta, double precioAlquilerPorDia, int modelo, boolean esTransmisionManual) {
+        if (marca == null || referencia == null) {
+            throw new IllegalArgumentException("Los valores no pueden ser nulos");
         }
+        if (velocidadMaxima <= 0 || kilometraje < 0 || precioVenta < 0 || precioAlquilerPorDia < 0) {
+            throw new IllegalArgumentException("Valores inválidos para velocidad máxima, kilometraje o precios");
+        }
+
+        this.marca = marca;
+        this.referencia = referencia;
+        this.placa = placa;
+        this.kilometraje = kilometraje;
+        this.velocidadMaxima = velocidadMaxima;
+        this.nuevo = nuevo;
+        this.precioVenta = precioVenta;
+        this.precioAlquilerPorDia = precioAlquilerPorDia;
+        this.modelo = modelo;
+        this.esTransmisionManual = esTransmisionManual;
     }
 
     public String getMarca() {
@@ -56,19 +74,19 @@ public abstract class Vehiculo {
         return velocidadMaxima;
     }
 
+    public void setVelocidadMaxima(int velocidadMaxima) {
+        if (velocidadMaxima <= 0) {
+            throw new IllegalArgumentException("La velocidad máxima debe ser mayor a 0");
+        }
+        this.velocidadMaxima = velocidadMaxima;
+    }
+
     public int getModelo() {
         return modelo;
     }
 
     public void setModelo(int modelo) {
         this.modelo = modelo;
-    }
-
-    public void setVelocidadMaxima(int velocidadMaxima) {
-        if (velocidadMaxima <= 0) {
-            throw new IllegalArgumentException("La velocidad máxima debe ser mayor a 0");
-        }
-        this.velocidadMaxima = velocidadMaxima;
     }
 
     public boolean getEsNuevo() {
@@ -109,23 +127,55 @@ public abstract class Vehiculo {
         this.precioVenta = precioVenta;
     }
 
+    public double getPrecioAlquilerPorDia() {
+        return precioAlquilerPorDia;
+    }
+
+    public void setPrecioAlquilerPorDia(double precioAlquilerPorDia) {
+        if (precioAlquilerPorDia <= 0) {
+            throw new IllegalArgumentException("El precio de alquiler debe ser mayor a 0");
+        }
+        this.precioAlquilerPorDia = precioAlquilerPorDia;
+    }
+
     public double getPrecioAlquiler() {
-        return precioAlquiler;
+        return PrecioAlquiler;
     }
 
     public void setPrecioAlquiler(double precioAlquiler) {
-        if (precioAlquiler <= 0) {
-            throw new IllegalArgumentException("El precio de alquiler debe ser mayor a 0");
-        }
-        this.precioAlquiler = precioAlquiler;
+        PrecioAlquiler = precioAlquiler;
+    }
+
+    public boolean isEsTransmisionManual() {
+        return esTransmisionManual;
+    }
+
+    public void setEsTransmisionManual(boolean esTransmisionManual) {
+        this.esTransmisionManual = esTransmisionManual;
+    }
+
+    public void calcularPrecioReservaPorDia() {
+        double valorPorDia = this.precioVenta / 30;
+        this.precioAlquilerPorDia = valorPorDia;
     }
 
     @Override
     public String toString() {
-        return "Vehiculo [marca=" + marca + ", referencia=" + referencia + ", placa=" + placa + ", velocidadMaxima="
-                + velocidadMaxima + ", kilometraje=" + kilometraje + ", modelo=" + modelo + ", nuevo=" + nuevo
-                + ", precioVenta=" + precioVenta + ", precioAlquiler=" + precioAlquiler + "]";
+        return String.format(
+                "Vehículo:\n" +
+                        "--------\n" +
+                        "Marca: %s\n" +
+                        "Referencia: %s\n" +
+                        "Placa: %s\n" +
+                        "Velocidad Máxima: %d km/h\n" +
+                        "Kilometraje: %d km\n" +
+                        "Modelo: %d\n" +
+                        "Nuevo: %b\n" +
+                        "Precio de Venta: $%.2f\n" +
+                        "Precio de Alquiler por Día: $%.2f\n" +
+                        "Precio de Alquiler: $%.2f\n" +
+                        "Transmisión Manual: %b\n",
+                marca, referencia, placa, velocidadMaxima, kilometraje, modelo, nuevo, precioVenta,
+                precioAlquilerPorDia, PrecioAlquiler, esTransmisionManual);
     }
-
-
 }

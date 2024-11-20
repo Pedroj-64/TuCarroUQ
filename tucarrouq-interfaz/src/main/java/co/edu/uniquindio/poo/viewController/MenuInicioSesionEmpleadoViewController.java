@@ -60,7 +60,7 @@ public class MenuInicioSesionEmpleadoViewController {
                 // Redirigir a la interfaz de empleado
                 Empleado empleado=menuInicioSesionEmpleadoController.buscarEmpleado(identificacion);
                 AppControllerSingleton.getInstance().setUsuarioActual(empleado);
-                App.loadScene("menuEmpleado", 800, 600);
+                App.loadScene("menuEmpleado", 600, 430);
             } else {
                 // Mostrar el botón de recuperar contraseña si las credenciales son incorrectas
                 btn_RecuperarContraseña.setVisible(true);

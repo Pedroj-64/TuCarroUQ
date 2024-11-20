@@ -2,12 +2,27 @@ package co.edu.uniquindio.poo.model;
 
 import java.io.Serializable;
 
+/**
+ * Clase que representa a un Cliente.
+ * Implementa la interfaz Serializable para permitir la serialización de sus
+ * objetos.
+ */
 public class Cliente implements Serializable {
     private String nombre;
     private String identificacion;
     private String telefono;
     private String direccion;
 
+    /**
+     * Constructor de la clase Cliente.
+     * Inicializa todos los atributos del cliente.
+     *
+     * @param nombre         Nombre del cliente.
+     * @param identificacion Identificación del cliente.
+     * @param telefono       Teléfono del cliente.
+     * @param direccion      Dirección del cliente.
+     * @throws IllegalArgumentException si algún parámetro es nulo o está vacío.
+     */
     public Cliente(String nombre, String identificacion, String telefono, String direccion) {
         if (nombre == null || identificacion == null || telefono == null || direccion == null) {
             throw new IllegalArgumentException("Los valores no pueden ser nulos");

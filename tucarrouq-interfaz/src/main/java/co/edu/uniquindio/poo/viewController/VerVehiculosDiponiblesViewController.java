@@ -124,12 +124,13 @@ public class VerVehiculosDiponiblesViewController {
                     Alert.AlertType.ERROR);
         }
     }
-
+    /**
+     * mapeo de informacion para asignar fotos por vehiculo y palabra clave
+     */
     private void inicializarImagenes() {
         try {
             imagenesVehiculos = new HashMap<>();
     
-            // Usando rutas relativas con getClass().getResourceAsStream
             imagenesVehiculos.put("Van", new Image(getClass().getResourceAsStream("/co/edu/uniquindio/poo/imagenes/van.jpeg")));
             imagenesVehiculos.put("Sedan", new Image(getClass().getResourceAsStream("/co/edu/uniquindio/poo/imagenes/sedan.jpg")));
             imagenesVehiculos.put("Deportivo", new Image(getClass().getResourceAsStream("/co/edu/uniquindio/poo/imagenes/deportivo.jpg")));
@@ -144,7 +145,9 @@ public class VerVehiculosDiponiblesViewController {
         }
     }
     
-
+    /*
+     * Configuracion de listener de la tabla para mostrar fotografias
+     */
     private void configurarListenerTabla() {
         try {
             tbl_verVehiculos.getSelectionModel().selectedItemProperty()

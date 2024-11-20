@@ -1,25 +1,38 @@
 package co.edu.uniquindio.poo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class DetalleTransaccion {
-    private int diasPrestamo, cantidad;
+/**
+ * Clase que representa el detalle de una transacción.
+ * Implementa la interfaz Serializable para permitir la serialización de sus objetos.
+ */
+public class DetalleTransaccion implements Serializable {
+    private int diasPrestamo;
+    private int cantidad = 1;
     private LocalDate fechaActual = LocalDate.now();
     private LocalDate fechaEntregaPrestamo;
     private double subtotal;
     private boolean esAlquiler;
     private Vehiculo vehiculo;
 
-    public DetalleTransaccion(boolean esAlquiler, Vehiculo vehiculo, int cantidad) {
+    /**
+     * Constructor de la clase DetalleTransaccion.
+     * Inicializa los atributos esAlquiler y vehiculo.
+     * 
+     * @param esAlquiler Indica si la transacción es de alquiler.
+     * @param vehiculo   El vehículo asociado a la transacción.
+     * @throws IllegalArgumentException si vehiculo es nulo o cantidad es menor o igual a 0.
+     */
+    public DetalleTransaccion(boolean esAlquiler, Vehiculo vehiculo) {
         if (vehiculo == null) {
             throw new IllegalArgumentException("El vehículo no puede ser nulo");
         }
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor a 0");
         }
-        
-        this.cantidad = cantidad;
+
         this.esAlquiler = esAlquiler;
         this.vehiculo = vehiculo;
     }
@@ -98,25 +111,42 @@ public class DetalleTransaccion {
         this.fechaEntregaPrestamo = fechaEntregaPrestamo;
     }
 
-    public void calcularDiferenciaDias(LocalDate fechaActual, LocalDate fechaEntregaPrestamo) {
-        if (fechaActual == null || fechaEntregaPrestamo == null) {
+    /**
+     * Calcula la diferencia de días entre la fecha actual y la fecha de entrega del préstamo.
+     * 
+     * @param fechaEntregaPrestamo La fecha de entrega del préstamo.
+     * @throws IllegalArgumentException si alguna de las fechas es nula.
+     */
+    public void calcularDiferenciaDias(LocalDate fechaEntregaPrestamo) {
+        if (this.fechaActual == null || fechaEntregaPrestamo == null) {
             throw new IllegalArgumentException("Las fechas no pueden ser nulas");
         }
-        int dias = (int) ChronoUnit.DAYS.between(fechaActual, fechaEntregaPrestamo);
+        int dias = (int) ChronoUnit.DAYS.between(this.fechaActual, fechaEntregaPrestamo);
         setDiasPrestamo(dias);
     }
 
+    /**
+     * Calcula el subtotal de la transacción basado en si es una venta o alquiler.
+     */
     public void calcularSubtotal() {
         if (!esAlquiler) {
             setSubtotal(vehiculo.getPrecioVenta());
         } else {
-            setSubtotal(vehiculo.getPrecioAlquiler());
+            setSubtotal(vehiculo.getPrecioAlquilerPorDia());
         }
     }
 
     @Override
     public String toString() {
-        return "DetalleTransaccion [diasPrestamo=" + diasPrestamo + ", cantidad=" + cantidad + ", subtotal=" + subtotal
-                + ", esAlquiler=" + esAlquiler + ", vehiculo=" + vehiculo + "]";
+        return String.format(
+            "Detalle de la Transacción:\n" +
+            "------------------------\n" +
+            "Días de Préstamo: %d\n" +
+            "Cantidad: %d\n" +
+            "Subtotal: %.2f\n" +
+            "Es Alquiler: %b\n" +
+            "Vehículo: %s\n",
+            diasPrestamo, cantidad, subtotal, esAlquiler, vehiculo
+        );
     }
 }

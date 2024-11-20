@@ -1,37 +1,52 @@
 package co.edu.uniquindio.poo;
 
+
+/**
+ * Clase abstracta que representa un usuario.
+ * Implementa la interfaz Serializable para permitir la serialización de sus objetos.
+ */
 public abstract class Usuario {
     private String nombre;
     private String identificacion;
     private String contrasena;
-    private String preguntaSeguridad;
-    private String respuestaSeguridad;
+    private String emailDeRecuperacion;
 
-    public Usuario(String nombre, String identificacion, String contrasena, String preguntaSeguridad, String respuestaSeguridad) {
-        if (nombre == null || identificacion == null || contrasena == null || preguntaSeguridad == null || respuestaSeguridad == null) {
+    /**
+     * Constructor de la clase Usuario.
+     * Inicializa los atributos nombre, identificacion, contrasena y emailDeRecuperacion.
+     * 
+     * @param nombre                El nombre del usuario.
+     * @param identificacion        La identificación del usuario.
+     * @param contrasena            La contraseña del usuario.
+     * @param emailDeRecuperacion   El email de recuperación del usuario.
+     * @throws IllegalArgumentException si alguno de los parámetros es nulo o si el email de recuperación no contiene un '@'.
+     */
+    public Usuario(String nombre, String identificacion, String contrasena, String emailDeRecuperacion) {
+        if (nombre == null || identificacion == null || contrasena == null || emailDeRecuperacion == null) {
             throw new IllegalArgumentException("Los valores no pueden ser nulos");
+        }
+        if (!emailDeRecuperacion.contains("@")) {
+            throw new IllegalArgumentException("El email de recuperación debe contener un '@'");
         }
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.contrasena = contrasena;
-        this.preguntaSeguridad = preguntaSeguridad;
-        this.respuestaSeguridad = respuestaSeguridad;
+        this.emailDeRecuperacion = emailDeRecuperacion;
     }
 
-    // Método para autenticar usuario
+    /**
+     * Método para autenticar al usuario.
+     * 
+     * @param identificacion La identificación del usuario.
+     * @param contrasena     La contraseña del usuario.
+     * @return true si la autenticación es exitosa, false en caso contrario.
+     * @throws IllegalArgumentException si la identificación o la contraseña son nulas.
+     */
     public boolean autenticar(String identificacion, String contrasena) {
         if (identificacion == null || contrasena == null) {
             throw new IllegalArgumentException("La identificación y la contraseña no pueden ser nulas");
         }
         return this.identificacion.equals(identificacion) && this.contrasena.equals(contrasena);
-    }
-
-    // Método para recuperar contraseña mediante pregunta de seguridad
-    public boolean recuperarContrasena(String respuesta) {
-        if (respuesta == null) {
-            throw new IllegalArgumentException("La respuesta no puede ser nula");
-        }
-        return this.respuestaSeguridad.equalsIgnoreCase(respuesta);
     }
 
     public String getNombre() {
@@ -67,31 +82,27 @@ public abstract class Usuario {
         this.contrasena = contrasena;
     }
 
-    public String getPreguntaSeguridad() {
-        return preguntaSeguridad;
+    public String getEmailDeRecuperacion() {
+        return emailDeRecuperacion;
     }
 
-    public void setPreguntaSeguridad(String preguntaSeguridad) {
-        if (preguntaSeguridad == null) {
-            throw new IllegalArgumentException("La pregunta de seguridad no puede ser nula");
+    public void setEmailDeRecuperacion(String emailDeRecuperacion) {
+        if (emailDeRecuperacion == null || !emailDeRecuperacion.contains("@")) {
+            throw new IllegalArgumentException("El email de recuperación no puede ser nulo y debe contener un '@'");
         }
-        this.preguntaSeguridad = preguntaSeguridad;
-    }
-
-    public String getRespuestaSeguridad() {
-        return respuestaSeguridad;
-    }
-
-    public void setRespuestaSeguridad(String respuestaSeguridad) {
-        if (respuestaSeguridad == null) {
-            throw new IllegalArgumentException("La respuesta de seguridad no puede ser nula");
-        }
-        this.respuestaSeguridad = respuestaSeguridad;
+        this.emailDeRecuperacion = emailDeRecuperacion;
     }
 
     @Override
     public String toString() {
-        return "Usuario [nombre=" + nombre + ", identificacion=" + identificacion + ", contrasena=" + contrasena
-                + ", preguntaSeguridad=" + preguntaSeguridad + ", respuestaSeguridad=" + respuestaSeguridad + "]";
+        return String.format(
+            "Usuario:\n" +
+            "--------\n" +
+            "Nombre: %s\n" +
+            "Identificación: %s\n" +
+            "Contraseña: %s\n" +
+            "Email de Recuperación: %s\n",
+            nombre, identificacion, contrasena, emailDeRecuperacion
+        );
     }
 }

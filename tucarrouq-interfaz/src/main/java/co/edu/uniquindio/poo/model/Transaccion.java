@@ -6,6 +6,10 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.LinkedList;
 
+/**
+ * Clase que representa una transacción.
+ * Implementa la interfaz Serializable para permitir la serialización de sus objetos.
+ */
 public class Transaccion implements Serializable {
     private LocalDateTime fechaTransaccion = LocalDateTime.now();
     private double total = 0;
@@ -14,6 +18,14 @@ public class Transaccion implements Serializable {
     private Empleado empleado;
     private int id;
 
+    /**
+     * Constructor de la clase Transaccion.
+     * Inicializa los atributos cliente, empleado, id y detallesTransaccion.
+     * 
+     * @param cliente   El cliente asociado a la transacción.
+     * @param empleado  El empleado que realiza la transacción.
+     * @throws IllegalArgumentException si cliente o empleado son nulos.
+     */
     public Transaccion(Cliente cliente, Empleado empleado) {
         if (cliente == null || empleado == null) {
             throw new IllegalArgumentException("Cliente y Empleado no pueden ser nulos");
@@ -84,6 +96,12 @@ public class Transaccion implements Serializable {
         return id;
     }
 
+    /**
+     * Agrega un detalle de transacción a la colección de detalles.
+     * 
+     * @param transaccion El detalle de la transacción a agregar.
+     * @throws IllegalArgumentException si el detalle de la transacción es nulo.
+     */
     public void agregarDetallesTransaccion(DetalleTransaccion transaccion) {
         if (transaccion == null) {
             throw new IllegalArgumentException("La transacción no puede ser nula");
@@ -92,6 +110,12 @@ public class Transaccion implements Serializable {
         calcularTotal();
     }
 
+    /**
+     * Elimina un detalle de transacción de la colección de detalles.
+     * 
+     * @param transaccion El detalle de la transacción a eliminar.
+     * @throws IllegalArgumentException si el detalle de la transacción es nulo.
+     */
     public void eliminarDetallesTransaccion(DetalleTransaccion transaccion) {
         if (transaccion == null) {
             throw new IllegalArgumentException("La transacción no puede ser nula");
@@ -100,6 +124,11 @@ public class Transaccion implements Serializable {
         calcularTotal();
     }
 
+    /**
+     * Calcula el total de la transacción sumando los subtotales de cada detalle de transacción.
+     * 
+     * @throws IllegalArgumentException si el subtotal de algún detalle es negativo.
+     */
     public void calcularTotal() {
         total = 0;
         for (DetalleTransaccion transaccion : detallesTransaccion) {
@@ -122,5 +151,4 @@ public class Transaccion implements Serializable {
                 empleado.getNombre(),
                 detallesTransaccion.toString());
     }
-
 }

@@ -4,10 +4,14 @@ import java.io.*;
 
 import co.edu.uniquindio.poo.model.Concesionario;
 
+/**
+ * Clase para gestionar la serialización y deserialización de objetos Concesionario.
+ */
 public class Serializador {
 
     /**
      * Guarda el estado de un objeto Concesionario en un archivo.
+     * 
      * @param concesionario El objeto Concesionario a serializar.
      * @param archivo La ruta del archivo donde se guardará el objeto.
      * @throws IOException Si ocurre un error durante la escritura del archivo.
@@ -20,10 +24,9 @@ public class Serializador {
         }
     }
 
- 
-
     /**
      * Carga el estado de un objeto Concesionario desde un archivo.
+     * 
      * @param archivo La ruta del archivo desde donde se cargará el objeto.
      * @return El objeto Concesionario deserializado.
      * @throws IOException Si ocurre un error durante la lectura del archivo.
