@@ -87,6 +87,14 @@ public class Concesionario {
         this.administradores = administradores;
     }
 
+    public Collection<Vehiculo> getVehiculosVendidos() {
+        return vehiculosVendidos;
+    }
+
+    public Collection<Vehiculo> getVehiculosAlquilados() {
+        return vehiculosAlquilados;
+    }
+
     /**
      * Obtiene la colección de vehículos.
      * 
@@ -495,6 +503,20 @@ public class Concesionario {
             throw new IllegalArgumentException("El cliente no existe");
         }
     }
+    /**
+     * Metodo que busca cliente y devuelve null en caso de no encontrarlo
+     * @param identificacion
+     * @return
+     */
+    public Cliente buscarCliente(String identificacion) {
+        Cliente clienteBuscado=null;
+        for (Cliente cliente : clientes) {
+            if (cliente.getIdentificacion().equals(identificacion)) {
+                clienteBuscado=cliente; 
+            }
+        }
+        return clienteBuscado; 
+    }
 
     /**
      * Actualiza la información de un cliente.
@@ -633,7 +655,7 @@ public class Concesionario {
      * @param cliente el cliente asociado a la transacción.
      * @return la transacción encontrada o null si no se encuentra.
      */
-    private Transaccion buscarTransaccionPorCliente(Cliente cliente) {
+    public Transaccion buscarTransaccionPorCliente(Cliente cliente) {
         Transaccion transaccionBuscada = null;
         for (Transaccion transaccion : ventas) {
             if (transaccion.getCliente().equals(cliente)) {
